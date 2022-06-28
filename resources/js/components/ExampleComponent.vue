@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div>
         <header-component></header-component>
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -12,6 +12,7 @@
                 </div>
             </div>
         </div>
+        <footer-component></footer-component>
     </div>
 </template>
 
