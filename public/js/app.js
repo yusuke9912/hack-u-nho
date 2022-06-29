@@ -1980,6 +1980,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -37576,7 +37579,6 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container" },
     [
       _c("header-component"),
       _vm._v(" "),
@@ -37635,11 +37637,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "bg-info" }, [
-      _c("ul", [
-        _c("li", [_vm._v("お問い合わせ")]),
+    return _c("footer", { staticClass: "bg-primary text-white p-1" }, [
+      _c("ul", { staticClass: "list-inline" }, [
+        _c("li", { staticClass: "list-inline-item" }, [
+          _c("a", { staticClass: "text-white", attrs: { href: "#" } }, [
+            _vm._v("お問い合わせ"),
+          ]),
+        ]),
         _vm._v(" "),
-        _c("li", [_vm._v("プライバシーポリシー")]),
+        _c("li", { staticClass: "list-inline-item" }, [
+          _c("a", { staticClass: "text-white", attrs: { href: "#" } }, [
+            _vm._v("プライバシーポリシー"),
+          ]),
+        ]),
       ]),
     ])
   },
@@ -37672,7 +37682,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("header", [_c("h1", [_vm._v("だれでもJob")])])
+    return _c("header", { staticClass: "bg-primary text-white p-1" }, [
+      _c("h1", [_vm._v("だれでもJob")]),
+      _vm._v(" "),
+      _c("nav", [_c("a", { attrs: { href: "#" } }, [_vm._v("新規登録")])]),
+    ])
   },
 ]
 render._withStripped = true
