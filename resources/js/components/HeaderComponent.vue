@@ -1,8 +1,10 @@
 <template>
-    <header class="bg-primary text-white p-1">
+    <header class="bg-primary text-white p-1 d-flex">
         <h1>だれでもJob</h1>
         <nav>
-            <a class="text-white" href="#">新規登録</a>
+            <router-link v-bind:to="{name: 'signup'}">
+                <button class="btn btn-outline-primary bg-white">新規登録</button>
+            </router-link>
         </nav>
     </header>
 </template>
