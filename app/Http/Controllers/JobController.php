@@ -8,7 +8,12 @@ use App\Job;
 class JobController extends Controller
 {
     public function index()
-     {
-         return Job::all();
-     }
+        {
+            return Job::all();
+        }
+
+    public function show(Job $job)
+        {
+            return $job;
+        }
 }
