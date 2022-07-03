@@ -2100,48 +2100,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      jobs: []
+    };
+  },
+  methods: {
+    getJobs: function getJobs() {
+      var _this = this;
+
+      axios.get('/api/jobs').then(function (res) {
+        _this.jobs = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getJobs();
+  }
+});
 
 /***/ }),
 
@@ -2188,6 +2165,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     jobId: String
+  },
+  data: function data() {
+    return {
+      job: {}
+    };
+  },
+  methods: {
+    getJob: function getJob() {
+      var _this = this;
+
+      axios.get('/api/jobs/' + this.jobId).then(function (res) {
+        _this.job = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getJob();
   }
 });
 
@@ -38120,145 +38114,63 @@ var render = function () {
     _c("table", { staticClass: "table table-hover" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("tbody", [
-        _c("tr", [
-          _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Title1")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Content1")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Ichiro")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Ichiro")]),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: { name: "job.show", params: { jobId: 1 } } } },
-                [
-                  _c("button", { staticClass: "btn btn-primary" }, [
-                    _vm._v("Show"),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: { name: "job.edit", params: { jobId: 1 } } } },
-                [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("Edit"),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm._m(1),
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Title2")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Content2")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Jiro")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Jiro")]),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: { name: "job.show", params: { jobId: 2 } } } },
-                [
-                  _c("button", { staticClass: "btn btn-primary" }, [
-                    _vm._v("Show"),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: { name: "job.edit", params: { jobId: 2 } } } },
-                [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("Edit"),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm._m(2),
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Title3")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Content3")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Saburo")]),
-          _vm._v(" "),
-          _c("td", [_vm._v("Saburo")]),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: { name: "job.show", params: { jobId: 3 } } } },
-                [
-                  _c("button", { staticClass: "btn btn-primary" }, [
-                    _vm._v("Show"),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: { name: "job.edit", params: { jobId: 3 } } } },
-                [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("Edit"),
-                  ]),
-                ]
-              ),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm._m(3),
-        ]),
-      ]),
+      _c(
+        "tbody",
+        _vm._l(_vm.jobs, function (job, index) {
+          return _c("tr", { key: index }, [
+            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(job.id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(job.title))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(job.content))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(job.person_in_charge))]),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: { name: "job.show", params: { jobId: job.id } },
+                    },
+                  },
+                  [
+                    _c("button", { staticClass: "btn btn-primary" }, [
+                      _vm._v("Show"),
+                    ]),
+                  ]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: { name: "job.edit", params: { jobId: job.id } },
+                    },
+                  },
+                  [
+                    _c("button", { staticClass: "btn btn-success" }, [
+                      _vm._v("Edit"),
+                    ]),
+                  ]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(1, true),
+          ])
+        }),
+        0
+      ),
     ]),
   ])
 }
@@ -38285,22 +38197,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")]),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-danger" }, [_vm._v("Delete")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-danger" }, [_vm._v("Delete")]),
     ])
   },
   function () {
@@ -38345,105 +38241,165 @@ var render = function () {
             ),
             _vm._v(" "),
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.job.id,
+                  expression: "job.id",
+                },
+              ],
               staticClass: "col-sm-9 form-control-plaintext",
               attrs: { type: "text", readonly: "", id: "id" },
-              domProps: { value: _vm.jobId },
+              domProps: { value: _vm.job.id },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.job, "id", $event.target.value)
+                },
+              },
             }),
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "form-group row border-bottom" }, [
+            _c(
+              "label",
+              {
+                staticClass: "col-sm-3 col-form-label",
+                attrs: { for: "title" },
+              },
+              [_vm._v("Title")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.job.title,
+                  expression: "job.title",
+                },
+              ],
+              staticClass: "col-sm-9 form-control-plaintext",
+              attrs: { type: "text", readonly: "", id: "title" },
+              domProps: { value: _vm.job.title },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.job, "title", $event.target.value)
+                },
+              },
+            }),
+          ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("div", { staticClass: "form-group row border-bottom" }, [
+            _c(
+              "label",
+              {
+                staticClass: "col-sm-3 col-form-label",
+                attrs: { for: "content" },
+              },
+              [_vm._v("Description")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.job.description,
+                  expression: "job.description",
+                },
+              ],
+              staticClass: "col-sm-9 form-control-plaintext",
+              attrs: { type: "text", readonly: "", id: "description" },
+              domProps: { value: _vm.job.description },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.job, "description", $event.target.value)
+                },
+              },
+            }),
+          ]),
           _vm._v(" "),
-          _vm._m(2),
+          _c("div", { staticClass: "form-group row border-bottom" }, [
+            _c(
+              "label",
+              {
+                staticClass: "col-sm-3 col-form-label",
+                attrs: { for: "person-in-charge" },
+              },
+              [_vm._v("Location")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.job.location,
+                  expression: "job.location",
+                },
+              ],
+              staticClass: "col-sm-9 form-control-plaintext",
+              attrs: { type: "text", readonly: "", id: "location" },
+              domProps: { value: _vm.job.location },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.job, "location", $event.target.value)
+                },
+              },
+            }),
+          ]),
           _vm._v(" "),
-          _vm._m(3),
+          _c("div", { staticClass: "form-group row border-bottom" }, [
+            _c(
+              "label",
+              {
+                staticClass: "col-sm-3 col-form-label",
+                attrs: { for: "person-in-charge" },
+              },
+              [_vm._v("Reward")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.job.reward,
+                  expression: "job.reward",
+                },
+              ],
+              staticClass: "col-sm-9 form-control-plaintext",
+              attrs: { type: "text", readonly: "", id: "reward" },
+              domProps: { value: _vm.job.reward },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.job, "reward", $event.target.value)
+                },
+              },
+            }),
+          ]),
         ]),
       ]),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row border-bottom" }, [
-      _c(
-        "label",
-        { staticClass: "col-sm-3 col-form-label", attrs: { for: "title" } },
-        [_vm._v("Title")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "col-sm-9 form-control-plaintext",
-        attrs: { type: "text", readonly: "", id: "title", value: "title" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row border-bottom" }, [
-      _c(
-        "label",
-        { staticClass: "col-sm-3 col-form-label", attrs: { for: "content" } },
-        [_vm._v("Description")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "col-sm-9 form-control-plaintext",
-        attrs: {
-          type: "text",
-          readonly: "",
-          id: "description",
-          value: "content",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row border-bottom" }, [
-      _c(
-        "label",
-        {
-          staticClass: "col-sm-3 col-form-label",
-          attrs: { for: "person-in-charge" },
-        },
-        [_vm._v("Location")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "col-sm-9 form-control-plaintext",
-        attrs: { type: "text", readonly: "", id: "location", value: "Ichiro" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row border-bottom" }, [
-      _c(
-        "label",
-        {
-          staticClass: "col-sm-3 col-form-label",
-          attrs: { for: "person-in-charge" },
-        },
-        [_vm._v("Reward")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "col-sm-9 form-control-plaintext",
-        attrs: { type: "text", readonly: "", id: "reward", value: "Ichiro" },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

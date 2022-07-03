@@ -20,12 +20,12 @@
                     <td>{{ job.content }}</td>
                     <td>{{ job.person_in_charge }}</td>
                     <td>
-                        <router-link v-bind:to="{name: 'task.show', params: {taskId: job.id }}">
+                        <router-link v-bind:to="{name: 'job.show', params: {jobId: job.id }}">
                             <button class="btn btn-primary">Show</button>
                         </router-link>
                     </td>
                     <td>
-                        <router-link v-bind:to="{name: 'task.edit', params: {taskId: job.id }}">
+                        <router-link v-bind:to="{name: 'job.edit', params: {jobId: job.id }}">
                             <button class="btn btn-success">Edit</button>
                         </router-link>
                     </td>
@@ -46,7 +46,7 @@
             }
         },
         methods: {
-            getTJobs() {
+            getJobs() {
                 axios.get('/api/jobs')
                     .then((res) => {
                         this.jobs = res.data;
