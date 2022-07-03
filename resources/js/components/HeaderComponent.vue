@@ -1,18 +1,21 @@
 <template>
-    <header class="bg-primary text-white p-1 d-flex">
-        <h1>だれでもJob</h1>
-        <nav>
-            <router-link v-bind:to="{name: 'signup'}">
-                <button class="btn btn-outline-primary bg-white">新規登録</button>
-            </router-link>
-        </nav>
-    </header>
+    <div class="container-fluid bg-dark mb-3">
+        <div class="container">
+            <nav class="navbar navbar-dark">
+                <span class="navbar-brand mb-0 h1">だれでもJob</span>
+                <div>
+                    <router-link v-bind:to="{name: 'job.list'}">
+                        <button class="btn btn-success">List</button>
+                    </router-link>
+                    <router-link v-bind:to="{name: 'job.create'}">
+                        <button class="btn btn-success">ADD</button>
+                    </router-link>
+                </div>
+            </nav>
+        </div>
+    </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+    export default {}
 </script>

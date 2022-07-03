@@ -1,10 +1,15 @@
 <template>
-    <footer class="bg-primary text-white p-1">
-        <ul class="list-inline">
-            <li class="list-inline-item"><a class="text-white" href="#">お問い合わせ</a></li>
-            <li class="list-inline-item"><a class="text-white" href="#">プライバシーポリシー</a></li>
-        </ul>
-    </footer>
+    <div class="container-fluid bg-dark mb-3">
+        <div class="container">
+            <nav class="navbar navbar-dark">
+                <span class="navbar-brand mb-0 h1">だれでもJob</span>
+                <div>
+                    <button class="btn btn-success">お問い合わせ</button>
+                    <button class="btn btn-success">プライバシーポリシー</button>
+                </div>
+            </nav>
+        </div>
+    </div>
 </template>
 
 <script>

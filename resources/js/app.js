@@ -4,9 +4,13 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 import VueRouter from 'vue-router';
-import SignUpComponent from "./components/SignUpComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
+import JobListComponent from "./components/JobListComponent";
+import JobCreateComponent from "./components/JobCreateComponent";
+import JobShowComponent from "./components/JobShowComponent";
+import JobEditComponent from "./components/JobEditComponent";
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -22,7 +26,6 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('header-component', HeaderComponent);
 Vue.component('footer-component', FooterComponent);
 
@@ -38,9 +41,26 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/signup',
-            name: 'signup',
-            component: SignUpComponent
+            path: '/jobs',
+            name: 'job.list',
+            component: JobListComponent
+        },
+        {
+            path: '/jobs/create',
+            name: 'job.create',
+            component: JobCreateComponent
+        },
+        {
+            path: '/jobs/:jobId',
+            name: 'job.show',
+            component: JobShowComponent,
+            props: true
+        },
+        {
+            path: '/jobs/:jobId/edit',
+            name: 'job.edit',
+            component: JobEditComponent,
+            props: true
         },
     ]
 });
