@@ -50,9 +50,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'sei' => ['required', 'string', 'max:255'],
+            // 'mei' => ['required', 'string', 'max:255'],
+            // 'sei_kana' => ['required', 'string', 'max:255'],
+            // 'mei_kana' => ['required', 'string', 'max:255'],
+            // 'address' => ['required', 'string', 'max:255'],
+            // 'gender' => ['required', 'string', 'max:10'],
+            // 'age' => ['required', 'integer'],
+            // 'self_introduction' => ['required', 'string', 'max:255'],
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -65,7 +72,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'sei' => $data['sei'],
+            'mei' => $data['mei'],
+            'sei_kana' => $data['sei_kana'],
+            'mei_kana' => $data['mei_kana'],
+            'address' => $data['address'],
+            'gender' => $data['gender'],
+            'age' => $data['age'],
+            'self_introduction' => $data['self_introduction'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

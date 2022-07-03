@@ -22,3 +22,7 @@ Route::post('/jobs', 'JobController@store');
 Route::get('/jobs/{job}', 'JobController@show');
 Route::put('/jobs/{job}', 'JobController@update');
 Route::delete('/jobs/{job}', 'JobController@destroy');
+
+// ユーザ登録
+Route::post('/signup', 'Auth\RegisterController@register');
+
