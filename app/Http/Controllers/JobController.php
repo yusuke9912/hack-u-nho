@@ -8,14 +8,14 @@ use App\Job;
 class JobController extends Controller
 {
     public function index()
-        {
-            return Job::all();
-        }
+    {
+        return Job::all();
+    }
 
     public function show(Job $job)
-        {
-            return $job;
-        }
+    {
+        return $job;
+    }
 
     public function store(Request $request)
     {
@@ -28,4 +28,12 @@ class JobController extends Controller
     
         return $job;
     }
+    
+    public function destroy(Job $job)
+    {
+        $job->delete();
+
+        return $job;
+    }
+
 }
