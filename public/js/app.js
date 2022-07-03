@@ -2056,13 +2056,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     jobId: String
+  },
+  data: function data() {
+    return {
+      job: {}
+    };
+  },
+  methods: {
+    getJob: function getJob() {
+      var _this = this;
+
+      axios.get('/api/jobs/' + this.jobId).then(function (res) {
+        _this.job = res.data;
+      });
+    },
+    submit: function submit() {
+      var _this2 = this;
+
+      axios.put('/api/jobs/' + this.jobId, this.job).then(function (res) {
+        _this2.$router.push({
+          name: 'job.list'
+        });
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getJob();
   }
 });
 
@@ -38069,115 +38091,161 @@ var render = function () {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-sm-6" }, [
-        _c("form", [
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "label",
-              { staticClass: "col-sm-3 col-form-label", attrs: { for: "id" } },
-              [_vm._v("ID")]
-            ),
+        _c(
+          "form",
+          {
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.submit.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "title" },
+                },
+                [_vm._v("Title")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.job.title,
+                    expression: "job.title",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "title" },
+                domProps: { value: _vm.job.title },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.job, "title", $event.target.value)
+                  },
+                },
+              }),
+            ]),
             _vm._v(" "),
-            _c("input", {
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "id" },
-              domProps: { value: _vm.jobId },
-            }),
-          ]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-            [_vm._v("Submit")]
-          ),
-        ]),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "content" },
+                },
+                [_vm._v("Description")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.job.description,
+                    expression: "job.description",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "description" },
+                domProps: { value: _vm.job.description },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.job, "description", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "person-in-charge" },
+                },
+                [_vm._v("Location")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.job.location,
+                    expression: "job.location",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "location" },
+                domProps: { value: _vm.job.location },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.job, "location", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "person-in-charge" },
+                },
+                [_vm._v("Reward")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.job.reward,
+                    expression: "job.reward",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "reward" },
+                domProps: { value: _vm.job.reward },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.job, "reward", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Submit")]
+            ),
+          ]
+        ),
       ]),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c(
-        "label",
-        { staticClass: "col-sm-3 col-form-label", attrs: { for: "title" } },
-        [_vm._v("Title")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "col-sm-9 form-control",
-        attrs: { type: "text", id: "title" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c(
-        "label",
-        { staticClass: "col-sm-3 col-form-label", attrs: { for: "content" } },
-        [_vm._v("Description")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "col-sm-9 form-control",
-        attrs: { type: "text", id: "description" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c(
-        "label",
-        {
-          staticClass: "col-sm-3 col-form-label",
-          attrs: { for: "person-in-charge" },
-        },
-        [_vm._v("Location")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "col-sm-9 form-control",
-        attrs: { type: "text", id: "location" },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c(
-        "label",
-        {
-          staticClass: "col-sm-3 col-form-label",
-          attrs: { for: "person-in-charge" },
-        },
-        [_vm._v("Reward")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "col-sm-9 form-control",
-        attrs: { type: "text", id: "reward" },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
