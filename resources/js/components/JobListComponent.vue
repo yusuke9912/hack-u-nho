@@ -30,7 +30,7 @@
                         </router-link>
                     </td>
                     <td>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" v-on:click="deleteJob(job.id)">Delete</button>
                     </td>
                 </tr>
             </tbody>
@@ -51,7 +51,13 @@
                     .then((res) => {
                         this.jobs = res.data;
                     });
-            }
+            },
+    deleteJob(id) {
+        axios.delete('/api/jobs/' + id)
+            .then((res) => {
+                this.getJobs();
+            });
+    }
         },
         mounted() {
             this.getJobs();

@@ -2152,6 +2152,13 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/jobs').then(function (res) {
         _this.jobs = res.data;
       });
+    },
+    deleteJob: function deleteJob(id) {
+      var _this2 = this;
+
+      axios["delete"]('/api/jobs/' + id).then(function (res) {
+        _this2.getJobs();
+      });
     }
   },
   mounted: function mounted() {
@@ -38323,7 +38330,20 @@ var render = function () {
               1
             ),
             _vm._v(" "),
-            _vm._m(1, true),
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger",
+                  on: {
+                    click: function ($event) {
+                      return _vm.deleteJob(job.id)
+                    },
+                  },
+                },
+                [_vm._v("Delete")]
+              ),
+            ]),
           ])
         }),
         0
@@ -38354,14 +38374,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")]),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-danger" }, [_vm._v("Delete")]),
     ])
   },
 ]
