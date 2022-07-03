@@ -19,7 +19,7 @@
                         <label for="person-in-charge" class="col-sm-3 col-form-label">Reward</label>
                         <input type="text" class="col-sm-9 form-control" id="reward" v-model="job.reward">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
                 </form>
             </div>
         </div>

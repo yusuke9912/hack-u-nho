@@ -1921,7 +1921,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -1939,7 +1938,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -2099,20 +2097,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -37829,10 +37813,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container-fluid bg-dark mb-3" }, [
       _c("div", { staticClass: "container" }, [
         _c("nav", { staticClass: "navbar navbar-dark" }, [
-          _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
-            _vm._v("だれでもJob"),
-          ]),
-          _vm._v(" "),
           _c("div", [
             _c("button", { staticClass: "btn btn-success" }, [
               _vm._v("お問い合わせ"),
@@ -37870,27 +37850,30 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid bg-dark mb-3" }, [
     _c("div", { staticClass: "container" }, [
-      _c("nav", { staticClass: "navbar navbar-dark" }, [
-        _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
-          _vm._v("だれでもJob"),
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("router-link", { attrs: { to: { name: "job.list" } } }, [
-              _c("button", { staticClass: "btn btn-success" }, [
-                _vm._v("List"),
+      _c(
+        "nav",
+        { staticClass: "navbar navbar-dark" },
+        [
+          _c("router-link", { attrs: { to: { name: "job.list" } } }, [
+            _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
+              _vm._v("だれでもJob"),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c("router-link", { attrs: { to: { name: "job.create" } } }, [
+                _c("button", { staticClass: "btn btn-success" }, [
+                  _vm._v("Job作成"),
+                ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _c("router-link", { attrs: { to: { name: "job.create" } } }, [
-              _c("button", { staticClass: "btn btn-success" }, [_vm._v("ADD")]),
-            ]),
-          ],
-          1
-        ),
-      ]),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
     ]),
   ])
 }
@@ -38065,7 +38048,7 @@ var render = function () {
             _c(
               "button",
               { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Submit")]
+              [_vm._v("作成")]
             ),
           ]
         ),
@@ -38244,7 +38227,7 @@ var render = function () {
             _c(
               "button",
               { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Submit")]
+              [_vm._v("保存")]
             ),
           ]
         ),
@@ -38275,108 +38258,80 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("table", { staticClass: "table table-hover" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.jobs, function (job, index) {
-          return _c("tr", { key: index }, [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(job.id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(job.title))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(job.content))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(job.person_in_charge))]),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: { name: "job.show", params: { jobId: job.id } },
-                    },
-                  },
-                  [
-                    _c("button", { staticClass: "btn btn-primary" }, [
-                      _vm._v("Show"),
-                    ]),
-                  ]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: { name: "job.edit", params: { jobId: job.id } },
-                    },
-                  },
-                  [
-                    _c("button", { staticClass: "btn btn-success" }, [
-                      _vm._v("Edit"),
-                    ]),
-                  ]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("td", [
+    _c(
+      "table",
+      { staticClass: "table table-hover" },
+      _vm._l(_vm.jobs, function (job, index) {
+        return _c("tr", { key: index }, [
+          _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(job.id))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(job.title))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(job.content))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(job.person_in_charge))]),
+          _vm._v(" "),
+          _c(
+            "td",
+            [
               _c(
-                "button",
+                "router-link",
                 {
-                  staticClass: "btn btn-danger",
-                  on: {
-                    click: function ($event) {
-                      return _vm.deleteJob(job.id)
-                    },
+                  attrs: {
+                    to: { name: "job.show", params: { jobId: job.id } },
                   },
                 },
-                [_vm._v("Delete")]
+                [
+                  _c("button", { staticClass: "btn btn-primary" }, [
+                    _vm._v("詳細"),
+                  ]),
+                ]
               ),
-            ]),
-          ])
-        }),
-        0
-      ),
-    ]),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "td",
+            [
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: { name: "job.edit", params: { jobId: job.id } },
+                  },
+                },
+                [
+                  _c("button", { staticClass: "btn btn-success" }, [
+                    _vm._v("編集"),
+                  ]),
+                ]
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("td", [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                on: {
+                  click: function ($event) {
+                    return _vm.deleteJob(job.id)
+                  },
+                },
+              },
+              [_vm._v("削除")]
+            ),
+          ]),
+        ])
+      }),
+      0
+    ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", { staticClass: "thead-light" }, [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Description")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Location")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Reward")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Show")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
