@@ -16,4 +16,11 @@ class JobController extends Controller
         {
             return $job;
         }
+
+    public function store(Request $request)
+    {
+        return Job::create($request->all());
+    }
+
+    public function update(Request $request, Job $job)
 }
