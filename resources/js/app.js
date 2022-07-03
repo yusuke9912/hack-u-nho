@@ -41,7 +41,7 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/jobs',
+            path: '/',
             name: 'job.list',
             component: JobListComponent
         },

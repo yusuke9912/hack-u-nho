@@ -53960,7 +53960,7 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
   routes: [{
-    path: '/jobs',
+    path: '/',
     name: 'job.list',
     component: _components_JobListComponent__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
