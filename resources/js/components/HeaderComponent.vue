@@ -6,9 +6,21 @@
                          <span class="navbar-brand mb-0 h1">だれでもJob</span>
                     </router-link>
                 <div>
-                    <router-link v-bind:to="{name: 'job.create'}">
-                        <button class="btn btn-success">Job作成</button>
-                    </router-link>
+                    <div v-if="user">
+                        <router-link v-bind:to="{name: 'job.create'}">
+                            <button class="btn btn-success">Job作成</button>
+                        </router-link>
+                        <button class="btn btn-success" @click="logout">ログアウト</button>
+                    </div>
+                    <div v-else>
+                        <span class="text-white">{{ user }}</span>
+                        <router-link v-bind:to="{name: 'signup'}">
+                            <button class="btn btn-success">新規登録</button>
+                        </router-link>
+                        <router-link v-bind:to="{name: 'login'}">
+                            <button class="btn btn-success">ログイン</button>
+                        </router-link>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -16,5 +28,29 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        data: function () {
+            return {
+                user: ""
+            };
+        },
+        mounted() {
+            axios.get("/api/user?api_token=${this.$store.getters['user/user'].token}")
+            .then((res) => {
+                this.user = res.data;
+            });
+        },
+        methods: {
+            logout() {
+                axios.get("/api/logout")
+                    .then((res) => {
+                        this.$store.dispatch("user/setUser", {name: null, auth: false, token: null})
+                        this.$router.push("/user/login", () => {})  // NavigationDuplicated対策
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+        },
+    }
 </script>

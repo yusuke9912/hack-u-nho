@@ -54,7 +54,8 @@
    export default {
        data: function () {
            return {
-                user: {}
+                user: {},
+                errors: {}
            }
        },
        methods: {
@@ -63,6 +64,14 @@
                axios.post('/api/signup', this.user)
                     .then((res) => {
                         console.log("新規登録しました")
+                    })
+                    .catch((error)=>{
+                        var responseErrors = error.response.data.errors;
+                        var errors = {};
+                        for(var key in responseErrors) {
+                            errors[key] = responseErrors[key][0];
+                        }
+                        self.errors = errors;
                     });
            }
        }
