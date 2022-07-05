@@ -26,3 +26,6 @@ Route::delete('/jobs/{job}', 'JobController@destroy');
 // ユーザ登録
 Route::post('/signup', 'Auth\RegisterController@register');
 
+// 認証
+Route::post('/login', 'Auth\LoginController@login');
+Route::get('/logout', 'Auth\LoginController@logout');

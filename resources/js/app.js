@@ -10,6 +10,8 @@ import JobListComponent from "./components/JobListComponent";
 import JobCreateComponent from "./components/JobCreateComponent";
 import JobShowComponent from "./components/JobShowComponent";
 import JobEditComponent from "./components/JobEditComponent";
+import RegisterComponent from "./components/RegisterComponent";
+import LoginComponent from "./components/LoginComponent";
 
 require('./bootstrap');
 
@@ -61,6 +63,16 @@ const router = new VueRouter({
             name: 'job.edit',
             component: JobEditComponent,
             props: true
+        },
+        {
+            path: '/signup',
+            name: 'signup',
+            component: RegisterComponent,
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: LoginComponent,
         },
     ]
 });
