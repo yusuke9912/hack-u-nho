@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Room;
+use App\RoomUser;
+use App\Message;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -16,6 +20,11 @@ class UserController extends Controller
     public function show(User $user)
     {
         return $user;
+    }
+
+    public function send($user)
+    {
+
     }
 
 }
