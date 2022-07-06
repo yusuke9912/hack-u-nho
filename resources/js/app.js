@@ -12,6 +12,8 @@ import JobShowComponent from "./components/JobShowComponent";
 import JobEditComponent from "./components/JobEditComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
+import UserListComponent from "./components/UserListComponent";
+import UserShowComponent from "./components/UserShowComponent";
 
 require('./bootstrap');
 
@@ -43,7 +45,7 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/',
+            path: '/jobs',
             name: 'job.list',
             component: JobListComponent
         },
@@ -68,6 +70,17 @@ const router = new VueRouter({
             path: '/signup',
             name: 'signup',
             component: RegisterComponent,
+        },
+        {
+            path: '/',
+            name: 'users',
+            component: UserListComponent,
+        },
+        {
+            path: '/users/:userId',
+            name: 'user.show',
+            component: UserShowComponent,
+            props: true
         },
         {
             path: '/login',

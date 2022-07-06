@@ -17,6 +17,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/users', 'UserController@index');
+    Route::get('/users/{user}', 'UserController@show');
+});
+
 Route::get('/jobs', 'JobController@index');
 Route::post('/jobs', 'JobController@store');
 Route::get('/jobs/{job}', 'JobController@show');
