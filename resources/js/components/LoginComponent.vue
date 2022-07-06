@@ -33,6 +33,8 @@
                axios.post('/api/login', this.user)
                     .then((res) => {
                         this.$store.dispatch("setUser", {name: "", auth: true, token: ""})
+                        this.$router.push('/', () => {})
+                        this.$router.go({ path: "/" })
                     })
                     .catch((error)=>{
                         this.$router.go({path: "/", force: true})

@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid bg-dark mb-3">
-        <p class="text-white">{{ user }}</p>
+        <!-- <p class="text-white">{{ user }}</p> -->
         <div class="container">
             <nav class="navbar navbar-dark">
                     <router-link v-bind:to="{name: 'user.list'}">
@@ -46,7 +46,8 @@
             logout() {
                 axios.get("/api/logout")
                     .then((res) => {
-                       this.$router.go({path: "/", force: true})
+                        this.$router.push('/login', () => {})
+                        this.$router.go({ path: "/" })
                     })
                     .catch((error) => {
                         console.log(error);

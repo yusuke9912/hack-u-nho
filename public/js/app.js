@@ -1992,9 +1992,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get("/api/logout").then(function (res) {
+        _this2.$router.push('/login', function () {});
+
         _this2.$router.go({
-          path: "/",
-          force: true
+          path: "/"
         });
       })["catch"](function (error) {
         console.log(error);
@@ -2310,6 +2311,12 @@ __webpack_require__.r(__webpack_exports__);
           name: "",
           auth: true,
           token: ""
+        });
+
+        _this.$router.push('/', function () {});
+
+        _this.$router.go({
+          path: "/"
         });
       })["catch"](function (error) {
         _this.$router.go({
