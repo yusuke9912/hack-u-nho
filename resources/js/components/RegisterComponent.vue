@@ -60,7 +60,6 @@
        },
        methods: {
            submit() {
-                console.log(this.user);
                axios.post('/api/signup', this.user)
                     .then((res) => {
                         console.log("新規登録しました")

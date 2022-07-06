@@ -3,9 +3,8 @@
         <table class="table table-hover">
             <tr v-for="(user, index) in users" :key="index">
                 <th scope="row">{{ user.id }}</th>
-                <td>{{ user.email }}</td>
-                <td>{{ user.sei }}</td>
-                <td>{{ user.mei }}</td>
+                <td>{{ user.sei + user.mei }}</td>
+                <td>{{ user.self_introduction }}</td>
                 <td>
                     <router-link v-bind:to="{name: 'user.show', params: {userId: user.id }}">
                         <button class="btn btn-primary">詳細</button>

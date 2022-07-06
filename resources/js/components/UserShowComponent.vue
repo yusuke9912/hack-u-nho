@@ -32,6 +32,9 @@
                         <input type="text" class="col-sm-9 form-control-plaintext" readonly id="self_introduction" v-model="user.self_introduction">
                     </div>
                 </form>
+                    <router-link v-bind:to="{name: 'user.room', params: {userId: user.id }}">
+                        <button class="btn btn-primary">メッセージ</button>
+                    </router-link>
             </div>
         </div>
     </div>

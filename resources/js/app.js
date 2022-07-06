@@ -14,10 +14,14 @@ import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
 import UserListComponent from "./components/UserListComponent";
 import UserShowComponent from "./components/UserShowComponent";
+import UserMessageComponent from "./components/UserMessageComponent";
 
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+// Vuex.Store 
+import store from './store.js'
 
 /**
  * The following block of code may be used to automatically register your
@@ -45,6 +49,16 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
+            path: '/login',
+            name: 'login',
+            component: LoginComponent,
+        },
+        {
+            path: '/signup',
+            name: 'signup',
+            component: RegisterComponent,
+        },
+        {
             path: '/jobs',
             name: 'job.list',
             component: JobListComponent
@@ -67,13 +81,8 @@ const router = new VueRouter({
             props: true
         },
         {
-            path: '/signup',
-            name: 'signup',
-            component: RegisterComponent,
-        },
-        {
             path: '/',
-            name: 'users',
+            name: 'user.list',
             component: UserListComponent,
         },
         {
@@ -83,9 +92,10 @@ const router = new VueRouter({
             props: true
         },
         {
-            path: '/login',
-            name: 'login',
-            component: LoginComponent,
+            path: '/users/:userId/room',
+            name: 'user.room',
+            component: UserMessageComponent,
+            props: true
         },
     ]
 });
@@ -93,5 +103,6 @@ const router = new VueRouter({
  
 const app = new Vue({
     el: '#app',
+    store: store,
     router
 });

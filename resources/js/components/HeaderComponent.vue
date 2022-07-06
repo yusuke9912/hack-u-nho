@@ -3,13 +3,13 @@
         <p class="text-white">{{ user }}</p>
         <div class="container">
             <nav class="navbar navbar-dark">
-                    <router-link v-bind:to="{name: 'job.list'}">
+                    <router-link v-bind:to="{name: 'user.list'}">
                          <span class="navbar-brand mb-0 h1">だれでもJob</span>
                     </router-link>
                 <div>
                     <div v-if="user">
                         <router-link v-bind:to="{name: 'job.create'}">
-                            <button class="btn btn-success">Job作成</button>
+                            <button class="btn btn-success">マイページ</button>
                         </router-link>
                         <button class="btn btn-success" @click="logout">ログアウト</button>
                     </div>
@@ -36,9 +36,10 @@
             };
         },
         mounted() {
-            axios.get("/api/user?api_token=${this.$store.getters['user/user'].token}")
+            axios.get("/api/user")
             .then((res) => {
                 this.user = res.data;
+                this.$store.dispatch("setUser", {id: res.data.id, auth: true, token: res.data.api_token})
             });
         },
         methods: {

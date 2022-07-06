@@ -32,12 +32,9 @@
            submit() {
                axios.post('/api/login', this.user)
                     .then((res) => {
-                        console.log("1111")
-                        this.$store.dispatch("user/setUser", {name: "", auth: true, token: ""})
-                        console.log("2222")
+                        this.$store.dispatch("setUser", {name: "", auth: true, token: ""})
                     })
                     .catch((error)=>{
-                        console.log("3333")
                         this.$router.go({path: "/", force: true})
                     });
            }
