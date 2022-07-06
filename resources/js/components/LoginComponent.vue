@@ -30,19 +30,15 @@
        },
        methods: {
            submit() {
-                console.log(this.user);
                axios.post('/api/login', this.user)
                     .then((res) => {
-                        this.$store.dispatch("user/setUser", {name: res.data.user.name, auth: true, token: res.data.user.token})
-                        this.$router.push("/user")
+                        console.log("1111")
+                        this.$store.dispatch("user/setUser", {name: "", auth: true, token: ""})
+                        console.log("2222")
                     })
                     .catch((error)=>{
-                        var responseErrors = error.response.data.errors;
-                        var errors = {};
-                        for(var key in responseErrors) {
-                            errors[key] = responseErrors[key][0];
-                        }
-                        this.errors = errors;
+                        console.log("3333")
+                        this.$router.go({path: "/", force: true})
                     });
            }
        }

@@ -1967,6 +1967,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1985,14 +1986,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get("/api/logout").then(function (res) {
-        _this2.$store.dispatch("user/setUser", {
-          name: null,
-          auth: false,
-          token: null
+        _this2.$router.go({
+          path: "/",
+          force: true
         });
-
-        _this2.$router.push("/user/login", function () {}); // NavigationDuplicated対策
-
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2302,24 +2299,23 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      console.log(this.user);
       axios.post('/api/login', this.user).then(function (res) {
+        console.log("1111");
+
         _this.$store.dispatch("user/setUser", {
-          name: res.data.user.name,
+          name: "",
           auth: true,
-          token: res.data.user.token
+          token: ""
         });
 
-        _this.$router.push("/user");
+        console.log("2222");
       })["catch"](function (error) {
-        var responseErrors = error.response.data.errors;
-        var errors = {};
+        console.log("3333");
 
-        for (var key in responseErrors) {
-          errors[key] = responseErrors[key][0];
-        }
-
-        _this.errors = errors;
+        _this.$router.go({
+          path: "/",
+          force: true
+        });
       });
     }
   }
@@ -2400,16 +2396,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.user);
       axios.post('/api/signup', this.user).then(function (res) {
         console.log("新規登録しました");
-      })["catch"](function (error) {
-        var responseErrors = error.response.data.errors;
-        var errors = {};
-
-        for (var key in responseErrors) {
-          errors[key] = responseErrors[key][0];
-        }
-
-        self.errors = errors;
-      });
+      })["catch"](function (error) {});
     }
   }
 });
@@ -38048,6 +38035,8 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid bg-dark mb-3" }, [
+    _c("p", { staticClass: "text-white" }, [_vm._v(_vm._s(_vm.user))]),
+    _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c(
         "nav",

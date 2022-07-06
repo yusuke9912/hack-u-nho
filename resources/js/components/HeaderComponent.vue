@@ -1,5 +1,6 @@
 <template>
     <div class="container-fluid bg-dark mb-3">
+        <p class="text-white">{{ user }}</p>
         <div class="container">
             <nav class="navbar navbar-dark">
                     <router-link v-bind:to="{name: 'job.list'}">
@@ -44,8 +45,7 @@
             logout() {
                 axios.get("/api/logout")
                     .then((res) => {
-                        this.$store.dispatch("user/setUser", {name: null, auth: false, token: null})
-                        this.$router.push("/user/login", () => {})  // NavigationDuplicated対策
+                       this.$router.go({path: "/", force: true})
                     })
                     .catch((error) => {
                         console.log(error);
