@@ -23,7 +23,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/users/{user}/message', 'MessageController@getMessage');
     Route::get('/users/{user}/room', 'MessageController@getRoom');
     Route::post('/users/{user}/room', 'MessageController@store');
+    Route::get('/send', 'MessageController@send');
 });
+
 
 Route::get('/jobs', 'JobController@index');
 Route::post('/jobs', 'JobController@store');

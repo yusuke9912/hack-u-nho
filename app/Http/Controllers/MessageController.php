@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\MessageEvent;
 use App\Message;
 use App\Room;
 use App\User;
@@ -27,18 +28,18 @@ class MessageController extends Controller
         // $room_user_rocordsが存在するかどうか
             if(isset($room_user_rocords[0])) {
             // 自分のidが含まれているレコードをforeachで回す
-            Log::Debug("自分のidが含まれているレコード");
-            Log::Debug($room_user_rocords);
+            // Log::Debug("自分のidが含まれているレコード");
+            // Log::Debug($room_user_rocords);
             foreach($room_user_rocords as $room_user) {
                 // $room_userのroom_idと一致するレコードを取得。
                 $records = RoomUser::where('room_id', $room_user->room_id)->get();
                 // $recordsをforeachで回す
                     foreach($records as $record) {
-                    Log::Debug("foreach-------------");
-                    Log::Debug(isset($record));
-                    Log::Debug($record->user_id);
-                    Log::Debug($user_id);
-                    Log::Debug("foreach-------------");
+                    // Log::Debug("foreach-------------");
+                    // Log::Debug(isset($record));
+                    // Log::Debug($record->user_id);
+                    // Log::Debug($user_id);
+                    // Log::Debug("foreach-------------");
                     // $recordが存在するか且つ、そのレコードに$user_idが含まれているものがあるかどうか
                     if(isset($record) && $record->user_id == $user_id) {
                         // 存在する場合はtrue
@@ -67,5 +68,12 @@ class MessageController extends Controller
     {
         Log::Debug($request);
         return Message::create(['user_id'=>Auth::id(),'room_id'=>$request->room_id,'body'=>$request->body]);
+    }
+
+    public function send(){
+        Log::Debug("send");
+        $message = 'Hello';
+        $user_id=Auth::id();
+        event(new MessageEvent($message,$user_id));
     }
 }
