@@ -9,7 +9,7 @@
         <form v-on:submit.prevent="submit">
             <div class="form-group row">
                 <label for="person-in-charge" class="col-sm-3 col-form-label">メッセージ</label>
-                <input type="text" class="col-sm-9 form-control" id="message" v-model="new_message.body">
+                <input type="text" class="col-sm-9 form-control" id="message" v-model="body">
             </div>
             <button type="submit" class="btn btn-primary">送信</button>
         </form>
@@ -23,35 +23,46 @@
         },
         data: function () {
             return {
+                room_id: "",
+                user_id: "",
+                body:"",
                 messages: {},
-                new_message:{
-                    room_id: "",
-                    body:""
-                }
             }
         },
         methods: {
+            getRoom(){
+                axios.get('/api/users/' + this.userId + '/room')
+                .then((res) => {
+                    console.log("room_idは"+res.data.room_id);
+                    this.room_id = res.data.room_id;
+                    this.getMessages();
+                });
+            },
             getMessages() {
-                axios.get('/api/users/' + this.userId + '/message')
+                axios.post('/api/users/' + this.userId + '/message',{'room_id':this.room_id})
                     .then((res) => {
                         this.messages = res.data;
+                        console.log("メッセージ"+res.data)
                         axios.get('/api/users/' + this.userId + '/room')
                             .then((res) => {
-                                console.log("room_idは"+res.data);
-                                this.new_message.room_id = res.data;
                             });
                     });
             },
             submit() {
-                console.log(this.new_message);
-               axios.post('/api/users/' + this.userId + '/room',this.new_message)
+               var $message = {
+                    room_id: this.room_id,
+                    user_id: this.user_id,
+                    body: this.body
+               };
+               console.log($message);
+               axios.post('/api/users/' + this.userId + '/room',$message)
                    .then((res) => {
                     this.$router.go({ path: "/" })
             });
            }
         },
         mounted() {
-            this.getMessages();
+            this.getRoom();
         }
     }
 </script>

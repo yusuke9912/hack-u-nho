@@ -2506,38 +2506,52 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      messages: {},
-      new_message: {
-        room_id: "",
-        body: ""
-      }
+      room_id: "",
+      user_id: "",
+      body: "",
+      messages: {}
     };
   },
   methods: {
-    getMessages: function getMessages() {
+    getRoom: function getRoom() {
       var _this = this;
 
-      axios.get('/api/users/' + this.userId + '/message').then(function (res) {
-        _this.messages = res.data;
-        axios.get('/api/users/' + _this.userId + '/room').then(function (res) {
-          console.log("room_idは" + res.data);
-          _this.new_message.room_id = res.data;
-        });
+      axios.get('/api/users/' + this.userId + '/room').then(function (res) {
+        console.log("room_idは" + res.data.room_id);
+        _this.room_id = res.data.room_id;
+
+        _this.getMessages();
+      });
+    },
+    getMessages: function getMessages() {
+      var _this2 = this;
+
+      axios.post('/api/users/' + this.userId + '/message', {
+        'room_id': this.room_id
+      }).then(function (res) {
+        _this2.messages = res.data;
+        console.log("メッセージ" + res.data);
+        axios.get('/api/users/' + _this2.userId + '/room').then(function (res) {});
       });
     },
     submit: function submit() {
-      var _this2 = this;
+      var _this3 = this;
 
-      console.log(this.new_message);
-      axios.post('/api/users/' + this.userId + '/room', this.new_message).then(function (res) {
-        _this2.$router.go({
+      var $message = {
+        room_id: this.room_id,
+        user_id: this.user_id,
+        body: this.body
+      };
+      console.log($message);
+      axios.post('/api/users/' + this.userId + '/room', $message).then(function (res) {
+        _this3.$router.go({
           path: "/"
         });
       });
     }
   },
   mounted: function mounted() {
-    this.getMessages();
+    this.getRoom();
   }
 });
 
@@ -39590,19 +39604,19 @@ var render = function () {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.new_message.body,
-                expression: "new_message.body",
+                value: _vm.body,
+                expression: "body",
               },
             ],
             staticClass: "col-sm-9 form-control",
             attrs: { type: "text", id: "message" },
-            domProps: { value: _vm.new_message.body },
+            domProps: { value: _vm.body },
             on: {
               input: function ($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.new_message, "body", $event.target.value)
+                _vm.body = $event.target.value
               },
             },
           }),

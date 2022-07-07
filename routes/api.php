@@ -20,8 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/users', 'UserController@index');
     Route::get('/users/{user}', 'UserController@show');
-    Route::get('/users/{user}/message', 'MessageController@getMessage');
-    Route::get('/users/{user}/room', 'MessageController@getRoomId');
+    Route::post('/users/{user}/message', 'MessageController@getMessage');
+    Route::get('/users/{user}/room', 'MessageController@getRoom');
     Route::post('/users/{user}/room', 'MessageController@store');
 });
 
