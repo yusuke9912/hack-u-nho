@@ -38262,7 +38262,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid bg-dark mb-3" }, [
     _c("p", { staticClass: "text-white" }, [
-      _vm._v(_vm._s("ユーザID：" + _vm.user.id)),
+      _vm._v(
+        _vm._s(
+          "ユーザID：" + _vm.user.id + "  名前：" + _vm.user.sei + _vm.user.mei
+        )
+      ),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
