@@ -2502,43 +2502,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    userId: String
+    userId: Number
   },
   data: function data() {
     return {
       messages: {},
       new_message: {
-        user_id: "",
-        room_id: ""
+        room_id: "",
+        body: ""
       }
     };
   },
   methods: {
-    getRoomId: function getRoomId() {
+    getMessages: function getMessages() {
       var _this = this;
 
-      axios.get('/api/users/' + this.userId + '/room').then(function (res) {
-        console.log(res.data);
-        _this.new_message.room_id = res.data;
-      });
-    },
-    getMessages: function getMessages() {
-      var _this2 = this;
-
       axios.get('/api/users/' + this.userId + '/message').then(function (res) {
-        _this2.messages = res.data;
+        _this.messages = res.data;
+        axios.get('/api/users/' + _this.userId + '/room').then(function (res) {
+          console.log("room_idは" + res.data);
+          _this.new_message.room_id = res.data;
+        });
       });
     },
     submit: function submit() {
+      var _this2 = this;
+
       console.log(this.new_message);
-      axios.post('/api/users/' + this.userId + '/room', this.new_message).then(function (res) {});
+      axios.post('/api/users/' + this.userId + '/room', this.new_message).then(function (res) {
+        _this2.$router.go({
+          path: "/"
+        });
+      });
     }
   },
   mounted: function mounted() {
-    console.log(this.$store.getters['getUser']);
-    this.new_message.user_id = this.$store.getters['getUser'].id;
     this.getMessages();
-    this.getRoomId();
   }
 });
 
@@ -2595,9 +2594,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    userId: String
+    userId: Number
   },
   data: function data() {
     return {
@@ -38252,8 +38254,6 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid bg-dark mb-3" }, [
-    _c("p", { staticClass: "text-white" }, [_vm._v(_vm._s(_vm.user))]),
-    _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c(
         "nav",
@@ -39888,6 +39888,20 @@ var render = function () {
             [
               _c("button", { staticClass: "btn btn-primary" }, [
                 _vm._v("メッセージ"),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              attrs: {
+                to: { name: "user.room", params: { userId: _vm.user.id } },
+              },
+            },
+            [
+              _c("button", { staticClass: "btn btn-primary" }, [
+                _vm._v("仕事を依頼する"),
               ]),
             ]
           ),

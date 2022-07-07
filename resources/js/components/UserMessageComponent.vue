@@ -19,43 +19,39 @@
 <script>
     export default {
         props: {
-            userId: String
+            userId: Number
         },
         data: function () {
             return {
                 messages: {},
                 new_message:{
-                    user_id: "",
                     room_id: "",
+                    body:""
                 }
             }
         },
         methods: {
-            getRoomId() {
-                axios.get('/api/users/' + this.userId + '/room')
-                    .then((res) => {
-                        console.log(res.data);
-                        this.new_message.room_id = res.data;
-                    });
-            },
             getMessages() {
                 axios.get('/api/users/' + this.userId + '/message')
                     .then((res) => {
                         this.messages = res.data;
+                        axios.get('/api/users/' + this.userId + '/room')
+                            .then((res) => {
+                                console.log("room_idは"+res.data);
+                                this.new_message.room_id = res.data;
+                            });
                     });
             },
             submit() {
                 console.log(this.new_message);
                axios.post('/api/users/' + this.userId + '/room',this.new_message)
                    .then((res) => {
+                    this.$router.go({ path: "/" })
             });
            }
         },
         mounted() {
-            console.log(this.$store.getters['getUser'])
-            this.new_message.user_id = this.$store.getters['getUser'].id;
             this.getMessages();
-            this.getRoomId();
         }
     }
 </script>
