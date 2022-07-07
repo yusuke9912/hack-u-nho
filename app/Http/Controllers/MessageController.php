@@ -17,7 +17,7 @@ class MessageController extends Controller
     {
         Log::Debug("getMessage");
         $room_id = $request->room_id;
-        $messages = \DB::table('messages')->where('room_id',$room_id )->join('users','messages.user_id','=','users.id')->get();
+        $messages = \DB::table('messages')->where('room_id',$room_id )->join('users','messages.user_id','=','users.id')->orderBy('messages.updated_at', 'asc')->get();
         return $messages;
     }
 
