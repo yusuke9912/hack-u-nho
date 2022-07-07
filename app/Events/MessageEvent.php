@@ -10,22 +10,25 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
+use App\User;
 
 class MessageEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $message;
-    public $user_id;
+    public $user;
+    public $room_id;
+    public $body;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($message, $user_id)
+    public function __construct(User $user,$room_id,$body)
     {
-        $this->message = $message;
-        $this->user_id = $user_id;
+        $this->user = $user;
+        $this->room_id = $room_id;
+        $this->body = $body;
     }
 
     /**

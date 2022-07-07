@@ -103,5 +103,11 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     store: store,
-    router
+    router,
+    mounted(){
+        window.Echo.private('message')
+        .listen('MessageEvent', (e) => {
+            console.log(e);
+        });
+    }
 });

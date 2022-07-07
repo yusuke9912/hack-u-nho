@@ -42,7 +42,6 @@
                 axios.post('/api/users/' + this.userId + '/message',{'room_id':this.room_id})
                     .then((res) => {
                         this.messages = res.data;
-                        console.log("メッセージ"+res.data)
                     });
             },
             submit() {
@@ -51,15 +50,28 @@
                     user_id: this.user_id,
                     body: this.body
                };
-               console.log($message);
                axios.post('/api/users/' + this.userId + '/room',$message)
                    .then((res) => {
-                    this.$router.go({ path: "/" })
             });
            }
         },
         mounted() {
             this.getRoom();
+            window.Echo.private('message')
+                .listen('MessageEvent', (e) => {
+                    console.log("メッセージの受信");
+                    var $data = 
+                    {
+                        'body':e.body,
+                        "room_id":e.room_id,
+                        "sei":e.user.sei,
+                        "mei":e.user.mei,
+                    };
+                    console.log("dataは");
+                    console.log($data);
+                    this.messages.push($data);
+                    console.log(this.messages);
+                });
         }
     }
 </script>

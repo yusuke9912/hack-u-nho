@@ -2524,27 +2524,36 @@ __webpack_require__.r(__webpack_exports__);
         'room_id': this.room_id
       }).then(function (res) {
         _this2.messages = res.data;
-        console.log("メッセージ" + res.data);
       });
     },
     submit: function submit() {
-      var _this3 = this;
-
       var $message = {
         room_id: this.room_id,
         user_id: this.user_id,
         body: this.body
       };
-      console.log($message);
-      axios.post('/api/users/' + this.userId + '/room', $message).then(function (res) {
-        _this3.$router.go({
-          path: "/"
-        });
-      });
+      axios.post('/api/users/' + this.userId + '/room', $message).then(function (res) {});
     }
   },
   mounted: function mounted() {
+    var _this3 = this;
+
     this.getRoom();
+    window.Echo["private"]('message').listen('MessageEvent', function (e) {
+      console.log("メッセージの受信");
+      var $data = {
+        'body': e.body,
+        "room_id": e.room_id,
+        "sei": e.user.sei,
+        "mei": e.user.mei
+      };
+      console.log("dataは");
+      console.log($data);
+
+      _this3.messages.push($data);
+
+      console.log(_this3.messages);
+    });
   }
 });
 
@@ -63116,7 +63125,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
 var app = new Vue({
   el: '#app',
   store: _store_js__WEBPACK_IMPORTED_MODULE_12__["default"],
-  router: router
+  router: router,
+  mounted: function mounted() {
+    window.Echo["private"]('message').listen('MessageEvent', function (e) {
+      console.log(e);
+    });
+  }
 });
 
 /***/ }),
@@ -63164,7 +63178,7 @@ window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/d
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: "a8c96d744cbf5af3db43",
-  cluster: "mt1",
+  cluster: "ap3",
   encrypted: true
 });
 

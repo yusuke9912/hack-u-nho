@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users/{user}', 'UserController@show');
     Route::post('/users/{user}/message', 'MessageController@getMessage');
     Route::get('/users/{user}/room', 'MessageController@getRoom');
-    Route::post('/users/{user}/room', 'MessageController@store');
+    Route::post('/users/{user}/room', 'MessageController@send');
     Route::get('/send', 'MessageController@send');
 });
 

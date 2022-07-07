@@ -62,18 +62,14 @@ class MessageController extends Controller
             return $room2;
         }
     }
- 
-    
-    public function store(Request $request)
-    {
-        Log::Debug($request);
-        return Message::create(['user_id'=>Auth::id(),'room_id'=>$request->room_id,'body'=>$request->body]);
-    }
 
-    public function send(){
-        Log::Debug("send");
-        $message = 'Hello';
-        $user_id=Auth::id();
-        event(new MessageEvent($message,$user_id));
+    public function send(Request $request){
+        Log::Debug($request);
+        $user=User::find(Auth::id());
+        $room_id=$request->room_id;
+        $body = $request->body;
+        
+        event(new MessageEvent($user,$room_id,$body));
+        return Message::create(['user_id'=>Auth::id(),'room_id'=>$room_id,'body'=>$body]);
     }
 }
