@@ -8,7 +8,7 @@
                     </router-link>
                 <div>
                     <div v-if="user">
-                        <router-link v-bind:to="{name: 'job.create'}">
+                        <router-link v-bind:to="{name: 'mypage'}">
                             <button class="btn btn-success">マイページ</button>
                         </router-link>
                         <button class="btn btn-success" @click="logout">ログアウト</button>

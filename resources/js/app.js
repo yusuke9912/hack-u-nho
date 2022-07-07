@@ -15,6 +15,7 @@ import LoginComponent from "./components/LoginComponent";
 import UserListComponent from "./components/UserListComponent";
 import UserShowComponent from "./components/UserShowComponent";
 import UserMessageComponent from "./components/UserMessageComponent";
+import MyPageComponent from "./components/MyPageComponent";
 
 require('./bootstrap');
 
@@ -96,6 +97,11 @@ const router = new VueRouter({
             name: 'user.room',
             component: UserMessageComponent,
             props: true
+        },
+        {
+            path: '/mypage',
+            name: 'mypage',
+            component: MyPageComponent,
         },
     ]
 });

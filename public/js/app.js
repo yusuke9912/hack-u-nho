@@ -2330,6 +2330,95 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyPageComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyPageComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      user: {}
+    };
+  },
+  methods: {
+    getUser: function getUser() {
+      var _this = this;
+
+      axios.get("/api/user").then(function (res) {
+        console.log(res);
+        _this.user = res.data;
+      });
+    },
+    submit: function submit() {
+      var _this2 = this;
+
+      console.log(this.user);
+      axios.put('/api/users/' + this.user.id, this.user).then(function (res) {
+        _this2.user = res.data;
+        console.log(_this2.user);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getUser();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegisterComponent.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegisterComponent.vue?vue&type=script&lang=js& ***!
@@ -2568,6 +2657,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44714,15 +44811,11 @@ var render = function () {
               ? _c(
                   "div",
                   [
-                    _c(
-                      "router-link",
-                      { attrs: { to: { name: "job.create" } } },
-                      [
-                        _c("button", { staticClass: "btn btn-success" }, [
-                          _vm._v("マイページ"),
-                        ]),
-                      ]
-                    ),
+                    _c("router-link", { attrs: { to: { name: "mypage" } } }, [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("マイページ"),
+                      ]),
+                    ]),
                     _vm._v(" "),
                     _c(
                       "button",
@@ -45543,6 +45636,309 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyPageComponent.vue?vue&type=template&id=9f285f72&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyPageComponent.vue?vue&type=template&id=9f285f72& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.submit.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "sei" } },
+                  [_vm._v("姓")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.sei,
+                      expression: "user.sei",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "sei" },
+                  domProps: { value: _vm.user.sei },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "sei", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "mei" } },
+                  [_vm._v("名")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.mei,
+                      expression: "user.mei",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "mei" },
+                  domProps: { value: _vm.user.mei },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "mei", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "sei_kana" } },
+                  [_vm._v("セイ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.sei_kana,
+                      expression: "user.sei_kana",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "sei_kana" },
+                  domProps: { value: _vm.user.sei_kana },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "sei_kana", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "mei_kana" } },
+                  [_vm._v("メイ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.mei_kana,
+                      expression: "user.mei_kana",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "mei_kana" },
+                  domProps: { value: _vm.user.mei_kana },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "mei_kana", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "age" },
+                },
+                [_vm._v("年齢")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.age,
+                    expression: "user.age",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "age" },
+                domProps: { value: _vm.user.age },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "age", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "gender" },
+                },
+                [_vm._v("性別")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.gender,
+                    expression: "user.gender",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "gender" },
+                domProps: { value: _vm.user.gender },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "gender", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "address" },
+                },
+                [_vm._v("住んでる場所")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.address,
+                    expression: "user.address",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "address" },
+                domProps: { value: _vm.user.address },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "address", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "self_introduction" },
+                },
+                [_vm._v("自己紹介")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.self_introduction,
+                    expression: "user.self_introduction",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "self_introduction" },
+                domProps: { value: _vm.user.self_introduction },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "self_introduction", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("保存")]
+            ),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegisterComponent.vue?vue&type=template&id=51f045bf&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegisterComponent.vue?vue&type=template&id=51f045bf& ***!
@@ -46101,139 +46497,131 @@ var render = function () {
         { staticClass: "col-sm-6" },
         [
           _c("form", [
-            _c("div", { staticClass: "form-group row border-bottom" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "id" },
-                },
-                [_vm._v("ID")]
-              ),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "sei" } },
+                  [_vm._v("姓")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.sei,
+                      expression: "user.sei",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "sei" },
+                  domProps: { value: _vm.user.sei },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "sei", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.id,
-                    expression: "user.id",
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "mei" } },
+                  [_vm._v("名")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.mei,
+                      expression: "user.mei",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "mei" },
+                  domProps: { value: _vm.user.mei },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "mei", $event.target.value)
+                    },
                   },
-                ],
-                staticClass: "col-sm-9 form-control-plaintext",
-                attrs: { type: "text", readonly: "", id: "id" },
-                domProps: { value: _vm.user.id },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "id", $event.target.value)
-                  },
-                },
-              }),
+                }),
+              ]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group row border-bottom" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "sei" },
-                },
-                [_vm._v("姓")]
-              ),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "sei_kana" } },
+                  [_vm._v("セイ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.sei_kana,
+                      expression: "user.sei_kana",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", readonly: "", id: "sei_kana" },
+                  domProps: { value: _vm.user.sei_kana },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "sei_kana", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.sei,
-                    expression: "user.sei",
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "mei_kana" } },
+                  [_vm._v("メイ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.mei_kana,
+                      expression: "user.mei_kana",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", readonly: "", id: "mei_kana" },
+                  domProps: { value: _vm.user.mei_kana },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "mei_kana", $event.target.value)
+                    },
                   },
-                ],
-                staticClass: "col-sm-9 form-control-plaintext",
-                attrs: { type: "text", readonly: "", id: "sei" },
-                domProps: { value: _vm.user.sei },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "sei", $event.target.value)
-                  },
-                },
-              }),
+                }),
+              ]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group row border-bottom" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "mei" },
-                },
-                [_vm._v("名")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.mei,
-                    expression: "user.mei",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control-plaintext",
-                attrs: { type: "text", readonly: "", id: "mei" },
-                domProps: { value: _vm.user.mei },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "mei", $event.target.value)
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row border-bottom" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "gender" },
-                },
-                [_vm._v("性別")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.gender,
-                    expression: "user.gender",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control-plaintext",
-                attrs: { type: "text", readonly: "", id: "gender" },
-                domProps: { value: _vm.user.gender },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "gender", $event.target.value)
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row border-bottom" }, [
+            _c("div", { staticClass: "form-group row" }, [
               _c(
                 "label",
                 {
@@ -46252,7 +46640,7 @@ var render = function () {
                     expression: "user.age",
                   },
                 ],
-                staticClass: "col-sm-9 form-control-plaintext",
+                staticClass: "col-sm-9 form-control",
                 attrs: { type: "text", readonly: "", id: "age" },
                 domProps: { value: _vm.user.age },
                 on: {
@@ -46266,14 +46654,47 @@ var render = function () {
               }),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group row border-bottom" }, [
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "gender" },
+                },
+                [_vm._v("性別")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.gender,
+                    expression: "user.gender",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", readonly: "", id: "gender" },
+                domProps: { value: _vm.user.gender },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "gender", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
               _c(
                 "label",
                 {
                   staticClass: "col-sm-3 col-form-label",
                   attrs: { for: "address" },
                 },
-                [_vm._v("住んでる地域")]
+                [_vm._v("住んでる場所")]
               ),
               _vm._v(" "),
               _c("input", {
@@ -46285,7 +46706,7 @@ var render = function () {
                     expression: "user.address",
                   },
                 ],
-                staticClass: "col-sm-9 form-control-plaintext",
+                staticClass: "col-sm-9 form-control",
                 attrs: { type: "text", readonly: "", id: "address" },
                 domProps: { value: _vm.user.address },
                 on: {
@@ -46299,7 +46720,7 @@ var render = function () {
               }),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group row border-bottom" }, [
+            _c("div", { staticClass: "form-group row" }, [
               _c(
                 "label",
                 {
@@ -46318,7 +46739,7 @@ var render = function () {
                     expression: "user.self_introduction",
                   },
                 ],
-                staticClass: "col-sm-9 form-control-plaintext",
+                staticClass: "col-sm-9 form-control",
                 attrs: { type: "text", readonly: "", id: "self_introduction" },
                 domProps: { value: _vm.user.self_introduction },
                 on: {
@@ -46356,7 +46777,7 @@ var render = function () {
             },
             [
               _c("button", { staticClass: "btn btn-primary" }, [
-                _vm._v("仕事を依頼する"),
+                _vm._v("お仕事依頼"),
               ]),
             ]
           ),
@@ -63035,12 +63456,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_UserListComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/UserListComponent */ "./resources/js/components/UserListComponent.vue");
 /* harmony import */ var _components_UserShowComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/UserShowComponent */ "./resources/js/components/UserShowComponent.vue");
 /* harmony import */ var _components_UserMessageComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/UserMessageComponent */ "./resources/js/components/UserMessageComponent.vue");
-/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./store.js */ "./resources/js/store.js");
+/* harmony import */ var _components_MyPageComponent__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/MyPageComponent */ "./resources/js/components/MyPageComponent.vue");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./store.js */ "./resources/js/store.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
 
 
 
@@ -63120,11 +63543,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     name: 'user.room',
     component: _components_UserMessageComponent__WEBPACK_IMPORTED_MODULE_11__["default"],
     props: true
+  }, {
+    path: '/mypage',
+    name: 'mypage',
+    component: _components_MyPageComponent__WEBPACK_IMPORTED_MODULE_12__["default"]
   }]
 });
 var app = new Vue({
   el: '#app',
-  store: _store_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+  store: _store_js__WEBPACK_IMPORTED_MODULE_13__["default"],
   router: router,
   mounted: function mounted() {
     window.Echo["private"]('message').listen('MessageEvent', function (e) {
@@ -63662,6 +64089,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_template_id_4d2414bf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_template_id_4d2414bf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MyPageComponent.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/MyPageComponent.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MyPageComponent_vue_vue_type_template_id_9f285f72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyPageComponent.vue?vue&type=template&id=9f285f72& */ "./resources/js/components/MyPageComponent.vue?vue&type=template&id=9f285f72&");
+/* harmony import */ var _MyPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyPageComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/MyPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MyPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MyPageComponent_vue_vue_type_template_id_9f285f72___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MyPageComponent_vue_vue_type_template_id_9f285f72___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MyPageComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MyPageComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/MyPageComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./MyPageComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MyPageComponent.vue?vue&type=template&id=9f285f72&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/MyPageComponent.vue?vue&type=template&id=9f285f72& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyPageComponent_vue_vue_type_template_id_9f285f72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./MyPageComponent.vue?vue&type=template&id=9f285f72& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyPageComponent.vue?vue&type=template&id=9f285f72&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyPageComponent_vue_vue_type_template_id_9f285f72___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyPageComponent_vue_vue_type_template_id_9f285f72___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
