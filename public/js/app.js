@@ -2438,12 +2438,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2531,7 +2525,6 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         _this2.messages = res.data;
         console.log("メッセージ" + res.data);
-        axios.get('/api/users/' + _this2.userId + '/room').then(function (res) {});
       });
     },
     submit: function submit() {
@@ -38268,6 +38261,10 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid bg-dark mb-3" }, [
+    _c("p", { staticClass: "text-white" }, [
+      _vm._v(_vm._s("ユーザID：" + _vm.user.id)),
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c(
         "nav",
@@ -39507,36 +39504,47 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c(
-      "table",
-      { staticClass: "table table-hover" },
+      "div",
+      { staticClass: "card-deck" },
       _vm._l(_vm.users, function (user, index) {
-        return _c("tr", { key: index }, [
-          _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(user.id))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(user.sei + user.mei))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(user.self_introduction))]),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
+        return _c(
+          "div",
+          {
+            key: index,
+            staticClass: "bg-white border mr-4 mb-5 rounded",
+            staticStyle: { width: "30%" },
+          },
+          [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "card-title" }, [
+                _c("h5", [_vm._v(_vm._s(user.sei + user.mei))]),
+              ]),
+              _vm._v(" "),
               _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: { name: "user.show", params: { userId: user.id } },
-                  },
-                },
+                "div",
+                { staticClass: "card-text" },
                 [
-                  _c("button", { staticClass: "btn btn-primary" }, [
-                    _vm._v("詳細"),
-                  ]),
-                ]
+                  _c("p", [_vm._v(_vm._s(user.self_introduction))]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "user.show", params: { userId: user.id } },
+                      },
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-primary" }, [
+                        _vm._v("詳細"),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
               ),
-            ],
-            1
-          ),
-        ])
+            ]),
+          ]
+        )
       }),
       0
     ),

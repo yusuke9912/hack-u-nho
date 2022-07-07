@@ -43,9 +43,6 @@
                     .then((res) => {
                         this.messages = res.data;
                         console.log("メッセージ"+res.data)
-                        axios.get('/api/users/' + this.userId + '/room')
-                            .then((res) => {
-                            });
                     });
             },
             submit() {
