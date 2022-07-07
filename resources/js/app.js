@@ -4,17 +4,17 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 import VueRouter from 'vue-router';
-import HeaderComponent from "./components/HeaderComponent";
-import FooterComponent from "./components/FooterComponent";
+import HeaderComponent from "./components/share/HeaderComponent";
+import FooterComponent from "./components/share/FooterComponent";
 import JobListComponent from "./components/JobListComponent";
 import JobCreateComponent from "./components/JobCreateComponent";
 import JobShowComponent from "./components/JobShowComponent";
 import JobEditComponent from "./components/JobEditComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
-import UserListComponent from "./components/UserListComponent";
-import UserShowComponent from "./components/UserShowComponent";
-import UserMessageComponent from "./components/UserMessageComponent";
+import UserListComponent from "./components/user/UserListComponent";
+import UserShowComponent from "./components/user/UserShowComponent";
+import UserMessageComponent from "./components/user/UserMessageComponent";
 import MyPageComponent from "./components/MyPageComponent";
 
 require('./bootstrap');
