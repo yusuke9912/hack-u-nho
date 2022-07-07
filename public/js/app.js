@@ -2530,6 +2530,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      loginUser: {},
       users: []
     };
   },
@@ -2538,14 +2539,21 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/users').then(function (res) {
+        console.log("データを取得しました");
+        console.log(res.data);
         _this.users = res.data;
       });
-    },
-    deleteUser: function deleteUser(id) {
+      axios.get("/api/user").then(function (res) {
+        _this.loginUser = res.data;
+      });
+    }
+  },
+  computed: {
+    resultUsers: function resultUsers() {
       var _this2 = this;
 
-      axios["delete"]('/api/users/' + id).then(function (res) {
-        _this2.getUsers();
+      return this.users.filter(function (user) {
+        return user.id != _this2.loginUser.id;
       });
     }
   },
@@ -46335,7 +46343,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "card-deck" },
-      _vm._l(_vm.users, function (user, index) {
+      _vm._l(_vm.resultUsers, function (user, index) {
         return _c(
           "div",
           {

@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="card-deck">
-            <div v-for="(user, index) in users" :key="index" class="bg-white border mr-4 mb-5 rounded" style="width:30%">
+            <div v-for="(user, index) in resultUsers" :key="index" class="bg-white border mr-4 mb-5 rounded" style="width:30%">
                 <div class="card-body">
                 <div class="card-title">
                     <h5>{{ user.sei + user.mei }}</h5>
@@ -22,6 +22,7 @@
     export default {
         data: function () {
             return {
+                loginUser:{},
                 users: []
             }
         },
@@ -29,15 +30,23 @@
             getUsers() {
                 axios.get('/api/users')
                     .then((res) => {
+                        console.log("データを取得しました");
+                        console.log(res.data);
                         this.users = res.data;
                     });
+
+                axios.get("/api/user")
+                    .then((res) => {
+                        this.loginUser = res.data;
+                    });
             },
-    deleteUser(id) {
-        axios.delete('/api/users/' + id)
-            .then((res) => {
-                this.getUsers();
-            });
-    }
+        },
+        computed: {
+            resultUsers(){
+                return this.users.filter((user)=>{
+                    return user.id != this.loginUser.id;
+                })
+            }
         },
         mounted() {
             this.getUsers();
