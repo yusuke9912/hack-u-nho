@@ -1,26 +1,20 @@
 <template>
     <div class="container">
-        <table class="table table-hover">
-            <tr v-for="(user, index) in users" :key="index">
-                <th scope="row">{{ user.id }}</th>
-                <td>{{ user.sei + user.mei }}</td>
-                <td>{{ user.self_introduction }}</td>
-                <td>
+        <div class="card-deck">
+            <div v-for="(user, index) in users" :key="index" class="bg-white border mr-4 mb-5 rounded" style="width:30%">
+                <div class="card-body">
+                <div class="card-title">
+                    <h5>{{ user.sei + user.mei }}</h5>
+                </div>
+                <div class="card-text">
+                    <p>{{ user.self_introduction }}</p>
                     <router-link v-bind:to="{name: 'user.show', params: {userId: user.id }}">
                         <button class="btn btn-primary">詳細</button>
                     </router-link>
-                </td>
-                <!-- 
-                <td>
-                    <router-link v-bind:to="{name: 'user.edit', params: {userId: user.id }}">
-                        <button class="btn btn-success">編集</button>
-                    </router-link>
-                </td>
-                <td>
-                    <button class="btn btn-danger" v-on:click="deleteuser(user.id)">削除</button>
-                </td> -->
-            </tr>
-        </table>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
