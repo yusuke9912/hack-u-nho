@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/users', 'UserController@index');
+    Route::put('/users/{user}', 'UserController@update');
     Route::get('/users/{user}', 'UserController@show');
     Route::post('/users/{user}/message', 'MessageController@getMessage');
     Route::get('/users/{user}/room', 'MessageController@getRoom');
