@@ -2332,6 +2332,184 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2477,6 +2655,188 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2488,6 +2848,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
+      console.log(this.user);
       axios.post('/api/signup', this.user).then(function (res) {
         console.log("新規登録しました");
 
@@ -2791,6 +3152,184 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -46295,7 +46834,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "col-sm-8" }, [
         _c(
           "form",
           {
@@ -46436,39 +46975,6 @@ var render = function () {
                 "label",
                 {
                   staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "age" },
-                },
-                [_vm._v("年齢")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.age,
-                    expression: "user.age",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "number", id: "age" },
-                domProps: { value: _vm.user.age },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "age", $event.target.value)
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
                   attrs: { for: "gender" },
                 },
                 [_vm._v("性別")]
@@ -46485,7 +46991,7 @@ var render = function () {
                       expression: "user.gender",
                     },
                   ],
-                  staticClass: "col-sm-9 form-control",
+                  staticClass: "col-sm-2 form-control",
                   attrs: { id: "gender" },
                   on: {
                     change: function ($event) {
@@ -46520,13 +47026,707 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
+              _c("p", { staticClass: "col-sm-3" }, [_vm._v("生年月日")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.year,
+                        expression: "user.year",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "year" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "year",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "1900" } }, [
+                      _vm._v("1900"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1901" } }, [
+                      _vm._v("1901"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1902" } }, [
+                      _vm._v("1902"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1903" } }, [
+                      _vm._v("1903"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1904" } }, [
+                      _vm._v("1904"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1905" } }, [
+                      _vm._v("1905"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1906" } }, [
+                      _vm._v("1906"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1907" } }, [
+                      _vm._v("1907"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1908" } }, [
+                      _vm._v("1908"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1909" } }, [
+                      _vm._v("1909"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1910" } }, [
+                      _vm._v("1910"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1911" } }, [
+                      _vm._v("1911"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1912" } }, [
+                      _vm._v("1912"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1913" } }, [
+                      _vm._v("1913"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1914" } }, [
+                      _vm._v("1914"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1915" } }, [
+                      _vm._v("1915"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1916" } }, [
+                      _vm._v("1916"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1917" } }, [
+                      _vm._v("1917"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1918" } }, [
+                      _vm._v("1918"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1919" } }, [
+                      _vm._v("1919"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1920" } }, [
+                      _vm._v("1920"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1921" } }, [
+                      _vm._v("1921"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1922" } }, [
+                      _vm._v("1922"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1923" } }, [
+                      _vm._v("1923"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1924" } }, [
+                      _vm._v("1924"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1925" } }, [
+                      _vm._v("1925"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1926" } }, [
+                      _vm._v("1926"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1927" } }, [
+                      _vm._v("1927"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1928" } }, [
+                      _vm._v("1928"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1929" } }, [
+                      _vm._v("1929"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1930" } }, [
+                      _vm._v("1930"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1931" } }, [
+                      _vm._v("1931"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1932" } }, [
+                      _vm._v("1932"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1933" } }, [
+                      _vm._v("1933"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1934" } }, [
+                      _vm._v("1934"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1935" } }, [
+                      _vm._v("1935"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1936" } }, [
+                      _vm._v("1936"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1937" } }, [
+                      _vm._v("1937"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1938" } }, [
+                      _vm._v("1938"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1939" } }, [
+                      _vm._v("1939"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1940" } }, [
+                      _vm._v("1940"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1941" } }, [
+                      _vm._v("1941"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1942" } }, [
+                      _vm._v("1942"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1943" } }, [
+                      _vm._v("1943"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1944" } }, [
+                      _vm._v("1944"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1945" } }, [
+                      _vm._v("1945"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1946" } }, [
+                      _vm._v("1946"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1947" } }, [
+                      _vm._v("1947"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1948" } }, [
+                      _vm._v("1948"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1949" } }, [
+                      _vm._v("1949"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1950" } }, [
+                      _vm._v("1950"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1951" } }, [
+                      _vm._v("1951"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1952" } }, [
+                      _vm._v("1952"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1953" } }, [
+                      _vm._v("1953"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1954" } }, [
+                      _vm._v("1954"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1955" } }, [
+                      _vm._v("1955"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1956" } }, [
+                      _vm._v("1956"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1957" } }, [
+                      _vm._v("1957"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1958" } }, [
+                      _vm._v("1958"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1959" } }, [
+                      _vm._v("1959"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1960" } }, [
+                      _vm._v("1960"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1961" } }, [
+                      _vm._v("1961"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1962" } }, [
+                      _vm._v("1962"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1963" } }, [
+                      _vm._v("1963"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1964" } }, [
+                      _vm._v("1964"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1965" } }, [
+                      _vm._v("1965"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1966" } }, [
+                      _vm._v("1966"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1967" } }, [
+                      _vm._v("1967"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1968" } }, [
+                      _vm._v("1968"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1969" } }, [
+                      _vm._v("1969"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1970" } }, [
+                      _vm._v("1970"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1971" } }, [
+                      _vm._v("1971"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1972" } }, [
+                      _vm._v("1972"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1973" } }, [
+                      _vm._v("1973"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1974" } }, [
+                      _vm._v("1974"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1975" } }, [
+                      _vm._v("1975"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1976" } }, [
+                      _vm._v("1976"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1977" } }, [
+                      _vm._v("1977"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1978" } }, [
+                      _vm._v("1978"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1979" } }, [
+                      _vm._v("1979"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1980" } }, [
+                      _vm._v("1980"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1981" } }, [
+                      _vm._v("1981"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1982" } }, [
+                      _vm._v("1982"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1983" } }, [
+                      _vm._v("1983"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1984" } }, [
+                      _vm._v("1984"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1985" } }, [
+                      _vm._v("1985"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1986" } }, [
+                      _vm._v("1986"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1987" } }, [
+                      _vm._v("1987"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1988" } }, [
+                      _vm._v("1988"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1989" } }, [
+                      _vm._v("1989"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1990" } }, [
+                      _vm._v("1990"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1991" } }, [
+                      _vm._v("1991"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1992" } }, [
+                      _vm._v("1992"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1993" } }, [
+                      _vm._v("1993"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1994" } }, [
+                      _vm._v("1994"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1995" } }, [
+                      _vm._v("1995"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1996" } }, [
+                      _vm._v("1996"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1997" } }, [
+                      _vm._v("1997"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1998" } }, [
+                      _vm._v("1998"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1999" } }, [
+                      _vm._v("1999"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2000" } }, [
+                      _vm._v("2000"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2001" } }, [
+                      _vm._v("2001"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2002" } }, [
+                      _vm._v("2002"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2003" } }, [
+                      _vm._v("2003"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2004" } }, [
+                      _vm._v("2004"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2005" } }, [
+                      _vm._v("2005"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2006" } }, [
+                      _vm._v("2006"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2007" } }, [
+                      _vm._v("2007"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2008" } }, [
+                      _vm._v("2008"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2009" } }, [
+                      _vm._v("2009"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2010" } }, [
+                      _vm._v("2010"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2011" } }, [
+                      _vm._v("2011"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2012" } }, [
+                      _vm._v("2012"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2013" } }, [
+                      _vm._v("2013"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2014" } }, [
+                      _vm._v("2014"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2015" } }, [
+                      _vm._v("2015"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2016" } }, [
+                      _vm._v("2016"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2017" } }, [
+                      _vm._v("2017"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2018" } }, [
+                      _vm._v("2018"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2019" } }, [
+                      _vm._v("2019"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2020" } }, [
+                      _vm._v("2020"),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("年")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.month,
+                        expression: "user.month",
+                      },
+                    ],
+                    staticClass: "col-sm form-control",
+                    attrs: { id: "month" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "month",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("月")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.day,
+                        expression: "user.day",
+                      },
+                    ],
+                    staticClass: "col-sm form-control",
+                    attrs: { id: "day" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "day",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "13" } }, [_vm._v("13")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "14" } }, [_vm._v("14")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "15" } }, [_vm._v("15")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "16" } }, [_vm._v("16")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "17" } }, [_vm._v("17")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "18" } }, [_vm._v("18")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "19" } }, [_vm._v("19")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "20" } }, [_vm._v("20")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "21" } }, [_vm._v("21")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "22" } }, [_vm._v("22")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "23" } }, [_vm._v("23")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "24" } }, [_vm._v("24")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "25" } }, [_vm._v("25")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "26" } }, [_vm._v("26")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "27" } }, [_vm._v("27")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "28" } }, [_vm._v("28")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "29" } }, [_vm._v("29")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "31" } }, [_vm._v("31")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("日")]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
               _c(
                 "label",
                 {
                   staticClass: "col-sm-3 col-form-label",
                   attrs: { for: "address" },
                 },
-                [_vm._v("住んでる地域")]
+                [_vm._v("居住地")]
               ),
               _vm._v(" "),
               _c(
@@ -46764,7 +47964,7 @@ var render = function () {
                 [_vm._v("自己紹介")]
               ),
               _vm._v(" "),
-              _c("input", {
+              _c("textarea", {
                 directives: [
                   {
                     name: "model",
@@ -46774,7 +47974,10 @@ var render = function () {
                   },
                 ],
                 staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "self_introduction" },
+                attrs: {
+                  placeholder: "自己紹介を入力",
+                  id: "self_introduction",
+                },
                 domProps: { value: _vm.user.self_introduction },
                 on: {
                   input: function ($event) {
@@ -46822,7 +48025,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "col-sm-8" }, [
         _c(
           "form",
           {
@@ -46835,135 +48038,127 @@ var render = function () {
           },
           [
             _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "sei" },
-                },
-                [_vm._v("姓")]
-              ),
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "sei" } },
+                  [_vm._v("姓")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.sei,
+                      expression: "user.sei",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "sei" },
+                  domProps: { value: _vm.user.sei },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "sei", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.sei,
-                    expression: "user.sei",
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "mei" } },
+                  [_vm._v("名")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.mei,
+                      expression: "user.mei",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "mei" },
+                  domProps: { value: _vm.user.mei },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "mei", $event.target.value)
+                    },
                   },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "sei" },
-                domProps: { value: _vm.user.sei },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "sei", $event.target.value)
-                  },
-                },
-              }),
+                }),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "mei" },
-                },
-                [_vm._v("名")]
-              ),
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "sei_kana" } },
+                  [_vm._v("セイ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.sei_kana,
+                      expression: "user.sei_kana",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "sei_kana" },
+                  domProps: { value: _vm.user.sei_kana },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "sei_kana", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.mei,
-                    expression: "user.mei",
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "mei_kana" } },
+                  [_vm._v("メイ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.mei_kana,
+                      expression: "user.mei_kana",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "mei_kana" },
+                  domProps: { value: _vm.user.mei_kana },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "mei_kana", $event.target.value)
+                    },
                   },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "mei" },
-                domProps: { value: _vm.user.mei },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "mei", $event.target.value)
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "sei_kana" },
-                },
-                [_vm._v("セイ")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.sei_kana,
-                    expression: "user.sei_kana",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "sei_kana" },
-                domProps: { value: _vm.user.sei_kana },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "sei_kana", $event.target.value)
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "mei_kana" },
-                },
-                [_vm._v("メイ")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.mei_kana,
-                    expression: "user.mei_kana",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "mei_kana" },
-                domProps: { value: _vm.user.mei_kana },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "mei_kana", $event.target.value)
-                  },
-                },
-              }),
+                }),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
@@ -46987,7 +48182,7 @@ var render = function () {
                       expression: "user.gender",
                     },
                   ],
-                  staticClass: "col-sm-9 form-control",
+                  staticClass: "col-sm-2 form-control",
                   attrs: { id: "gender" },
                   on: {
                     change: function ($event) {
@@ -47022,36 +48217,697 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "age" },
-                },
-                [_vm._v("年齢")]
-              ),
+              _c("p", { staticClass: "col-sm-3" }, [_vm._v("生年月日")]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.age,
-                    expression: "user.age",
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.year,
+                        expression: "user.year",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "year" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "year",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
                   },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "number", id: "age" },
-                domProps: { value: _vm.user.age },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "age", $event.target.value)
+                  [
+                    _c("option", { attrs: { value: "1900" } }, [
+                      _vm._v("1900"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1901" } }, [
+                      _vm._v("1901"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1902" } }, [
+                      _vm._v("1902"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1903" } }, [
+                      _vm._v("1903"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1904" } }, [
+                      _vm._v("1904"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1905" } }, [
+                      _vm._v("1905"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1906" } }, [
+                      _vm._v("1906"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1907" } }, [
+                      _vm._v("1907"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1908" } }, [
+                      _vm._v("1908"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1909" } }, [
+                      _vm._v("1909"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1910" } }, [
+                      _vm._v("1910"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1911" } }, [
+                      _vm._v("1911"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1912" } }, [
+                      _vm._v("1912"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1913" } }, [
+                      _vm._v("1913"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1914" } }, [
+                      _vm._v("1914"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1915" } }, [
+                      _vm._v("1915"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1916" } }, [
+                      _vm._v("1916"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1917" } }, [
+                      _vm._v("1917"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1918" } }, [
+                      _vm._v("1918"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1919" } }, [
+                      _vm._v("1919"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1920" } }, [
+                      _vm._v("1920"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1921" } }, [
+                      _vm._v("1921"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1922" } }, [
+                      _vm._v("1922"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1923" } }, [
+                      _vm._v("1923"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1924" } }, [
+                      _vm._v("1924"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1925" } }, [
+                      _vm._v("1925"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1926" } }, [
+                      _vm._v("1926"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1927" } }, [
+                      _vm._v("1927"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1928" } }, [
+                      _vm._v("1928"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1929" } }, [
+                      _vm._v("1929"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1930" } }, [
+                      _vm._v("1930"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1931" } }, [
+                      _vm._v("1931"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1932" } }, [
+                      _vm._v("1932"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1933" } }, [
+                      _vm._v("1933"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1934" } }, [
+                      _vm._v("1934"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1935" } }, [
+                      _vm._v("1935"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1936" } }, [
+                      _vm._v("1936"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1937" } }, [
+                      _vm._v("1937"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1938" } }, [
+                      _vm._v("1938"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1939" } }, [
+                      _vm._v("1939"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1940" } }, [
+                      _vm._v("1940"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1941" } }, [
+                      _vm._v("1941"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1942" } }, [
+                      _vm._v("1942"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1943" } }, [
+                      _vm._v("1943"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1944" } }, [
+                      _vm._v("1944"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1945" } }, [
+                      _vm._v("1945"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1946" } }, [
+                      _vm._v("1946"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1947" } }, [
+                      _vm._v("1947"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1948" } }, [
+                      _vm._v("1948"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1949" } }, [
+                      _vm._v("1949"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1950" } }, [
+                      _vm._v("1950"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1951" } }, [
+                      _vm._v("1951"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1952" } }, [
+                      _vm._v("1952"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1953" } }, [
+                      _vm._v("1953"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1954" } }, [
+                      _vm._v("1954"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1955" } }, [
+                      _vm._v("1955"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1956" } }, [
+                      _vm._v("1956"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1957" } }, [
+                      _vm._v("1957"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1958" } }, [
+                      _vm._v("1958"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1959" } }, [
+                      _vm._v("1959"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1960" } }, [
+                      _vm._v("1960"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1961" } }, [
+                      _vm._v("1961"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1962" } }, [
+                      _vm._v("1962"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1963" } }, [
+                      _vm._v("1963"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1964" } }, [
+                      _vm._v("1964"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1965" } }, [
+                      _vm._v("1965"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1966" } }, [
+                      _vm._v("1966"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1967" } }, [
+                      _vm._v("1967"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1968" } }, [
+                      _vm._v("1968"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1969" } }, [
+                      _vm._v("1969"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1970" } }, [
+                      _vm._v("1970"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1971" } }, [
+                      _vm._v("1971"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1972" } }, [
+                      _vm._v("1972"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1973" } }, [
+                      _vm._v("1973"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1974" } }, [
+                      _vm._v("1974"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1975" } }, [
+                      _vm._v("1975"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1976" } }, [
+                      _vm._v("1976"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1977" } }, [
+                      _vm._v("1977"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1978" } }, [
+                      _vm._v("1978"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1979" } }, [
+                      _vm._v("1979"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1980" } }, [
+                      _vm._v("1980"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1981" } }, [
+                      _vm._v("1981"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1982" } }, [
+                      _vm._v("1982"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1983" } }, [
+                      _vm._v("1983"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1984" } }, [
+                      _vm._v("1984"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1985" } }, [
+                      _vm._v("1985"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1986" } }, [
+                      _vm._v("1986"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1987" } }, [
+                      _vm._v("1987"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1988" } }, [
+                      _vm._v("1988"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1989" } }, [
+                      _vm._v("1989"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1990" } }, [
+                      _vm._v("1990"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1991" } }, [
+                      _vm._v("1991"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1992" } }, [
+                      _vm._v("1992"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1993" } }, [
+                      _vm._v("1993"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1994" } }, [
+                      _vm._v("1994"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1995" } }, [
+                      _vm._v("1995"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1996" } }, [
+                      _vm._v("1996"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1997" } }, [
+                      _vm._v("1997"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1998" } }, [
+                      _vm._v("1998"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1999" } }, [
+                      _vm._v("1999"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2000" } }, [
+                      _vm._v("2000"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2001" } }, [
+                      _vm._v("2001"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2002" } }, [
+                      _vm._v("2002"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2003" } }, [
+                      _vm._v("2003"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2004" } }, [
+                      _vm._v("2004"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2005" } }, [
+                      _vm._v("2005"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2006" } }, [
+                      _vm._v("2006"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2007" } }, [
+                      _vm._v("2007"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2008" } }, [
+                      _vm._v("2008"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2009" } }, [
+                      _vm._v("2009"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2010" } }, [
+                      _vm._v("2010"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2011" } }, [
+                      _vm._v("2011"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2012" } }, [
+                      _vm._v("2012"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2013" } }, [
+                      _vm._v("2013"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2014" } }, [
+                      _vm._v("2014"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2015" } }, [
+                      _vm._v("2015"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2016" } }, [
+                      _vm._v("2016"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2017" } }, [
+                      _vm._v("2017"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2018" } }, [
+                      _vm._v("2018"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2019" } }, [
+                      _vm._v("2019"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2020" } }, [
+                      _vm._v("2020"),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("年")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.month,
+                        expression: "user.month",
+                      },
+                    ],
+                    staticClass: "col-sm form-control",
+                    attrs: { id: "month" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "month",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
                   },
-                },
-              }),
+                  [
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("月")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.day,
+                        expression: "user.day",
+                      },
+                    ],
+                    staticClass: "col-sm form-control",
+                    attrs: { id: "day" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "day",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "13" } }, [_vm._v("13")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "14" } }, [_vm._v("14")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "15" } }, [_vm._v("15")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "16" } }, [_vm._v("16")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "17" } }, [_vm._v("17")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "18" } }, [_vm._v("18")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "19" } }, [_vm._v("19")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "20" } }, [_vm._v("20")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "21" } }, [_vm._v("21")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "22" } }, [_vm._v("22")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "23" } }, [_vm._v("23")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "24" } }, [_vm._v("24")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "25" } }, [_vm._v("25")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "26" } }, [_vm._v("26")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "27" } }, [_vm._v("27")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "28" } }, [_vm._v("28")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "29" } }, [_vm._v("29")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "31" } }, [_vm._v("31")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("日")]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
@@ -47061,7 +48917,7 @@ var render = function () {
                   staticClass: "col-sm-3 col-form-label",
                   attrs: { for: "address" },
                 },
-                [_vm._v("住んでる地域")]
+                [_vm._v("居住地")]
               ),
               _vm._v(" "),
               _c(
@@ -47299,7 +49155,7 @@ var render = function () {
                 [_vm._v("自己紹介")]
               ),
               _vm._v(" "),
-              _c("input", {
+              _c("textarea", {
                 directives: [
                   {
                     name: "model",
@@ -47309,7 +49165,10 @@ var render = function () {
                   },
                 ],
                 staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "self_introduction" },
+                attrs: {
+                  placeholder: "自己紹介を入力",
+                  id: "self_introduction",
+                },
                 domProps: { value: _vm.user.self_introduction },
                 on: {
                   input: function ($event) {
@@ -47748,7 +49607,7 @@ var render = function () {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c(
         "div",
-        { staticClass: "col-sm-6" },
+        { staticClass: "col-sm-8" },
         [
           _c("form", [
             _c("div", { staticClass: "form-group row" }, [
@@ -47876,36 +49735,697 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "age" },
-                },
-                [_vm._v("年齢")]
-              ),
+              _c("p", { staticClass: "col-sm-3" }, [_vm._v("生年月日")]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.age,
-                    expression: "user.age",
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.year,
+                        expression: "user.year",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "year", readonly: "" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "year",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
                   },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", readonly: "", id: "age" },
-                domProps: { value: _vm.user.age },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "age", $event.target.value)
+                  [
+                    _c("option", { attrs: { value: "1900" } }, [
+                      _vm._v("1900"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1901" } }, [
+                      _vm._v("1901"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1902" } }, [
+                      _vm._v("1902"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1903" } }, [
+                      _vm._v("1903"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1904" } }, [
+                      _vm._v("1904"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1905" } }, [
+                      _vm._v("1905"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1906" } }, [
+                      _vm._v("1906"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1907" } }, [
+                      _vm._v("1907"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1908" } }, [
+                      _vm._v("1908"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1909" } }, [
+                      _vm._v("1909"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1910" } }, [
+                      _vm._v("1910"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1911" } }, [
+                      _vm._v("1911"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1912" } }, [
+                      _vm._v("1912"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1913" } }, [
+                      _vm._v("1913"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1914" } }, [
+                      _vm._v("1914"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1915" } }, [
+                      _vm._v("1915"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1916" } }, [
+                      _vm._v("1916"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1917" } }, [
+                      _vm._v("1917"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1918" } }, [
+                      _vm._v("1918"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1919" } }, [
+                      _vm._v("1919"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1920" } }, [
+                      _vm._v("1920"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1921" } }, [
+                      _vm._v("1921"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1922" } }, [
+                      _vm._v("1922"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1923" } }, [
+                      _vm._v("1923"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1924" } }, [
+                      _vm._v("1924"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1925" } }, [
+                      _vm._v("1925"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1926" } }, [
+                      _vm._v("1926"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1927" } }, [
+                      _vm._v("1927"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1928" } }, [
+                      _vm._v("1928"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1929" } }, [
+                      _vm._v("1929"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1930" } }, [
+                      _vm._v("1930"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1931" } }, [
+                      _vm._v("1931"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1932" } }, [
+                      _vm._v("1932"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1933" } }, [
+                      _vm._v("1933"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1934" } }, [
+                      _vm._v("1934"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1935" } }, [
+                      _vm._v("1935"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1936" } }, [
+                      _vm._v("1936"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1937" } }, [
+                      _vm._v("1937"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1938" } }, [
+                      _vm._v("1938"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1939" } }, [
+                      _vm._v("1939"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1940" } }, [
+                      _vm._v("1940"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1941" } }, [
+                      _vm._v("1941"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1942" } }, [
+                      _vm._v("1942"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1943" } }, [
+                      _vm._v("1943"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1944" } }, [
+                      _vm._v("1944"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1945" } }, [
+                      _vm._v("1945"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1946" } }, [
+                      _vm._v("1946"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1947" } }, [
+                      _vm._v("1947"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1948" } }, [
+                      _vm._v("1948"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1949" } }, [
+                      _vm._v("1949"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1950" } }, [
+                      _vm._v("1950"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1951" } }, [
+                      _vm._v("1951"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1952" } }, [
+                      _vm._v("1952"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1953" } }, [
+                      _vm._v("1953"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1954" } }, [
+                      _vm._v("1954"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1955" } }, [
+                      _vm._v("1955"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1956" } }, [
+                      _vm._v("1956"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1957" } }, [
+                      _vm._v("1957"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1958" } }, [
+                      _vm._v("1958"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1959" } }, [
+                      _vm._v("1959"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1960" } }, [
+                      _vm._v("1960"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1961" } }, [
+                      _vm._v("1961"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1962" } }, [
+                      _vm._v("1962"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1963" } }, [
+                      _vm._v("1963"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1964" } }, [
+                      _vm._v("1964"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1965" } }, [
+                      _vm._v("1965"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1966" } }, [
+                      _vm._v("1966"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1967" } }, [
+                      _vm._v("1967"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1968" } }, [
+                      _vm._v("1968"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1969" } }, [
+                      _vm._v("1969"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1970" } }, [
+                      _vm._v("1970"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1971" } }, [
+                      _vm._v("1971"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1972" } }, [
+                      _vm._v("1972"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1973" } }, [
+                      _vm._v("1973"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1974" } }, [
+                      _vm._v("1974"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1975" } }, [
+                      _vm._v("1975"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1976" } }, [
+                      _vm._v("1976"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1977" } }, [
+                      _vm._v("1977"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1978" } }, [
+                      _vm._v("1978"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1979" } }, [
+                      _vm._v("1979"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1980" } }, [
+                      _vm._v("1980"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1981" } }, [
+                      _vm._v("1981"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1982" } }, [
+                      _vm._v("1982"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1983" } }, [
+                      _vm._v("1983"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1984" } }, [
+                      _vm._v("1984"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1985" } }, [
+                      _vm._v("1985"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1986" } }, [
+                      _vm._v("1986"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1987" } }, [
+                      _vm._v("1987"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1988" } }, [
+                      _vm._v("1988"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1989" } }, [
+                      _vm._v("1989"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1990" } }, [
+                      _vm._v("1990"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1991" } }, [
+                      _vm._v("1991"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1992" } }, [
+                      _vm._v("1992"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1993" } }, [
+                      _vm._v("1993"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1994" } }, [
+                      _vm._v("1994"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1995" } }, [
+                      _vm._v("1995"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1996" } }, [
+                      _vm._v("1996"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1997" } }, [
+                      _vm._v("1997"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1998" } }, [
+                      _vm._v("1998"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1999" } }, [
+                      _vm._v("1999"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2000" } }, [
+                      _vm._v("2000"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2001" } }, [
+                      _vm._v("2001"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2002" } }, [
+                      _vm._v("2002"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2003" } }, [
+                      _vm._v("2003"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2004" } }, [
+                      _vm._v("2004"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2005" } }, [
+                      _vm._v("2005"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2006" } }, [
+                      _vm._v("2006"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2007" } }, [
+                      _vm._v("2007"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2008" } }, [
+                      _vm._v("2008"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2009" } }, [
+                      _vm._v("2009"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2010" } }, [
+                      _vm._v("2010"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2011" } }, [
+                      _vm._v("2011"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2012" } }, [
+                      _vm._v("2012"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2013" } }, [
+                      _vm._v("2013"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2014" } }, [
+                      _vm._v("2014"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2015" } }, [
+                      _vm._v("2015"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2016" } }, [
+                      _vm._v("2016"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2017" } }, [
+                      _vm._v("2017"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2018" } }, [
+                      _vm._v("2018"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2019" } }, [
+                      _vm._v("2019"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2020" } }, [
+                      _vm._v("2020"),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("年")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.month,
+                        expression: "user.month",
+                      },
+                    ],
+                    staticClass: "col-sm form-control",
+                    attrs: { readonly: "", id: "month" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "month",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
                   },
-                },
-              }),
+                  [
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("月")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.day,
+                        expression: "user.day",
+                      },
+                    ],
+                    staticClass: "col-sm form-control",
+                    attrs: { id: "day", readonly: "" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "day",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "13" } }, [_vm._v("13")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "14" } }, [_vm._v("14")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "15" } }, [_vm._v("15")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "16" } }, [_vm._v("16")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "17" } }, [_vm._v("17")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "18" } }, [_vm._v("18")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "19" } }, [_vm._v("19")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "20" } }, [_vm._v("20")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "21" } }, [_vm._v("21")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "22" } }, [_vm._v("22")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "23" } }, [_vm._v("23")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "24" } }, [_vm._v("24")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "25" } }, [_vm._v("25")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "26" } }, [_vm._v("26")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "27" } }, [_vm._v("27")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "28" } }, [_vm._v("28")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "29" } }, [_vm._v("29")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "31" } }, [_vm._v("31")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("日")]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
@@ -47948,7 +50468,7 @@ var render = function () {
                   staticClass: "col-sm-3 col-form-label",
                   attrs: { for: "address" },
                 },
-                [_vm._v("住んでる場所")]
+                [_vm._v("居住地")]
               ),
               _vm._v(" "),
               _c("input", {
