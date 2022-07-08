@@ -6,16 +6,16 @@
 import VueRouter from 'vue-router';
 import HeaderComponent from "./components/share/HeaderComponent";
 import FooterComponent from "./components/share/FooterComponent";
-import JobListComponent from "./components/JobListComponent";
-import JobCreateComponent from "./components/JobCreateComponent";
-import JobShowComponent from "./components/JobShowComponent";
-import JobEditComponent from "./components/JobEditComponent";
-import RegisterComponent from "./components/RegisterComponent";
-import LoginComponent from "./components/LoginComponent";
+import JobListComponent from "./components/job/JobListComponent";
+import JobCreateComponent from "./components/job/JobCreateComponent";
+import JobShowComponent from "./components/job/JobShowComponent";
+import JobEditComponent from "./components/job/JobEditComponent";
 import UserListComponent from "./components/user/UserListComponent";
 import UserShowComponent from "./components/user/UserShowComponent";
 import UserMessageComponent from "./components/user/UserMessageComponent";
 import MyPageComponent from "./components/MyPageComponent";
+import RegisterComponent from "./components/RegisterComponent";
+import LoginComponent from "./components/LoginComponent";
 
 require('./bootstrap');
 
