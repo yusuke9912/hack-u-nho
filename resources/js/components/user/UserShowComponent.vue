@@ -221,7 +221,7 @@
                 <router-link v-bind:to="{name: 'user.room', params: {userId: user.id }}">
                     <button class="btn btn-primary">メッセージ</button>
                 </router-link>
-                <router-link v-bind:to="{name: 'user.room', params: {userId: user.id }}">
+                <router-link v-bind:to="{name: 'job.request', params: {userId: user.id }}">
                     <button class="btn btn-primary">お仕事依頼</button>
                 </router-link>
             </div>

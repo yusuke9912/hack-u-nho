@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use App\Job;
 
 class JobController extends Controller
 {
     public function index()
     {
-        return Job::all();
+        Log::Debug("index");
+        return Job::where('job_receiver', '=', Auth::id())->get();
     }
 
     public function show(Job $job)
