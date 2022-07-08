@@ -10,12 +10,14 @@ import JobListComponent from "./components/job/JobListComponent";
 import JobCreateComponent from "./components/job/JobCreateComponent";
 import JobShowComponent from "./components/job/JobShowComponent";
 import JobEditComponent from "./components/job/JobEditComponent";
+import JobRequestComponent from "./components/job/JobRequestComponent";
 import UserListComponent from "./components/user/UserListComponent";
 import UserShowComponent from "./components/user/UserShowComponent";
 import UserMessageComponent from "./components/user/UserMessageComponent";
 import MyPageComponent from "./components/MyPageComponent";
 import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
+import RoomListComponent from "./components/RoomListComponent";
 
 require('./bootstrap');
 
@@ -82,6 +84,12 @@ const router = new VueRouter({
             props: true
         },
         {
+            path: '/jobs/:userId/request',
+            name: 'job.request',
+            component: JobRequestComponent,
+            props: true
+        },
+        {
             path: '/',
             name: 'user.list',
             component: UserListComponent,
@@ -102,6 +110,11 @@ const router = new VueRouter({
             path: '/mypage',
             name: 'mypage',
             component: MyPageComponent,
+        },
+        {
+            path: '/rooms',
+            name: 'room.list',
+            component: RoomListComponent,
         },
     ]
 });

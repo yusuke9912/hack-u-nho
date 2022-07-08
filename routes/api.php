@@ -25,14 +25,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users/{user}/room', 'MessageController@getRoom');
     Route::post('/users/{user}/room', 'MessageController@send');
     Route::get('/send', 'MessageController@send');
+    Route::get('/send', 'MessageController@send');
+    Route::get('/jobs', 'JobController@index');
+    Route::post('/jobs', 'JobController@store');
+    Route::get('/jobs/{job}', 'JobController@show');
+    Route::put('/jobs/{job}', 'JobController@update');
+    Route::delete('/jobs/{job}', 'JobController@destroy');
+    Route::get('/rooms', 'RoomController@index');
 });
-
-
-Route::get('/jobs', 'JobController@index');
-Route::post('/jobs', 'JobController@store');
-Route::get('/jobs/{job}', 'JobController@show');
-Route::put('/jobs/{job}', 'JobController@update');
-Route::delete('/jobs/{job}', 'JobController@destroy');
 
 // ユーザ登録
 Route::post('/signup', 'Auth\RegisterController@register');

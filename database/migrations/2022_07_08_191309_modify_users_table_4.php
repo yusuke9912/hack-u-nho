@@ -14,10 +14,6 @@ class ModifyUsersTable4 extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropIndex('date_of_birth');
-            $table->string('year',10);
-            $table->string('month',10);
-            $table->string('day',10);
         });
     }
 

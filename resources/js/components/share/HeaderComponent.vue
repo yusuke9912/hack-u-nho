@@ -8,15 +8,21 @@
                     </router-link>
                 <div>
                     <div v-if="user">
-                        <router-link v-bind:to="{name: 'mypage'}">
-                            <button class="btn btn-success">マイページ</button>
+                        <router-link v-bind:to="{name: 'job.list'}" class="mr-3">
+                            <button class="btn btn-success">依頼されている仕事一覧</button>
                         </router-link>
-                        <button class="btn btn-success" @click="logout">ログアウト</button>
+                        <router-link v-bind:to="{name: 'room.list'}" class="mr-3">
+                            <button class="btn btn-success">メッセージ一覧</button>
+                        </router-link>
+                        <router-link v-bind:to="{name: 'mypage'}" class="mr-3">
+                            <button class="btn btn-success">プロフィール</button>
+                        </router-link>
+                        <button class="btn btn-danger" @click="logout">ログアウト</button>
                     </div>
                     <div v-else>
                         <span class="text-white">{{ user }}</span>
-                        <router-link v-bind:to="{name: 'signup'}">
-                            <button class="btn btn-success">新規登録</button>
+                        <router-link v-bind:to="{name: 'signup'}" class="mr-3">
+                            <button class="btn btn-primary">新規登録</button>
                         </router-link>
                         <router-link v-bind:to="{name: 'login'}">
                             <button class="btn btn-success">ログイン</button>
