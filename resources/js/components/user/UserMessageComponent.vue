@@ -10,10 +10,9 @@
     </div><!-- .chat -->
         <form v-on:submit.prevent="submit">
             <div class="form-group row">
-                <label for="person-in-charge" class="col-sm-3 col-form-label">メッセージ</label>
-                <input type="text" class="col-sm-9 form-control" id="message" v-model="body">
+                <textarea class="col-sm-8 form-control" placeholder="メッセージを入力" v-model="body"></textarea>
+                <button type="submit" class="btn btn-primary">送信</button>
             </div>
-            <button type="submit" class="btn btn-primary">送信</button>
         </form>
     </div>
 </template>

@@ -2280,6 +2280,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2373,6 +2425,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2382,8 +2486,16 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
+      var _this = this;
+
       axios.post('/api/signup', this.user).then(function (res) {
         console.log("新規登録しました");
+
+        _this.$router.push('/', function () {});
+
+        _this.$router.go({
+          path: "/"
+        });
       })["catch"](function (error) {});
     }
   }
@@ -2573,7 +2685,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -46340,7 +46451,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "age" },
+                attrs: { type: "number", id: "age" },
                 domProps: { value: _vm.user.age },
                 on: {
                   input: function ($event) {
@@ -46363,27 +46474,49 @@ var render = function () {
                 [_vm._v("性別")]
               ),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.gender,
-                    expression: "user.gender",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "gender" },
-                domProps: { value: _vm.user.gender },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "gender", $event.target.value)
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.gender,
+                      expression: "user.gender",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { id: "gender" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.user,
+                        "gender",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
                   },
                 },
-              }),
+                [
+                  _c("option", { attrs: { value: "男性" } }, [_vm._v("男性")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "女性" } }, [_vm._v("女性")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "その他" } }, [
+                    _vm._v("その他"),
+                  ]),
+                ]
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
@@ -46393,30 +46526,232 @@ var render = function () {
                   staticClass: "col-sm-3 col-form-label",
                   attrs: { for: "address" },
                 },
-                [_vm._v("住んでる場所")]
+                [_vm._v("住んでる地域")]
               ),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.address,
-                    expression: "user.address",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "address" },
-                domProps: { value: _vm.user.address },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "address", $event.target.value)
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.address,
+                      expression: "user.address",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { id: "address" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.user,
+                        "address",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
                   },
                 },
-              }),
+                [
+                  _c("option", { attrs: { value: "北海道" } }, [
+                    _vm._v("北海道"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "青森県" } }, [
+                    _vm._v("青森県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "岩手県" } }, [
+                    _vm._v("岩手県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "宮城県" } }, [
+                    _vm._v("宮城県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "秋田県" } }, [
+                    _vm._v("秋田県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "山形県" } }, [
+                    _vm._v("山形県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "福島県" } }, [
+                    _vm._v("福島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "茨城県" } }, [
+                    _vm._v("茨城県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "栃木県" } }, [
+                    _vm._v("栃木県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "群馬県" } }, [
+                    _vm._v("群馬県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "埼玉県" } }, [
+                    _vm._v("埼玉県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "千葉県" } }, [
+                    _vm._v("千葉県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "東京都" } }, [
+                    _vm._v("東京都"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "神奈川県" } }, [
+                    _vm._v("神奈川県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "新潟県" } }, [
+                    _vm._v("新潟県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "富山県" } }, [
+                    _vm._v("富山県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "石川県" } }, [
+                    _vm._v("石川県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "福井県" } }, [
+                    _vm._v("福井県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "山梨県" } }, [
+                    _vm._v("山梨県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "長野県" } }, [
+                    _vm._v("長野県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "岐阜県" } }, [
+                    _vm._v("岐阜県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "静岡県" } }, [
+                    _vm._v("静岡県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "愛知県" } }, [
+                    _vm._v("愛知県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "三重県" } }, [
+                    _vm._v("三重県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "滋賀県" } }, [
+                    _vm._v("滋賀県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "京都府" } }, [
+                    _vm._v("京都府"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "大阪府" } }, [
+                    _vm._v("大阪府"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "兵庫県" } }, [
+                    _vm._v("兵庫県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "奈良県" } }, [
+                    _vm._v("奈良県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "和歌山県" } }, [
+                    _vm._v("和歌山県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "鳥取県" } }, [
+                    _vm._v("鳥取県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "島根県" } }, [
+                    _vm._v("島根県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "岡山県" } }, [
+                    _vm._v("岡山県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "広島県" } }, [
+                    _vm._v("広島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "山口県" } }, [
+                    _vm._v("山口県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "徳島県" } }, [
+                    _vm._v("徳島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "香川県" } }, [
+                    _vm._v("香川県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "愛媛県" } }, [
+                    _vm._v("愛媛県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "高知県" } }, [
+                    _vm._v("高知県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "福岡県" } }, [
+                    _vm._v("福岡県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "佐賀県" } }, [
+                    _vm._v("佐賀県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "長崎県" } }, [
+                    _vm._v("長崎県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "熊本県" } }, [
+                    _vm._v("熊本県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "大分県" } }, [
+                    _vm._v("大分県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "宮崎県" } }, [
+                    _vm._v("宮崎県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "鹿児島県" } }, [
+                    _vm._v("鹿児島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "沖縄県" } }, [
+                    _vm._v("沖縄県"),
+                  ]),
+                ]
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
@@ -46641,27 +46976,49 @@ var render = function () {
                 [_vm._v("性別")]
               ),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.gender,
-                    expression: "user.gender",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "gender" },
-                domProps: { value: _vm.user.gender },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "gender", $event.target.value)
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.gender,
+                      expression: "user.gender",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { id: "gender" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.user,
+                        "gender",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
                   },
                 },
-              }),
+                [
+                  _c("option", { attrs: { value: "男性" } }, [_vm._v("男性")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "女性" } }, [_vm._v("女性")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "その他" } }, [
+                    _vm._v("その他"),
+                  ]),
+                ]
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
@@ -46707,27 +47064,229 @@ var render = function () {
                 [_vm._v("住んでる地域")]
               ),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.address,
-                    expression: "user.address",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "address" },
-                domProps: { value: _vm.user.address },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "address", $event.target.value)
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.address,
+                      expression: "user.address",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { id: "address" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.user,
+                        "address",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
                   },
                 },
-              }),
+                [
+                  _c("option", { attrs: { value: "北海道" } }, [
+                    _vm._v("北海道"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "青森県" } }, [
+                    _vm._v("青森県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "岩手県" } }, [
+                    _vm._v("岩手県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "宮城県" } }, [
+                    _vm._v("宮城県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "秋田県" } }, [
+                    _vm._v("秋田県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "山形県" } }, [
+                    _vm._v("山形県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "福島県" } }, [
+                    _vm._v("福島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "茨城県" } }, [
+                    _vm._v("茨城県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "栃木県" } }, [
+                    _vm._v("栃木県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "群馬県" } }, [
+                    _vm._v("群馬県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "埼玉県" } }, [
+                    _vm._v("埼玉県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "千葉県" } }, [
+                    _vm._v("千葉県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "東京都" } }, [
+                    _vm._v("東京都"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "神奈川県" } }, [
+                    _vm._v("神奈川県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "新潟県" } }, [
+                    _vm._v("新潟県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "富山県" } }, [
+                    _vm._v("富山県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "石川県" } }, [
+                    _vm._v("石川県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "福井県" } }, [
+                    _vm._v("福井県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "山梨県" } }, [
+                    _vm._v("山梨県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "長野県" } }, [
+                    _vm._v("長野県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "岐阜県" } }, [
+                    _vm._v("岐阜県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "静岡県" } }, [
+                    _vm._v("静岡県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "愛知県" } }, [
+                    _vm._v("愛知県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "三重県" } }, [
+                    _vm._v("三重県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "滋賀県" } }, [
+                    _vm._v("滋賀県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "京都府" } }, [
+                    _vm._v("京都府"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "大阪府" } }, [
+                    _vm._v("大阪府"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "兵庫県" } }, [
+                    _vm._v("兵庫県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "奈良県" } }, [
+                    _vm._v("奈良県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "和歌山県" } }, [
+                    _vm._v("和歌山県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "鳥取県" } }, [
+                    _vm._v("鳥取県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "島根県" } }, [
+                    _vm._v("島根県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "岡山県" } }, [
+                    _vm._v("岡山県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "広島県" } }, [
+                    _vm._v("広島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "山口県" } }, [
+                    _vm._v("山口県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "徳島県" } }, [
+                    _vm._v("徳島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "香川県" } }, [
+                    _vm._v("香川県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "愛媛県" } }, [
+                    _vm._v("愛媛県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "高知県" } }, [
+                    _vm._v("高知県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "福岡県" } }, [
+                    _vm._v("福岡県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "佐賀県" } }, [
+                    _vm._v("佐賀県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "長崎県" } }, [
+                    _vm._v("長崎県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "熊本県" } }, [
+                    _vm._v("熊本県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "大分県" } }, [
+                    _vm._v("大分県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "宮崎県" } }, [
+                    _vm._v("宮崎県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "鹿児島県" } }, [
+                    _vm._v("鹿児島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "沖縄県" } }, [
+                    _vm._v("沖縄県"),
+                  ]),
+                ]
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [
@@ -47131,16 +47690,7 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "form-group row" }, [
-          _c(
-            "label",
-            {
-              staticClass: "col-sm-3 col-form-label",
-              attrs: { for: "person-in-charge" },
-            },
-            [_vm._v("メッセージ")]
-          ),
-          _vm._v(" "),
-          _c("input", {
+          _c("textarea", {
             directives: [
               {
                 name: "model",
@@ -47149,8 +47699,8 @@ var render = function () {
                 expression: "body",
               },
             ],
-            staticClass: "col-sm-9 form-control",
-            attrs: { type: "text", id: "message" },
+            staticClass: "col-sm-8 form-control",
+            attrs: { placeholder: "メッセージを入力" },
             domProps: { value: _vm.body },
             on: {
               input: function ($event) {
@@ -47161,13 +47711,13 @@ var render = function () {
               },
             },
           }),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            [_vm._v("送信")]
+          ),
         ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("送信")]
-        ),
       ]
     ),
   ])
