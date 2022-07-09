@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-<div class="chat bg-light p-4">
+                <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
       <div v-for="(message, index) in messages" :key="index" class="message d-flex align-items-start mb-4" v-bind:class="[message.user_id === loginUser.id ? 'flex-row-reverse' : 'flex-row']">
         <div class="message-icon rounded-circle bg-secondary text-white fs-3">
           {{ message.sei + message.mei }}

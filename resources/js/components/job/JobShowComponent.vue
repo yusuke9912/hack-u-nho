@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-6">
+            <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
                 <form>
                     <div class="form-group row border-bottom">
                         <label for="id" class="col-sm-3 col-form-label">ID</label>

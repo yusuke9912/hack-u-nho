@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+                <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
         <table class="table table-hover">
             <tr v-for="(room, index) in rooms" :key="index">
                 <th scope="row">{{ room.user.sei +  room.user.mei}}</th>
