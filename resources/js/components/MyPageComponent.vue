@@ -269,8 +269,10 @@
                     <div class="form-group row">
                         <label for="self_introduction" class="col-sm-3 col-form-label">自己紹介</label>
                         <textarea class="col-sm-9 form-control" placeholder="自己紹介を入力" id="self_introduction" v-model="user.self_introduction"></textarea>
-                    </div>                    
-                    <button type="submit" class="btn btn-primary">保存</button>
+                    </div>
+                    <div class="justify-content-center row mt-5">
+                        <button type="submit" class="col-sm-3 btn btn-primary">保存</button>
+                    </div>
                 </form>
             </div>
         </div>

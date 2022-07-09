@@ -1,16 +1,20 @@
 <template>
     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-8">
                 <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
-        <table class="table table-hover">
-            <tr v-for="(room, index) in rooms" :key="index">
-                <th scope="row">{{ room.user.sei +  room.user.mei}}</th>
-                <td>
-                    <router-link v-bind:to="{name: 'user.room', params: {userId: room.user_id }}">
-                        <button class="btn btn-primary">メッセージ</button>
-                    </router-link>
-                </td>
-            </tr>
-        </table>
+                <table class="table table-hover">
+                    <tr v-for="(room, index) in rooms" :key="index">
+                        <td>{{ room.user.sei +  room.user.mei}}</td>
+                        <td>
+                            <router-link v-bind:to="{name: 'user.room', params: {userId: room.user_id }}">
+                                <button class="btn btn-primary">メッセージ</button>
+                            </router-link>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
+            <div class="col-sm-8">
                 <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
                 <form v-on:submit.prevent="submit">
                     <div class="form-group row">
@@ -23,7 +24,9 @@
                         <label for="reward" class="col-sm-3 col-form-label">報酬</label>
                         <input type="text" class="col-sm-9 form-control" id="reward" v-model="job.reward">
                     </div>
-                    <button type="submit" class="btn btn-primary">依頼する</button>
+                    <div class="justify-content-center row mt-5">
+                        <button type="submit" class="col-sm-3 btn btn-primary">依頼する</button>
+                    </div>
                 </form>
             </div>
         </div>

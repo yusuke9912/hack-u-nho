@@ -277,7 +277,9 @@
                         <label for="password" class="col-sm-3 col-form-label">パスワード</label>
                         <input type="text" class="col-sm-9 form-control" id="password" v-model="user.password">
                     </div>
-                    <button type="submit" class="btn btn-primary">作成</button>
+                    <div class="justify-content-center row mt-5">
+                        <button type="submit" class="col-sm-3 btn btn-primary">登録</button>
+                    </div>
                 </form>
             </div>
         </div>

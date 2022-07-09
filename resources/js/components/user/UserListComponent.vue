@@ -1,21 +1,39 @@
 <template>
+<main role="main">
+  <section class="jumbotron text-center">
     <div class="container">
-        <div class="card-deck">
-            <div v-for="(user, index) in resultUsers" :key="index" class="bg-white border mr-4 mb-5 rounded" style="width:30%">
-                <div class="card-body">
-                <div class="card-title">
-                    <h5>{{ user.sei + user.mei }}</h5>
-                </div>
-                <div class="card-text">
-                    <p>{{ user.self_introduction }}</p>
-                    <router-link v-bind:to="{name: 'user.show', params: {userId: user.id }}">
-                        <button class="btn btn-primary">詳細</button>
-                    </router-link>
-                </div>
-                </div>
-            </div>
-        </div>
+      <h1>だれでもJob</h1>
+      <p class="lead text-muted">定年退職したけどまだ働いていたい...<br>そう思ったことはありませんか？<br>だれでもJobでは「だれでも」仕事(Job)に出会えます。
+</p>
+      <p>
+      </p>
     </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" v-for="(user, index) in resultUsers" :key="index">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+				<div style="height:200px">
+					<h3>{{ user.sei + user.mei }}</h3>
+					<p class="card-text">{{ user.self_introduction }}</p>
+				</div>
+            	<div class="d-flex justify-content-between align-items-center">
+					<div class="btn-group">
+						<router-link v-bind:to="{name: 'user.show', params: {userId: user.id }}" class="col-sm-12">
+							<button type="button" class="btn btn-sm btn-outline-secondary">プロフィールを見る</button>
+						</router-link>
+					</div>
+            	</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 </template>
 
 <script>
@@ -53,3 +71,30 @@
         }
     }
 </script>
+
+<style>
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+</style>

@@ -219,12 +219,14 @@
                         <input type="text" class="col-sm-9 form-control" readonly id="self_introduction" v-model="user.self_introduction">
                     </div>
                 </form>
-                <router-link v-bind:to="{name: 'user.room', params: {userId: user.id }}">
-                    <button class="btn btn-primary">メッセージ</button>
-                </router-link>
-                <router-link v-bind:to="{name: 'job.request', params: {userId: user.id }}">
-                    <button class="btn btn-primary">お仕事依頼</button>
-                </router-link>
+                <div class="justify-content-center row mt-5">
+                    <router-link v-bind:to="{name: 'user.room', params: {userId: user.id }}" class="col-sm-4">
+                        <button class="btn btn-primary col-sm-12">メッセージ</button>
+                    </router-link>
+                    <router-link v-bind:to="{name: 'job.request', params: {userId: user.id }}" class="col-sm-4">
+                        <button class="btn btn-primary col-sm-12">お仕事依頼</button>
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>

@@ -1,19 +1,22 @@
 <template>
     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-8">
                 <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
-      <div v-for="(message, index) in messages" :key="index" class="message d-flex align-items-start mb-4" v-bind:class="[message.user_id === loginUser.id ? 'flex-row-reverse' : 'flex-row']">
-        <div class="message-icon rounded-circle bg-secondary text-white fs-3">
-          {{ message.sei + message.mei }}
-        </div><!-- .message-icon -->
-        <p class="message-text p-2 ms-2 mb-0" v-bind:class="[message.user_id === loginUser.id ? 'bg-warning' : 'bg-info']">{{ message.body }}</p><!-- .message-text -->
-      </div><!-- .message -->
-    </div><!-- .chat -->
-        <form v-on:submit.prevent="submit">
-            <div class="form-group row">
-                <textarea class="col-sm-8 form-control" placeholder="メッセージを入力" v-model="body"></textarea>
-                <button type="submit" class="btn btn-primary">送信</button>
+                <h2>{{ user.sei + user.mei }}</h2>
+                <div class="rounded bg-white p-4 border mb-4">
+                <div v-for="(message, index) in messages" :key="index" class="message d-flex align-items-start mb-4" v-bind:class="[message.user_id === loginUser.id ? 'flex-row-reverse' : 'flex-row']">
+                    <p class="message-text p-2 ms-2 mb-0" v-bind:class="[message.user_id === loginUser.id ? 'bg-warning' : 'bg-info']">{{ message.body }}</p><!-- .message-text -->
+                </div><!-- .message -->
+                </div><!-- .chat -->
+                <form v-on:submit.prevent="submit">
+                    <div class="form-group row">
+                        <textarea class="col-sm-10 form-control" placeholder="メッセージを入力" v-model="body"></textarea>
+                        <button type="submit" class="col-sm-2 btn btn-primary">送信</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </template>
 
@@ -24,14 +27,20 @@
         },
         data: function () {
             return {
+                user:{},
                 loginUser:{},
                 room_id: "",
-                user_id: "",
                 body:"",
                 messages: {},
             }
         },
         methods: {
+            getUser() {
+               axios.get('/api/users/' + this.userId)
+                   .then((res) => {
+                       this.user = res.data;
+             });
+           },
             getRoom(){
                 axios.get('/api/users/' + this.userId + '/room')
                 .then((res) => {
@@ -48,7 +57,7 @@
                         this.messages = res.data;
                     });
             },
-            getUser(){
+            getLoginUser(){
                 axios.get("/api/user")
                     .then((res) => {
                         this.loginUser = res.data;
@@ -63,11 +72,13 @@
                };
                axios.post('/api/users/' + this.userId + '/room',$message)
                    .then((res) => {
+                    this.body = "";
             });
            }
         },
         mounted() {
             this.getUser();
+            this.getLoginUser();
             window.Echo.private('message')
                 .listen('MessageEvent', (e) => {
                     console.log("メッセージの受信");
@@ -89,11 +100,6 @@
 </script>
 
 <style>
-.chat{
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 .message-icon{
   width: 48px;
   height: 48px;

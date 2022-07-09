@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid bg-dark mb-3">
-        <p class="text-white">{{ "ユーザID：" + user.id + "  名前：" + user.sei + user.mei}}</p>
+        <!-- <p class="text-white">{{ "ユーザID：" + user.id + "  名前：" + user.sei + user.mei}}</p> -->
         <div class="container">
             <nav class="navbar navbar-dark">
                     <router-link v-bind:to="{name: 'user.list'}">
