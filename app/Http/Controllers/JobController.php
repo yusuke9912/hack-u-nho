@@ -12,12 +12,14 @@ class JobController extends Controller
     public function index()
     {
         Log::Debug("index");
-        return Job::where('job_receiver', '=', Auth::id())->get();
+        return \DB::table('jobs')->where('job_receiver',Auth::id() )->join('users','jobs.job_requester','=','users.id')->orderBy('jobs.updated_at', 'asc')
+        ->get(['jobs.id','title','description','users.sei','users.mei']);
     }
 
     public function show(Job $job)
     {
-        return $job;
+        Log::Debug($job);
+        return \DB::table('jobs')->where('jobs.id',$job->id)->join('users','jobs.job_requester','=','users.id')->orderBy('jobs.updated_at', 'asc')->get();
     }
 
     public function store(Request $request)
