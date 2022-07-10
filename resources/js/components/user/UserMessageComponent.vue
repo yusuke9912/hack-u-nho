@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-sm-8">
                 <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
-                <h2>{{ user.sei + user.mei }}</h2>
+                <h2>{{ user.sei}}{{user.mei}}</h2>
                 <div class="rounded bg-white p-4 border mb-4">
                 <div v-for="(message, index) in messages" :key="index" class="message d-flex align-items-start mb-4" v-bind:class="[message.user_id === loginUser.id ? 'flex-row-reverse' : 'flex-row']">
                     <p class="message-text p-2 ms-2 mb-0" v-bind:class="[message.user_id === loginUser.id ? 'bg-warning' : 'bg-info']">{{ message.body }}</p><!-- .message-text -->

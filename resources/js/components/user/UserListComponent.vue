@@ -17,7 +17,7 @@
           <div class="card mb-4 shadow-sm">
             <div class="card-body">
 				<div style="height:200px">
-					<h3>{{ user.sei + user.mei }}</h3>
+					<h3>{{ user.sei}}{{user.mei }}</h3>
 					<p class="card-text">{{ user.self_introduction }}</p>
 				</div>
             	<div class="d-flex justify-content-between align-items-center">

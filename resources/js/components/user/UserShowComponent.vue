@@ -6,11 +6,11 @@
                                 <table class="table table-striped">
                     <tr>
                         <th>氏名</th>
-                        <td><ruby>{{ user.sei + user.mei}}<rt>{{user.sei_kana + user.mei_kana}}</rt></ruby></td>
+                        <td><ruby>{{ user.sei}}{{user.mei}}<rt>{{user.sei_kana}}{{user.mei_kana}}</rt></ruby></td>
                     </tr>
                     <tr>
                         <th>生年月日</th>
-                        <td>{{ user.year + "年" + user.month + "月" + user.day + "日" }}</td>
+                        <td>{{ user.year}}年{{user.month}}月{{user.day}}日</td>
                     </tr>
                     <tr>
                         <th>性別</th>

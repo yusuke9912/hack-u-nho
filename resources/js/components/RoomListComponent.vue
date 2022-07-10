@@ -10,7 +10,7 @@
                     <tbody>
                     <tr v-for="(room, index) in rooms" :key="index">
                         <td class="w-75 px-5">
-                            <router-link v-bind:to="{name: 'user.show', params: {userId: room.user_id }}">{{ room.user.sei +  room.user.mei}}</router-link>
+                            <router-link v-bind:to="{name: 'user.show', params: {userId: room.user_id }}">{{ room.user.sei}}{{room.user.mei}}</router-link>
                         </td>
 
                         <td class="w-25">
