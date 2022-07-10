@@ -22,9 +22,7 @@
 				</div>
             	<div class="d-flex justify-content-between align-items-center">
 					<div class="btn-group">
-						<router-link v-bind:to="{name: 'user.show', params: {userId: user.id }}" class="col-sm-12">
-							<button type="button" class="btn btn-sm btn-outline-secondary">プロフィールを見る</button>
-						</router-link>
+						<router-link v-bind:to="{name: 'user.show', params: {userId: user.id }}" class="btn btn-sm btn-outline-secondary">プロフィールを見る</router-link>
 					</div>
             	</div>
             </div>

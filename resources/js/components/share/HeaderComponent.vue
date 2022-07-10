@@ -1,37 +1,21 @@
 <template>
-    <div class="container-fluid bg-dark mb-3">
-        <!-- <p class="text-white">{{ "ユーザID：" + user.id + "  名前：" + user.sei + user.mei}}</p> -->
-        <div class="container">
-            <nav class="navbar navbar-dark">
-                    <router-link v-bind:to="{name: 'user.list'}">
-                         <span class="navbar-brand mb-0 h1">だれでもJob</span>
-                    </router-link>
-                <div>
-                    <div v-if="user">
-                        <router-link v-bind:to="{name: 'job.list'}" class="mr-3">
-                            <button class="btn btn-success">依頼されている仕事一覧</button>
-                        </router-link>
-                        <router-link v-bind:to="{name: 'room.list'}" class="mr-3">
-                            <button class="btn btn-success">メッセージ一覧</button>
-                        </router-link>
-                        <router-link v-bind:to="{name: 'mypage'}" class="mr-3">
-                            <button class="btn btn-success">プロフィール</button>
-                        </router-link>
-                        <button class="btn btn-danger" @click="logout">ログアウト</button>
-                    </div>
-                    <div v-else>
-                        <span class="text-white">{{ user }}</span>
-                        <router-link v-bind:to="{name: 'signup'}" class="mr-3">
-                            <button class="btn btn-primary">新規登録</button>
-                        </router-link>
-                        <router-link v-bind:to="{name: 'login'}">
-                            <button class="btn btn-success">ログイン</button>
-                        </router-link>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+<header>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm" v-if="user">
+  <h5 class="my-0 mr-md-auto font-weight-normal"><router-link v-bind:to="{name: 'user.list'}" class="text-dark">だれでもJob</router-link></h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <router-link v-bind:to="{name: 'job.list'}" class="p-2 text-dark">依頼されている仕事一覧</router-link>
+    <router-link v-bind:to="{name: 'room.list'}" class="p-2 text-dark">メッセージ一覧</router-link>
+    <router-link v-bind:to="{name: 'mypage'}" class="p-2 text-dark">プロフィール</router-link>
+    <router-link v-bind:to="{name: 'room.list'}" class="p-2 text-dark">メッセージ一覧</router-link>
+  </nav>
+  <a class="btn btn-outline-primary" @click="logout">ログアウト</a>
+</div>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm" v-else>
+  <h5 class="my-0 mr-md-auto font-weight-normal"><router-link v-bind:to="{name: 'user.list'}" class="text-dark">だれでもJob</router-link></h5>
+  <router-link v-bind:to="{name: 'signup'}" class="btn btn-outline-primary mr-2">新規登録</router-link>
+  <router-link v-bind:to="{name: 'login'}" class="btn btn-outline-primary">ログイン</router-link>
+</div>
+</header>
 </template>
 
 <script>
@@ -40,13 +24,6 @@
             return {
                 user: ""
             };
-        },
-        mounted() {
-            axios.get("/api/user")
-            .then((res) => {
-                this.user = res.data;
-                this.$store.dispatch("setUser", {id: res.data.id, auth: true, token: res.data.api_token})
-            });
         },
         methods: {
             logout() {
@@ -59,6 +36,13 @@
                         console.log(error);
                     });
             }
+        },
+        mounted() {
+            axios.get("/api/user")
+            .then((res) => {
+                this.user = res.data;
+                this.$store.dispatch("setUser", {id: res.data.id, auth: true, token: res.data.api_token})
+            });
         },
     }
 </script>

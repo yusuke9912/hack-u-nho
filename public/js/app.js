@@ -2000,255 +2000,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      loginUser: {},
       user: {}
     };
   },
@@ -2256,23 +2011,19 @@ __webpack_require__.r(__webpack_exports__);
     getUser: function getUser() {
       var _this = this;
 
-      axios.get("/api/user").then(function (res) {
-        console.log(res);
+      axios.get('/api/users/' + this.loginUser.id).then(function (res) {
         _this.user = res.data;
-      });
-    },
-    submit: function submit() {
-      var _this2 = this;
-
-      console.log(this.user);
-      axios.put('/api/users/' + this.user.id, this.user).then(function (res) {
-        _this2.user = res.data;
-        console.log(_this2.user);
       });
     }
   },
   mounted: function mounted() {
-    this.getUser();
+    var _this2 = this;
+
+    axios.get("/api/user").then(function (res) {
+      _this2.loginUser = res.data;
+
+      _this2.getUser();
+    });
   }
 });
 
@@ -2631,6 +2382,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2815,6 +2572,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2961,6 +2723,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     jobId: String
@@ -2975,7 +2744,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/jobs/' + this.jobId).then(function (res) {
+        console.log(res);
         _this.job = res.data;
+        console.log(_this.job);
       });
     }
   },
@@ -3045,6 +2816,318 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      user: ""
+    };
+  },
+  methods: {
+    logout: function logout() {
+      var _this = this;
+
+      axios.get("/api/logout").then(function (res) {
+        _this.$router.push('/login', function () {});
+
+        _this.$router.go({
+          path: "/"
+        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    axios.get("/api/user").then(function (res) {
+      _this2.user = res.data;
+
+      _this2.$store.dispatch("setUser", {
+        id: res.data.id,
+        auth: true,
+        token: res.data.api_token
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserEditComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/UserEditComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3064,36 +3147,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      user: ""
+      user: {}
     };
   },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get("/api/user").then(function (res) {
-      _this.user = res.data;
-
-      _this.$store.dispatch("setUser", {
-        id: res.data.id,
-        auth: true,
-        token: res.data.api_token
-      });
-    });
-  },
   methods: {
-    logout: function logout() {
+    getUser: function getUser() {
+      var _this = this;
+
+      axios.get("/api/user").then(function (res) {
+        console.log(res);
+        _this.user = res.data;
+      });
+    },
+    submit: function submit() {
       var _this2 = this;
 
-      axios.get("/api/logout").then(function (res) {
-        _this2.$router.push('/login', function () {});
+      console.log(this.user);
+      axios.put('/api/users/' + this.user.id, this.user).then(function (res) {
+        _this2.user = res.data;
+        console.log(_this2.user);
 
-        _this2.$router.go({
-          path: "/"
-        });
-      })["catch"](function (error) {
-        console.log(error);
+        _this2.$router.push('/mypage', function () {});
       });
     }
+  },
+  mounted: function mounted() {
+    this.getUser();
   }
 });
 
@@ -3108,8 +3187,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -3313,200 +3390,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -46459,1182 +46342,78 @@ var render = function () {
           [_vm._v("戻る")]
         ),
         _vm._v(" "),
+        _c("table", { staticClass: "table table-striped" }, [
+          _c("tr", [
+            _c("th", [_vm._v("氏名")]),
+            _vm._v(" "),
+            _c("td", [
+              _c("ruby", [
+                _vm._v(_vm._s(_vm.user.sei + _vm.user.mei)),
+                _c("rt", [
+                  _vm._v(_vm._s(_vm.user.sei_kana + _vm.user.mei_kana)),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", [_vm._v("生年月日")]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                _vm._s(
+                  _vm.user.year +
+                    "年" +
+                    _vm.user.month +
+                    "月" +
+                    _vm.user.day +
+                    "日"
+                )
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", [_vm._v("性別")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm.user.gender))]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", [_vm._v("居住地")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm.user.address))]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", [_vm._v("自己紹介")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm.user.self_introduction))]),
+          ]),
+        ]),
+        _vm._v(" "),
         _c(
-          "form",
-          {
-            on: {
-              submit: function ($event) {
-                $event.preventDefault()
-                return _vm.submit.apply(null, arguments)
-              },
-            },
-          },
+          "div",
+          { staticClass: "justify-content-center row mt-5" },
           [
-            _c("div", { staticClass: "form-group row" }, [
-              _c("div", { staticClass: "col-sm" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-form-label", attrs: { for: "sei" } },
-                  [_vm._v("姓")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.sei,
-                      expression: "user.sei",
-                    },
-                  ],
-                  staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "sei" },
-                  domProps: { value: _vm.user.sei },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "sei", $event.target.value)
-                    },
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-form-label", attrs: { for: "mei" } },
-                  [_vm._v("名")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.mei,
-                      expression: "user.mei",
-                    },
-                  ],
-                  staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "mei" },
-                  domProps: { value: _vm.user.mei },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "mei", $event.target.value)
-                    },
-                  },
-                }),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c("div", { staticClass: "col-sm" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-form-label", attrs: { for: "sei_kana" } },
-                  [_vm._v("セイ")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.sei_kana,
-                      expression: "user.sei_kana",
-                    },
-                  ],
-                  staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "sei_kana" },
-                  domProps: { value: _vm.user.sei_kana },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "sei_kana", $event.target.value)
-                    },
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-form-label", attrs: { for: "mei_kana" } },
-                  [_vm._v("メイ")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.mei_kana,
-                      expression: "user.mei_kana",
-                    },
-                  ],
-                  staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "mei_kana" },
-                  domProps: { value: _vm.user.mei_kana },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "mei_kana", $event.target.value)
-                    },
-                  },
-                }),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "gender" },
-                },
-                [_vm._v("性別")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.gender,
-                      expression: "user.gender",
-                    },
-                  ],
-                  staticClass: "col-sm-2 form-control",
-                  attrs: { id: "gender" },
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.user,
-                        "gender",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    },
-                  },
-                },
-                [
-                  _c("option", { attrs: { value: "男性" } }, [_vm._v("男性")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "女性" } }, [_vm._v("女性")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "その他" } }, [
-                    _vm._v("その他"),
-                  ]),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c("p", { staticClass: "col-sm-3" }, [_vm._v("生年月日")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-2" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.year,
-                        expression: "user.year",
-                      },
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "year" },
-                    on: {
-                      change: function ($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function (o) {
-                            return o.selected
-                          })
-                          .map(function (o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.user,
-                          "year",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                    },
-                  },
-                  [
-                    _c("option", { attrs: { value: "1900" } }, [
-                      _vm._v("1900"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1901" } }, [
-                      _vm._v("1901"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1902" } }, [
-                      _vm._v("1902"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1903" } }, [
-                      _vm._v("1903"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1904" } }, [
-                      _vm._v("1904"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1905" } }, [
-                      _vm._v("1905"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1906" } }, [
-                      _vm._v("1906"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1907" } }, [
-                      _vm._v("1907"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1908" } }, [
-                      _vm._v("1908"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1909" } }, [
-                      _vm._v("1909"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1910" } }, [
-                      _vm._v("1910"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1911" } }, [
-                      _vm._v("1911"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1912" } }, [
-                      _vm._v("1912"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1913" } }, [
-                      _vm._v("1913"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1914" } }, [
-                      _vm._v("1914"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1915" } }, [
-                      _vm._v("1915"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1916" } }, [
-                      _vm._v("1916"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1917" } }, [
-                      _vm._v("1917"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1918" } }, [
-                      _vm._v("1918"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1919" } }, [
-                      _vm._v("1919"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1920" } }, [
-                      _vm._v("1920"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1921" } }, [
-                      _vm._v("1921"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1922" } }, [
-                      _vm._v("1922"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1923" } }, [
-                      _vm._v("1923"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1924" } }, [
-                      _vm._v("1924"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1925" } }, [
-                      _vm._v("1925"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1926" } }, [
-                      _vm._v("1926"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1927" } }, [
-                      _vm._v("1927"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1928" } }, [
-                      _vm._v("1928"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1929" } }, [
-                      _vm._v("1929"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1930" } }, [
-                      _vm._v("1930"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1931" } }, [
-                      _vm._v("1931"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1932" } }, [
-                      _vm._v("1932"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1933" } }, [
-                      _vm._v("1933"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1934" } }, [
-                      _vm._v("1934"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1935" } }, [
-                      _vm._v("1935"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1936" } }, [
-                      _vm._v("1936"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1937" } }, [
-                      _vm._v("1937"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1938" } }, [
-                      _vm._v("1938"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1939" } }, [
-                      _vm._v("1939"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1940" } }, [
-                      _vm._v("1940"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1941" } }, [
-                      _vm._v("1941"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1942" } }, [
-                      _vm._v("1942"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1943" } }, [
-                      _vm._v("1943"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1944" } }, [
-                      _vm._v("1944"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1945" } }, [
-                      _vm._v("1945"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1946" } }, [
-                      _vm._v("1946"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1947" } }, [
-                      _vm._v("1947"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1948" } }, [
-                      _vm._v("1948"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1949" } }, [
-                      _vm._v("1949"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1950" } }, [
-                      _vm._v("1950"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1951" } }, [
-                      _vm._v("1951"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1952" } }, [
-                      _vm._v("1952"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1953" } }, [
-                      _vm._v("1953"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1954" } }, [
-                      _vm._v("1954"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1955" } }, [
-                      _vm._v("1955"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1956" } }, [
-                      _vm._v("1956"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1957" } }, [
-                      _vm._v("1957"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1958" } }, [
-                      _vm._v("1958"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1959" } }, [
-                      _vm._v("1959"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1960" } }, [
-                      _vm._v("1960"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1961" } }, [
-                      _vm._v("1961"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1962" } }, [
-                      _vm._v("1962"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1963" } }, [
-                      _vm._v("1963"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1964" } }, [
-                      _vm._v("1964"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1965" } }, [
-                      _vm._v("1965"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1966" } }, [
-                      _vm._v("1966"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1967" } }, [
-                      _vm._v("1967"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1968" } }, [
-                      _vm._v("1968"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1969" } }, [
-                      _vm._v("1969"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1970" } }, [
-                      _vm._v("1970"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1971" } }, [
-                      _vm._v("1971"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1972" } }, [
-                      _vm._v("1972"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1973" } }, [
-                      _vm._v("1973"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1974" } }, [
-                      _vm._v("1974"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1975" } }, [
-                      _vm._v("1975"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1976" } }, [
-                      _vm._v("1976"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1977" } }, [
-                      _vm._v("1977"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1978" } }, [
-                      _vm._v("1978"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1979" } }, [
-                      _vm._v("1979"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1980" } }, [
-                      _vm._v("1980"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1981" } }, [
-                      _vm._v("1981"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1982" } }, [
-                      _vm._v("1982"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1983" } }, [
-                      _vm._v("1983"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1984" } }, [
-                      _vm._v("1984"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1985" } }, [
-                      _vm._v("1985"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1986" } }, [
-                      _vm._v("1986"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1987" } }, [
-                      _vm._v("1987"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1988" } }, [
-                      _vm._v("1988"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1989" } }, [
-                      _vm._v("1989"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1990" } }, [
-                      _vm._v("1990"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1991" } }, [
-                      _vm._v("1991"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1992" } }, [
-                      _vm._v("1992"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1993" } }, [
-                      _vm._v("1993"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1994" } }, [
-                      _vm._v("1994"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1995" } }, [
-                      _vm._v("1995"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1996" } }, [
-                      _vm._v("1996"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1997" } }, [
-                      _vm._v("1997"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1998" } }, [
-                      _vm._v("1998"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1999" } }, [
-                      _vm._v("1999"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2000" } }, [
-                      _vm._v("2000"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2001" } }, [
-                      _vm._v("2001"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2002" } }, [
-                      _vm._v("2002"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2003" } }, [
-                      _vm._v("2003"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2004" } }, [
-                      _vm._v("2004"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2005" } }, [
-                      _vm._v("2005"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2006" } }, [
-                      _vm._v("2006"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2007" } }, [
-                      _vm._v("2007"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2008" } }, [
-                      _vm._v("2008"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2009" } }, [
-                      _vm._v("2009"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2010" } }, [
-                      _vm._v("2010"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2011" } }, [
-                      _vm._v("2011"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2012" } }, [
-                      _vm._v("2012"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2013" } }, [
-                      _vm._v("2013"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2014" } }, [
-                      _vm._v("2014"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2015" } }, [
-                      _vm._v("2015"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2016" } }, [
-                      _vm._v("2016"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2017" } }, [
-                      _vm._v("2017"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2018" } }, [
-                      _vm._v("2018"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2019" } }, [
-                      _vm._v("2019"),
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2020" } }, [
-                      _vm._v("2020"),
-                    ]),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("年")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-2" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.month,
-                        expression: "user.month",
-                      },
-                    ],
-                    staticClass: "col-sm form-control",
-                    attrs: { id: "month" },
-                    on: {
-                      change: function ($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function (o) {
-                            return o.selected
-                          })
-                          .map(function (o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.user,
-                          "month",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                    },
-                  },
-                  [
-                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("月")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-2" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.day,
-                        expression: "user.day",
-                      },
-                    ],
-                    staticClass: "col-sm form-control",
-                    attrs: { id: "day" },
-                    on: {
-                      change: function ($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function (o) {
-                            return o.selected
-                          })
-                          .map(function (o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.user,
-                          "day",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                    },
-                  },
-                  [
-                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "13" } }, [_vm._v("13")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "14" } }, [_vm._v("14")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "15" } }, [_vm._v("15")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "16" } }, [_vm._v("16")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "17" } }, [_vm._v("17")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "18" } }, [_vm._v("18")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "19" } }, [_vm._v("19")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "20" } }, [_vm._v("20")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "21" } }, [_vm._v("21")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "22" } }, [_vm._v("22")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "23" } }, [_vm._v("23")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "24" } }, [_vm._v("24")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "25" } }, [_vm._v("25")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "26" } }, [_vm._v("26")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "27" } }, [_vm._v("27")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "28" } }, [_vm._v("28")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "29" } }, [_vm._v("29")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "31" } }, [_vm._v("31")]),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("日")]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "address" },
-                },
-                [_vm._v("居住地")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.address,
-                      expression: "user.address",
-                    },
-                  ],
-                  staticClass: "col-sm-9 form-control",
-                  attrs: { id: "address" },
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.user,
-                        "address",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    },
-                  },
-                },
-                [
-                  _c("option", { attrs: { value: "北海道" } }, [
-                    _vm._v("北海道"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "青森県" } }, [
-                    _vm._v("青森県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "岩手県" } }, [
-                    _vm._v("岩手県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "宮城県" } }, [
-                    _vm._v("宮城県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "秋田県" } }, [
-                    _vm._v("秋田県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "山形県" } }, [
-                    _vm._v("山形県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "福島県" } }, [
-                    _vm._v("福島県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "茨城県" } }, [
-                    _vm._v("茨城県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "栃木県" } }, [
-                    _vm._v("栃木県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "群馬県" } }, [
-                    _vm._v("群馬県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "埼玉県" } }, [
-                    _vm._v("埼玉県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "千葉県" } }, [
-                    _vm._v("千葉県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "東京都" } }, [
-                    _vm._v("東京都"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "神奈川県" } }, [
-                    _vm._v("神奈川県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "新潟県" } }, [
-                    _vm._v("新潟県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "富山県" } }, [
-                    _vm._v("富山県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "石川県" } }, [
-                    _vm._v("石川県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "福井県" } }, [
-                    _vm._v("福井県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "山梨県" } }, [
-                    _vm._v("山梨県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "長野県" } }, [
-                    _vm._v("長野県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "岐阜県" } }, [
-                    _vm._v("岐阜県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "静岡県" } }, [
-                    _vm._v("静岡県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "愛知県" } }, [
-                    _vm._v("愛知県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "三重県" } }, [
-                    _vm._v("三重県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "滋賀県" } }, [
-                    _vm._v("滋賀県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "京都府" } }, [
-                    _vm._v("京都府"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "大阪府" } }, [
-                    _vm._v("大阪府"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "兵庫県" } }, [
-                    _vm._v("兵庫県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "奈良県" } }, [
-                    _vm._v("奈良県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "和歌山県" } }, [
-                    _vm._v("和歌山県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "鳥取県" } }, [
-                    _vm._v("鳥取県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "島根県" } }, [
-                    _vm._v("島根県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "岡山県" } }, [
-                    _vm._v("岡山県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "広島県" } }, [
-                    _vm._v("広島県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "山口県" } }, [
-                    _vm._v("山口県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "徳島県" } }, [
-                    _vm._v("徳島県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "香川県" } }, [
-                    _vm._v("香川県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "愛媛県" } }, [
-                    _vm._v("愛媛県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "高知県" } }, [
-                    _vm._v("高知県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "福岡県" } }, [
-                    _vm._v("福岡県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "佐賀県" } }, [
-                    _vm._v("佐賀県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "長崎県" } }, [
-                    _vm._v("長崎県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "熊本県" } }, [
-                    _vm._v("熊本県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "大分県" } }, [
-                    _vm._v("大分県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "宮崎県" } }, [
-                    _vm._v("宮崎県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "鹿児島県" } }, [
-                    _vm._v("鹿児島県"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "沖縄県" } }, [
-                    _vm._v("沖縄県"),
-                  ]),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "self_introduction" },
-                },
-                [_vm._v("自己紹介")]
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.self_introduction,
-                    expression: "user.self_introduction",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
+            _c(
+              "router-link",
+              {
+                staticClass: "col-sm-4 btn btn-primary",
                 attrs: {
-                  placeholder: "自己紹介を入力",
-                  id: "self_introduction",
+                  to: { name: "user.edit", params: { userId: _vm.user.id } },
                 },
-                domProps: { value: _vm.user.self_introduction },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "self_introduction", $event.target.value)
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _vm._m(0),
-          ]
+              },
+              [_vm._v("編集")]
+            ),
+          ],
+          1
         ),
       ]),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "justify-content-center row mt-5" }, [
-      _c(
-        "button",
-        { staticClass: "col-sm-3 btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("保存")]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -48924,7 +47703,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-sm-8" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
         _c(
           "button",
           {
@@ -48934,44 +47713,75 @@ var render = function () {
           [_vm._v("戻る")]
         ),
         _vm._v(" "),
-        _c(
-          "table",
-          { staticClass: "table table-hover" },
-          _vm._l(_vm.rooms, function (room, index) {
-            return _c("tr", { key: index }, [
-              _c("td", [_vm._v(_vm._s(room.user.sei + room.user.mei))]),
-              _vm._v(" "),
-              _c(
-                "td",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: {
-                          name: "user.room",
-                          params: { userId: room.user_id },
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.rooms, function (room, index) {
+              return _c("tr", { key: index }, [
+                _c(
+                  "td",
+                  { staticClass: "w-75 px-5" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "user.show",
+                            params: { userId: room.user_id },
+                          },
                         },
                       },
-                    },
-                    [
-                      _c("button", { staticClass: "btn btn-primary" }, [
-                        _vm._v("メッセージ"),
-                      ]),
-                    ]
-                  ),
-                ],
-                1
-              ),
-            ])
-          }),
-          0
-        ),
+                      [_vm._v(_vm._s(room.user.sei + room.user.mei))]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  { staticClass: "w-25" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary btn-sm",
+                        attrs: {
+                          to: {
+                            name: "user.room",
+                            params: { userId: room.user_id },
+                          },
+                        },
+                      },
+                      [_vm._v("メッセージ")]
+                    ),
+                  ],
+                  1
+                ),
+              ])
+            }),
+            0
+          ),
+        ]),
       ]),
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", { staticClass: "px-5" }, [_vm._v("氏名")]),
+        _c("th", { attrs: { colspan: "2" } }),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -49363,45 +48173,76 @@ var render = function () {
           [_vm._v("戻る")]
         ),
         _vm._v(" "),
-        _c(
-          "table",
-          { staticClass: "table table-hover" },
-          _vm._l(_vm.jobs, function (job, index) {
-            return _c("tr", { key: index }, [
-              _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(job.id))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(job.title))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(job.description))]),
-              _vm._v(" "),
-              _c(
-                "td",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: { name: "job.show", params: { jobId: job.id } },
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.jobs, function (job, index) {
+              return _c("tr", { key: index }, [
+                _c("td", [_vm._v(_vm._s(job.title))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(job.description))]),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "user.show",
+                            params: { userId: job.job_requester },
+                          },
+                        },
                       },
-                    },
-                    [
-                      _c("button", { staticClass: "btn btn-primary" }, [
-                        _vm._v("詳細"),
-                      ]),
-                    ]
-                  ),
-                ],
-                1
-              ),
-            ])
-          }),
-          0
-        ),
+                      [_vm._v(_vm._s(job.sei + job.mei))]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary btn-sm",
+                        attrs: {
+                          to: { name: "job.show", params: { jobId: job.id } },
+                        },
+                      },
+                      [_vm._v("詳細")]
+                    ),
+                  ],
+                  1
+                ),
+              ])
+            }),
+            0
+          ),
+        ]),
       ]),
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", [_vm._v("タイトル")]),
+        _c("th", [_vm._v("説明")]),
+        _c("th", [_vm._v("依頼者")]),
+        _c("th", { attrs: { colspan: "2" } }),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -49655,179 +48496,74 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-outline-primary mb-5",
-          attrs: { onclick: "history.back(-1)" },
-        },
-        [_vm._v("戻る")]
-      ),
-      _vm._v(" "),
       _c("div", { staticClass: "col-sm-8" }, [
-        _c("form", [
-          _c("div", { staticClass: "form-group row border-bottom" }, [
-            _c(
-              "label",
-              { staticClass: "col-sm-3 col-form-label", attrs: { for: "id" } },
-              [_vm._v("ID")]
-            ),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-primary mb-5",
+            attrs: { onclick: "history.back(-1)" },
+          },
+          [_vm._v("戻る")]
+        ),
+        _vm._v(" "),
+        _c("table", { staticClass: "table table-striped" }, [
+          _c("tr", [
+            _c("th", [_vm._v("依頼者")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.job.id,
-                  expression: "job.id",
-                },
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "id" },
-              domProps: { value: _vm.job.id },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.job, "id", $event.target.value)
-                },
-              },
-            }),
+            _c("td", [_vm._v(_vm._s(_vm.job[0].sei + _vm.job[0].mei))]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row border-bottom" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "title" },
-              },
-              [_vm._v("Title")]
-            ),
+          _c("tr", [
+            _c("th", [_vm._v("タイトル")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.job.title,
-                  expression: "job.title",
-                },
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "title" },
-              domProps: { value: _vm.job.title },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.job, "title", $event.target.value)
-                },
-              },
-            }),
+            _c("td", [_vm._v(_vm._s(_vm.job[0].title))]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row border-bottom" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "content" },
-              },
-              [_vm._v("Description")]
-            ),
+          _c("tr", [
+            _c("th", [_vm._v("依頼内容")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.job.description,
-                  expression: "job.description",
-                },
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "description" },
-              domProps: { value: _vm.job.description },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.job, "description", $event.target.value)
-                },
-              },
-            }),
+            _c("td", [_vm._v(_vm._s(_vm.job[0].description))]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row border-bottom" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "person-in-charge" },
-              },
-              [_vm._v("Location")]
-            ),
+          _c("tr", [
+            _c("th", [_vm._v("勤務日時")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.job.location,
-                  expression: "job.location",
-                },
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "location" },
-              domProps: { value: _vm.job.location },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.job, "location", $event.target.value)
-                },
-              },
-            }),
+            _c("td", [_vm._v(_vm._s(_vm.job[0].date_and_time))]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row border-bottom" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "person-in-charge" },
-              },
-              [_vm._v("Reward")]
-            ),
+          _c("tr", [
+            _c("th", [_vm._v("勤務場所")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.job.reward,
-                  expression: "job.reward",
-                },
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "reward" },
-              domProps: { value: _vm.job.reward },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.job, "reward", $event.target.value)
-                },
-              },
-            }),
+            _c("td", [_vm._v(_vm._s(_vm.job[0].location))]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", [_vm._v("報酬")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm.job[0].reward))]),
           ]),
         ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "justify-content-center row mt-5" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "col-sm-3 btn btn-primary",
+                attrs: {
+                  to: {
+                    name: "user.room",
+                    params: { userId: _vm.job[0].job_requester },
+                  },
+                },
+              },
+              [_vm._v("メッセージ")]
+            ),
+          ],
+          1
+        ),
       ]),
     ]),
   ])
@@ -49899,109 +48635,1339 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid bg-dark mb-3" }, [
-    _c("div", { staticClass: "container" }, [
-      _c(
-        "nav",
-        { staticClass: "navbar navbar-dark" },
-        [
-          _c("router-link", { attrs: { to: { name: "user.list" } } }, [
-            _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
-              _vm._v("だれでもJob"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _vm.user
-              ? _c(
-                  "div",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mr-3",
-                        attrs: { to: { name: "job.list" } },
-                      },
-                      [
-                        _c("button", { staticClass: "btn btn-success" }, [
-                          _vm._v("依頼されている仕事一覧"),
-                        ]),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mr-3",
-                        attrs: { to: { name: "room.list" } },
-                      },
-                      [
-                        _c("button", { staticClass: "btn btn-success" }, [
-                          _vm._v("メッセージ一覧"),
-                        ]),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mr-3",
-                        attrs: { to: { name: "mypage" } },
-                      },
-                      [
-                        _c("button", { staticClass: "btn btn-success" }, [
-                          _vm._v("プロフィール"),
-                        ]),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        on: { click: _vm.logout },
-                      },
-                      [_vm._v("ログアウト")]
-                    ),
-                  ],
-                  1
-                )
-              : _c(
-                  "div",
-                  [
-                    _c("span", { staticClass: "text-white" }, [
-                      _vm._v(_vm._s(_vm.user)),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mr-3",
-                        attrs: { to: { name: "signup" } },
-                      },
-                      [
-                        _c("button", { staticClass: "btn btn-primary" }, [
-                          _vm._v("新規登録"),
-                        ]),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("router-link", { attrs: { to: { name: "login" } } }, [
-                      _c("button", { staticClass: "btn btn-success" }, [
-                        _vm._v("ログイン"),
-                      ]),
-                    ]),
-                  ],
-                  1
+  return _c("header", [
+    _vm.user
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm",
+          },
+          [
+            _c(
+              "h5",
+              { staticClass: "my-0 mr-md-auto font-weight-normal" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "text-dark",
+                    attrs: { to: { name: "user.list" } },
+                  },
+                  [_vm._v("だれでもJob")]
                 ),
-          ]),
-        ],
-        1
-      ),
-    ]),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "nav",
+              { staticClass: "my-2 my-md-0 mr-md-3" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-2 text-dark",
+                    attrs: { to: { name: "job.list" } },
+                  },
+                  [_vm._v("依頼されている仕事一覧")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-2 text-dark",
+                    attrs: { to: { name: "room.list" } },
+                  },
+                  [_vm._v("メッセージ一覧")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-2 text-dark",
+                    attrs: { to: { name: "mypage" } },
+                  },
+                  [_vm._v("プロフィール")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "p-2 text-dark",
+                    attrs: { to: { name: "room.list" } },
+                  },
+                  [_vm._v("メッセージ一覧")]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-outline-primary",
+                on: { click: _vm.logout },
+              },
+              [_vm._v("ログアウト")]
+            ),
+          ]
+        )
+      : _c(
+          "div",
+          {
+            staticClass:
+              "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm",
+          },
+          [
+            _c(
+              "h5",
+              { staticClass: "my-0 mr-md-auto font-weight-normal" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "text-dark",
+                    attrs: { to: { name: "user.list" } },
+                  },
+                  [_vm._v("だれでもJob")]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-outline-primary mr-2",
+                attrs: { to: { name: "signup" } },
+              },
+              [_vm._v("新規登録")]
+            ),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-outline-primary",
+                attrs: { to: { name: "login" } },
+              },
+              [_vm._v("ログイン")]
+            ),
+          ],
+          1
+        ),
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserEditComponent.vue?vue&type=template&id=64680caf&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/UserEditComponent.vue?vue&type=template&id=64680caf& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-sm-8" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-primary mb-5",
+            attrs: { onclick: "history.back(-1)" },
+          },
+          [_vm._v("戻る")]
+        ),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.submit.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "sei" } },
+                  [_vm._v("姓")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.sei,
+                      expression: "user.sei",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "sei" },
+                  domProps: { value: _vm.user.sei },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "sei", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "mei" } },
+                  [_vm._v("名")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.mei,
+                      expression: "user.mei",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "mei" },
+                  domProps: { value: _vm.user.mei },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "mei", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "sei_kana" } },
+                  [_vm._v("セイ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.sei_kana,
+                      expression: "user.sei_kana",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "sei_kana" },
+                  domProps: { value: _vm.user.sei_kana },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "sei_kana", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-form-label", attrs: { for: "mei_kana" } },
+                  [_vm._v("メイ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.mei_kana,
+                      expression: "user.mei_kana",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { type: "text", id: "mei_kana" },
+                  domProps: { value: _vm.user.mei_kana },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "mei_kana", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "gender" },
+                },
+                [_vm._v("性別")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.gender,
+                      expression: "user.gender",
+                    },
+                  ],
+                  staticClass: "col-sm-2 form-control",
+                  attrs: { id: "gender" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.user,
+                        "gender",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
+                  },
+                },
+                [
+                  _c("option", { attrs: { value: "男性" } }, [_vm._v("男性")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "女性" } }, [_vm._v("女性")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "その他" } }, [
+                    _vm._v("その他"),
+                  ]),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c("p", { staticClass: "col-sm-3" }, [_vm._v("生年月日")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.year,
+                        expression: "user.year",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "year" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "year",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "1900" } }, [
+                      _vm._v("1900"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1901" } }, [
+                      _vm._v("1901"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1902" } }, [
+                      _vm._v("1902"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1903" } }, [
+                      _vm._v("1903"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1904" } }, [
+                      _vm._v("1904"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1905" } }, [
+                      _vm._v("1905"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1906" } }, [
+                      _vm._v("1906"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1907" } }, [
+                      _vm._v("1907"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1908" } }, [
+                      _vm._v("1908"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1909" } }, [
+                      _vm._v("1909"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1910" } }, [
+                      _vm._v("1910"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1911" } }, [
+                      _vm._v("1911"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1912" } }, [
+                      _vm._v("1912"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1913" } }, [
+                      _vm._v("1913"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1914" } }, [
+                      _vm._v("1914"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1915" } }, [
+                      _vm._v("1915"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1916" } }, [
+                      _vm._v("1916"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1917" } }, [
+                      _vm._v("1917"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1918" } }, [
+                      _vm._v("1918"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1919" } }, [
+                      _vm._v("1919"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1920" } }, [
+                      _vm._v("1920"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1921" } }, [
+                      _vm._v("1921"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1922" } }, [
+                      _vm._v("1922"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1923" } }, [
+                      _vm._v("1923"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1924" } }, [
+                      _vm._v("1924"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1925" } }, [
+                      _vm._v("1925"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1926" } }, [
+                      _vm._v("1926"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1927" } }, [
+                      _vm._v("1927"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1928" } }, [
+                      _vm._v("1928"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1929" } }, [
+                      _vm._v("1929"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1930" } }, [
+                      _vm._v("1930"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1931" } }, [
+                      _vm._v("1931"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1932" } }, [
+                      _vm._v("1932"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1933" } }, [
+                      _vm._v("1933"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1934" } }, [
+                      _vm._v("1934"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1935" } }, [
+                      _vm._v("1935"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1936" } }, [
+                      _vm._v("1936"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1937" } }, [
+                      _vm._v("1937"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1938" } }, [
+                      _vm._v("1938"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1939" } }, [
+                      _vm._v("1939"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1940" } }, [
+                      _vm._v("1940"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1941" } }, [
+                      _vm._v("1941"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1942" } }, [
+                      _vm._v("1942"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1943" } }, [
+                      _vm._v("1943"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1944" } }, [
+                      _vm._v("1944"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1945" } }, [
+                      _vm._v("1945"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1946" } }, [
+                      _vm._v("1946"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1947" } }, [
+                      _vm._v("1947"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1948" } }, [
+                      _vm._v("1948"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1949" } }, [
+                      _vm._v("1949"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1950" } }, [
+                      _vm._v("1950"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1951" } }, [
+                      _vm._v("1951"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1952" } }, [
+                      _vm._v("1952"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1953" } }, [
+                      _vm._v("1953"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1954" } }, [
+                      _vm._v("1954"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1955" } }, [
+                      _vm._v("1955"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1956" } }, [
+                      _vm._v("1956"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1957" } }, [
+                      _vm._v("1957"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1958" } }, [
+                      _vm._v("1958"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1959" } }, [
+                      _vm._v("1959"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1960" } }, [
+                      _vm._v("1960"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1961" } }, [
+                      _vm._v("1961"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1962" } }, [
+                      _vm._v("1962"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1963" } }, [
+                      _vm._v("1963"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1964" } }, [
+                      _vm._v("1964"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1965" } }, [
+                      _vm._v("1965"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1966" } }, [
+                      _vm._v("1966"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1967" } }, [
+                      _vm._v("1967"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1968" } }, [
+                      _vm._v("1968"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1969" } }, [
+                      _vm._v("1969"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1970" } }, [
+                      _vm._v("1970"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1971" } }, [
+                      _vm._v("1971"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1972" } }, [
+                      _vm._v("1972"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1973" } }, [
+                      _vm._v("1973"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1974" } }, [
+                      _vm._v("1974"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1975" } }, [
+                      _vm._v("1975"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1976" } }, [
+                      _vm._v("1976"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1977" } }, [
+                      _vm._v("1977"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1978" } }, [
+                      _vm._v("1978"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1979" } }, [
+                      _vm._v("1979"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1980" } }, [
+                      _vm._v("1980"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1981" } }, [
+                      _vm._v("1981"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1982" } }, [
+                      _vm._v("1982"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1983" } }, [
+                      _vm._v("1983"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1984" } }, [
+                      _vm._v("1984"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1985" } }, [
+                      _vm._v("1985"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1986" } }, [
+                      _vm._v("1986"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1987" } }, [
+                      _vm._v("1987"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1988" } }, [
+                      _vm._v("1988"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1989" } }, [
+                      _vm._v("1989"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1990" } }, [
+                      _vm._v("1990"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1991" } }, [
+                      _vm._v("1991"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1992" } }, [
+                      _vm._v("1992"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1993" } }, [
+                      _vm._v("1993"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1994" } }, [
+                      _vm._v("1994"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1995" } }, [
+                      _vm._v("1995"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1996" } }, [
+                      _vm._v("1996"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1997" } }, [
+                      _vm._v("1997"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1998" } }, [
+                      _vm._v("1998"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1999" } }, [
+                      _vm._v("1999"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2000" } }, [
+                      _vm._v("2000"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2001" } }, [
+                      _vm._v("2001"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2002" } }, [
+                      _vm._v("2002"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2003" } }, [
+                      _vm._v("2003"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2004" } }, [
+                      _vm._v("2004"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2005" } }, [
+                      _vm._v("2005"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2006" } }, [
+                      _vm._v("2006"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2007" } }, [
+                      _vm._v("2007"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2008" } }, [
+                      _vm._v("2008"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2009" } }, [
+                      _vm._v("2009"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2010" } }, [
+                      _vm._v("2010"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2011" } }, [
+                      _vm._v("2011"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2012" } }, [
+                      _vm._v("2012"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2013" } }, [
+                      _vm._v("2013"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2014" } }, [
+                      _vm._v("2014"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2015" } }, [
+                      _vm._v("2015"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2016" } }, [
+                      _vm._v("2016"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2017" } }, [
+                      _vm._v("2017"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2018" } }, [
+                      _vm._v("2018"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2019" } }, [
+                      _vm._v("2019"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2020" } }, [
+                      _vm._v("2020"),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("年")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.month,
+                        expression: "user.month",
+                      },
+                    ],
+                    staticClass: "col-sm form-control",
+                    attrs: { id: "month" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "month",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("月")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.day,
+                        expression: "user.day",
+                      },
+                    ],
+                    staticClass: "col-sm form-control",
+                    attrs: { id: "day" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.user,
+                          "day",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "13" } }, [_vm._v("13")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "14" } }, [_vm._v("14")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "15" } }, [_vm._v("15")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "16" } }, [_vm._v("16")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "17" } }, [_vm._v("17")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "18" } }, [_vm._v("18")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "19" } }, [_vm._v("19")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "20" } }, [_vm._v("20")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "21" } }, [_vm._v("21")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "22" } }, [_vm._v("22")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "23" } }, [_vm._v("23")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "24" } }, [_vm._v("24")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "25" } }, [_vm._v("25")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "26" } }, [_vm._v("26")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "27" } }, [_vm._v("27")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "28" } }, [_vm._v("28")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "29" } }, [_vm._v("29")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "31" } }, [_vm._v("31")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-auto" }, [_vm._v("日")]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "address" },
+                },
+                [_vm._v("居住地")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.address,
+                      expression: "user.address",
+                    },
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { id: "address" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.user,
+                        "address",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
+                  },
+                },
+                [
+                  _c("option", { attrs: { value: "北海道" } }, [
+                    _vm._v("北海道"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "青森県" } }, [
+                    _vm._v("青森県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "岩手県" } }, [
+                    _vm._v("岩手県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "宮城県" } }, [
+                    _vm._v("宮城県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "秋田県" } }, [
+                    _vm._v("秋田県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "山形県" } }, [
+                    _vm._v("山形県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "福島県" } }, [
+                    _vm._v("福島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "茨城県" } }, [
+                    _vm._v("茨城県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "栃木県" } }, [
+                    _vm._v("栃木県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "群馬県" } }, [
+                    _vm._v("群馬県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "埼玉県" } }, [
+                    _vm._v("埼玉県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "千葉県" } }, [
+                    _vm._v("千葉県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "東京都" } }, [
+                    _vm._v("東京都"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "神奈川県" } }, [
+                    _vm._v("神奈川県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "新潟県" } }, [
+                    _vm._v("新潟県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "富山県" } }, [
+                    _vm._v("富山県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "石川県" } }, [
+                    _vm._v("石川県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "福井県" } }, [
+                    _vm._v("福井県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "山梨県" } }, [
+                    _vm._v("山梨県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "長野県" } }, [
+                    _vm._v("長野県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "岐阜県" } }, [
+                    _vm._v("岐阜県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "静岡県" } }, [
+                    _vm._v("静岡県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "愛知県" } }, [
+                    _vm._v("愛知県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "三重県" } }, [
+                    _vm._v("三重県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "滋賀県" } }, [
+                    _vm._v("滋賀県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "京都府" } }, [
+                    _vm._v("京都府"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "大阪府" } }, [
+                    _vm._v("大阪府"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "兵庫県" } }, [
+                    _vm._v("兵庫県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "奈良県" } }, [
+                    _vm._v("奈良県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "和歌山県" } }, [
+                    _vm._v("和歌山県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "鳥取県" } }, [
+                    _vm._v("鳥取県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "島根県" } }, [
+                    _vm._v("島根県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "岡山県" } }, [
+                    _vm._v("岡山県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "広島県" } }, [
+                    _vm._v("広島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "山口県" } }, [
+                    _vm._v("山口県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "徳島県" } }, [
+                    _vm._v("徳島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "香川県" } }, [
+                    _vm._v("香川県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "愛媛県" } }, [
+                    _vm._v("愛媛県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "高知県" } }, [
+                    _vm._v("高知県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "福岡県" } }, [
+                    _vm._v("福岡県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "佐賀県" } }, [
+                    _vm._v("佐賀県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "長崎県" } }, [
+                    _vm._v("長崎県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "熊本県" } }, [
+                    _vm._v("熊本県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "大分県" } }, [
+                    _vm._v("大分県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "宮崎県" } }, [
+                    _vm._v("宮崎県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "鹿児島県" } }, [
+                    _vm._v("鹿児島県"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "沖縄県" } }, [
+                    _vm._v("沖縄県"),
+                  ]),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "self_introduction" },
+                },
+                [_vm._v("自己紹介")]
+              ),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.self_introduction,
+                    expression: "user.self_introduction",
+                  },
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: {
+                  placeholder: "自己紹介を入力",
+                  id: "self_introduction",
+                },
+                domProps: { value: _vm.user.self_introduction },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "self_introduction", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "justify-content-center row mt-5" }, [
+      _c(
+        "button",
+        { staticClass: "col-sm-3 btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("保存")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -50057,7 +50023,7 @@ var render = function () {
                           _c(
                             "router-link",
                             {
-                              staticClass: "col-sm-12",
+                              staticClass: "btn btn-sm btn-outline-secondary",
                               attrs: {
                                 to: {
                                   name: "user.show",
@@ -50065,17 +50031,7 @@ var render = function () {
                                 },
                               },
                             },
-                            [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "btn btn-sm btn-outline-secondary",
-                                  attrs: { type: "button" },
-                                },
-                                [_vm._v("プロフィールを見る")]
-                              ),
-                            ]
+                            [_vm._v("プロフィールを見る")]
                           ),
                         ],
                         1
@@ -50266,680 +50222,53 @@ var render = function () {
           [_vm._v("戻る")]
         ),
         _vm._v(" "),
-        _c("form", [
-          _c("div", { staticClass: "form-group row" }, [
-            _c("div", { staticClass: "col-sm" }, [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "sei" } },
-                [_vm._v("姓")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.sei,
-                    expression: "user.sei",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", readonly: "", id: "sei" },
-                domProps: { value: _vm.user.sei },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "sei", $event.target.value)
-                  },
-                },
-              }),
-            ]),
+        _c("table", { staticClass: "table table-striped" }, [
+          _c("tr", [
+            _c("th", [_vm._v("氏名")]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-sm" }, [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "mei" } },
-                [_vm._v("名")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.mei,
-                    expression: "user.mei",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", readonly: "", id: "mei" },
-                domProps: { value: _vm.user.mei },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "mei", $event.target.value)
-                  },
-                },
-              }),
+            _c("td", [
+              _c("ruby", [
+                _vm._v(_vm._s(_vm.user.sei + _vm.user.mei)),
+                _c("rt", [
+                  _vm._v(_vm._s(_vm.user.sei_kana + _vm.user.mei_kana)),
+                ]),
+              ]),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c("div", { staticClass: "col-sm" }, [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "sei_kana" } },
-                [_vm._v("セイ")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.sei_kana,
-                    expression: "user.sei_kana",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", readonly: "", id: "sei_kana" },
-                domProps: { value: _vm.user.sei_kana },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "sei_kana", $event.target.value)
-                  },
-                },
-              }),
-            ]),
+          _c("tr", [
+            _c("th", [_vm._v("生年月日")]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-sm" }, [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "mei_kana" } },
-                [_vm._v("メイ")]
+            _c("td", [
+              _vm._v(
+                _vm._s(
+                  _vm.user.year +
+                    "年" +
+                    _vm.user.month +
+                    "月" +
+                    _vm.user.day +
+                    "日"
+                )
               ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.mei_kana,
-                    expression: "user.mei_kana",
-                  },
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", readonly: "", id: "mei_kana" },
-                domProps: { value: _vm.user.mei_kana },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.user, "mei_kana", $event.target.value)
-                  },
-                },
-              }),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c("p", { staticClass: "col-sm-3" }, [_vm._v("生年月日")]),
+          _c("tr", [
+            _c("th", [_vm._v("性別")]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-sm-2" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.year,
-                      expression: "user.year",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { id: "year", readonly: "" },
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.user,
-                        "year",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    },
-                  },
-                },
-                [
-                  _c("option", { attrs: { value: "1900" } }, [_vm._v("1900")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1901" } }, [_vm._v("1901")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1902" } }, [_vm._v("1902")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1903" } }, [_vm._v("1903")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1904" } }, [_vm._v("1904")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1905" } }, [_vm._v("1905")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1906" } }, [_vm._v("1906")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1907" } }, [_vm._v("1907")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1908" } }, [_vm._v("1908")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1909" } }, [_vm._v("1909")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1910" } }, [_vm._v("1910")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1911" } }, [_vm._v("1911")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1912" } }, [_vm._v("1912")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1913" } }, [_vm._v("1913")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1914" } }, [_vm._v("1914")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1915" } }, [_vm._v("1915")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1916" } }, [_vm._v("1916")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1917" } }, [_vm._v("1917")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1918" } }, [_vm._v("1918")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1919" } }, [_vm._v("1919")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1920" } }, [_vm._v("1920")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1921" } }, [_vm._v("1921")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1922" } }, [_vm._v("1922")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1923" } }, [_vm._v("1923")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1924" } }, [_vm._v("1924")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1925" } }, [_vm._v("1925")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1926" } }, [_vm._v("1926")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1927" } }, [_vm._v("1927")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1928" } }, [_vm._v("1928")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1929" } }, [_vm._v("1929")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1930" } }, [_vm._v("1930")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1931" } }, [_vm._v("1931")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1932" } }, [_vm._v("1932")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1933" } }, [_vm._v("1933")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1934" } }, [_vm._v("1934")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1935" } }, [_vm._v("1935")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1936" } }, [_vm._v("1936")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1937" } }, [_vm._v("1937")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1938" } }, [_vm._v("1938")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1939" } }, [_vm._v("1939")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1940" } }, [_vm._v("1940")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1941" } }, [_vm._v("1941")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1942" } }, [_vm._v("1942")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1943" } }, [_vm._v("1943")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1944" } }, [_vm._v("1944")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1945" } }, [_vm._v("1945")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1946" } }, [_vm._v("1946")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1947" } }, [_vm._v("1947")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1948" } }, [_vm._v("1948")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1949" } }, [_vm._v("1949")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1950" } }, [_vm._v("1950")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1951" } }, [_vm._v("1951")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1952" } }, [_vm._v("1952")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1953" } }, [_vm._v("1953")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1954" } }, [_vm._v("1954")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1955" } }, [_vm._v("1955")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1956" } }, [_vm._v("1956")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1957" } }, [_vm._v("1957")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1958" } }, [_vm._v("1958")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1959" } }, [_vm._v("1959")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1960" } }, [_vm._v("1960")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1961" } }, [_vm._v("1961")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1962" } }, [_vm._v("1962")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1963" } }, [_vm._v("1963")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1964" } }, [_vm._v("1964")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1965" } }, [_vm._v("1965")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1966" } }, [_vm._v("1966")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1967" } }, [_vm._v("1967")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1968" } }, [_vm._v("1968")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1969" } }, [_vm._v("1969")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1970" } }, [_vm._v("1970")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1971" } }, [_vm._v("1971")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1972" } }, [_vm._v("1972")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1973" } }, [_vm._v("1973")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1974" } }, [_vm._v("1974")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1975" } }, [_vm._v("1975")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1976" } }, [_vm._v("1976")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1977" } }, [_vm._v("1977")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1978" } }, [_vm._v("1978")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1979" } }, [_vm._v("1979")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1980" } }, [_vm._v("1980")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1981" } }, [_vm._v("1981")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1982" } }, [_vm._v("1982")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1983" } }, [_vm._v("1983")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1984" } }, [_vm._v("1984")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1985" } }, [_vm._v("1985")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1986" } }, [_vm._v("1986")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1987" } }, [_vm._v("1987")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1988" } }, [_vm._v("1988")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1989" } }, [_vm._v("1989")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1990" } }, [_vm._v("1990")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1991" } }, [_vm._v("1991")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1992" } }, [_vm._v("1992")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1993" } }, [_vm._v("1993")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1994" } }, [_vm._v("1994")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1995" } }, [_vm._v("1995")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1996" } }, [_vm._v("1996")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1997" } }, [_vm._v("1997")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1998" } }, [_vm._v("1998")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1999" } }, [_vm._v("1999")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2000" } }, [_vm._v("2000")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2001" } }, [_vm._v("2001")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2002" } }, [_vm._v("2002")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2003" } }, [_vm._v("2003")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2004" } }, [_vm._v("2004")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2005" } }, [_vm._v("2005")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2006" } }, [_vm._v("2006")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2007" } }, [_vm._v("2007")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2008" } }, [_vm._v("2008")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2009" } }, [_vm._v("2009")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2010" } }, [_vm._v("2010")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2011" } }, [_vm._v("2011")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2012" } }, [_vm._v("2012")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2013" } }, [_vm._v("2013")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2014" } }, [_vm._v("2014")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2015" } }, [_vm._v("2015")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2016" } }, [_vm._v("2016")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2017" } }, [_vm._v("2017")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2018" } }, [_vm._v("2018")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2019" } }, [_vm._v("2019")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2020" } }, [_vm._v("2020")]),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-auto" }, [_vm._v("年")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-2" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.month,
-                      expression: "user.month",
-                    },
-                  ],
-                  staticClass: "col-sm form-control",
-                  attrs: { readonly: "", id: "month" },
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.user,
-                        "month",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    },
-                  },
-                },
-                [
-                  _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-auto" }, [_vm._v("月")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-2" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.day,
-                      expression: "user.day",
-                    },
-                  ],
-                  staticClass: "col-sm form-control",
-                  attrs: { id: "day", readonly: "" },
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.user,
-                        "day",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    },
-                  },
-                },
-                [
-                  _c("option", { attrs: { value: "1" } }, [_vm._v("1")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "2" } }, [_vm._v("2")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "3" } }, [_vm._v("3")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "4" } }, [_vm._v("4")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "5" } }, [_vm._v("5")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "6" } }, [_vm._v("6")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "7" } }, [_vm._v("7")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "8" } }, [_vm._v("8")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "9" } }, [_vm._v("9")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "13" } }, [_vm._v("13")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "14" } }, [_vm._v("14")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "15" } }, [_vm._v("15")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "16" } }, [_vm._v("16")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "17" } }, [_vm._v("17")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "18" } }, [_vm._v("18")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "19" } }, [_vm._v("19")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "20" } }, [_vm._v("20")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "21" } }, [_vm._v("21")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "22" } }, [_vm._v("22")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "23" } }, [_vm._v("23")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "24" } }, [_vm._v("24")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "25" } }, [_vm._v("25")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "26" } }, [_vm._v("26")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "27" } }, [_vm._v("27")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "28" } }, [_vm._v("28")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "29" } }, [_vm._v("29")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "31" } }, [_vm._v("31")]),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-auto" }, [_vm._v("日")]),
+            _c("td", [_vm._v(_vm._s(_vm.user.gender))]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "gender" },
-              },
-              [_vm._v("性別")]
-            ),
+          _c("tr", [
+            _c("th", [_vm._v("居住地")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.gender,
-                  expression: "user.gender",
-                },
-              ],
-              staticClass: "col-sm-9 form-control",
-              attrs: { type: "text", readonly: "", id: "gender" },
-              domProps: { value: _vm.user.gender },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.user, "gender", $event.target.value)
-                },
-              },
-            }),
+            _c("td", [_vm._v(_vm._s(_vm.user.address))]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "address" },
-              },
-              [_vm._v("居住地")]
-            ),
+          _c("tr", [
+            _c("th", [_vm._v("自己紹介")]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.address,
-                  expression: "user.address",
-                },
-              ],
-              staticClass: "col-sm-9 form-control",
-              attrs: { type: "text", readonly: "", id: "address" },
-              domProps: { value: _vm.user.address },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.user, "address", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "self_introduction" },
-              },
-              [_vm._v("自己紹介")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.self_introduction,
-                  expression: "user.self_introduction",
-                },
-              ],
-              staticClass: "col-sm-9 form-control",
-              attrs: { type: "text", readonly: "", id: "self_introduction" },
-              domProps: { value: _vm.user.self_introduction },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.user, "self_introduction", $event.target.value)
-                },
-              },
-            }),
+            _c("td", [_vm._v(_vm._s(_vm.user.self_introduction))]),
           ]),
         ]),
         _vm._v(" "),
@@ -67650,17 +66979,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_job_JobRequestComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/job/JobRequestComponent */ "./resources/js/components/job/JobRequestComponent.vue");
 /* harmony import */ var _components_user_UserListComponent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/user/UserListComponent */ "./resources/js/components/user/UserListComponent.vue");
 /* harmony import */ var _components_user_UserShowComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/user/UserShowComponent */ "./resources/js/components/user/UserShowComponent.vue");
-/* harmony import */ var _components_user_UserMessageComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/user/UserMessageComponent */ "./resources/js/components/user/UserMessageComponent.vue");
-/* harmony import */ var _components_MyPageComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/MyPageComponent */ "./resources/js/components/MyPageComponent.vue");
-/* harmony import */ var _components_RegisterComponent__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/RegisterComponent */ "./resources/js/components/RegisterComponent.vue");
-/* harmony import */ var _components_LoginComponent__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/LoginComponent */ "./resources/js/components/LoginComponent.vue");
-/* harmony import */ var _components_RoomListComponent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/RoomListComponent */ "./resources/js/components/RoomListComponent.vue");
-/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./store.js */ "./resources/js/store.js");
+/* harmony import */ var _components_user_UserEditComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/user/UserEditComponent */ "./resources/js/components/user/UserEditComponent.vue");
+/* harmony import */ var _components_user_UserMessageComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/user/UserMessageComponent */ "./resources/js/components/user/UserMessageComponent.vue");
+/* harmony import */ var _components_MyPageComponent__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/MyPageComponent */ "./resources/js/components/MyPageComponent.vue");
+/* harmony import */ var _components_RegisterComponent__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/RegisterComponent */ "./resources/js/components/RegisterComponent.vue");
+/* harmony import */ var _components_LoginComponent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/LoginComponent */ "./resources/js/components/LoginComponent.vue");
+/* harmony import */ var _components_RoomListComponent__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/RoomListComponent */ "./resources/js/components/RoomListComponent.vue");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./store.js */ "./resources/js/store.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
 
 
 
@@ -67706,11 +67037,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: [{
     path: '/login',
     name: 'login',
-    component: _components_LoginComponent__WEBPACK_IMPORTED_MODULE_13__["default"]
+    component: _components_LoginComponent__WEBPACK_IMPORTED_MODULE_14__["default"]
   }, {
     path: '/signup',
     name: 'signup',
-    component: _components_RegisterComponent__WEBPACK_IMPORTED_MODULE_12__["default"]
+    component: _components_RegisterComponent__WEBPACK_IMPORTED_MODULE_13__["default"]
   }, {
     path: '/jobs',
     name: 'job.list',
@@ -67744,23 +67075,28 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     component: _components_user_UserShowComponent__WEBPACK_IMPORTED_MODULE_9__["default"],
     props: true
   }, {
+    path: '/users/edit',
+    name: 'user.edit',
+    component: _components_user_UserEditComponent__WEBPACK_IMPORTED_MODULE_10__["default"],
+    props: true
+  }, {
     path: '/users/:userId/room',
     name: 'user.room',
-    component: _components_user_UserMessageComponent__WEBPACK_IMPORTED_MODULE_10__["default"],
+    component: _components_user_UserMessageComponent__WEBPACK_IMPORTED_MODULE_11__["default"],
     props: true
   }, {
     path: '/mypage',
     name: 'mypage',
-    component: _components_MyPageComponent__WEBPACK_IMPORTED_MODULE_11__["default"]
+    component: _components_MyPageComponent__WEBPACK_IMPORTED_MODULE_12__["default"]
   }, {
     path: '/rooms',
     name: 'room.list',
-    component: _components_RoomListComponent__WEBPACK_IMPORTED_MODULE_14__["default"]
+    component: _components_RoomListComponent__WEBPACK_IMPORTED_MODULE_15__["default"]
   }]
 });
 var app = new Vue({
   el: '#app',
-  store: _store_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+  store: _store_js__WEBPACK_IMPORTED_MODULE_16__["default"],
   router: router,
   mounted: function mounted() {
     window.Echo["private"]('message').listen('MessageEvent', function (e) {
@@ -68592,6 +67928,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_template_id_1aec1d65___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_template_id_1aec1d65___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/user/UserEditComponent.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/user/UserEditComponent.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserEditComponent_vue_vue_type_template_id_64680caf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserEditComponent.vue?vue&type=template&id=64680caf& */ "./resources/js/components/user/UserEditComponent.vue?vue&type=template&id=64680caf&");
+/* harmony import */ var _UserEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserEditComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/user/UserEditComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UserEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserEditComponent_vue_vue_type_template_id_64680caf___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserEditComponent_vue_vue_type_template_id_64680caf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/user/UserEditComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/user/UserEditComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/user/UserEditComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserEditComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/user/UserEditComponent.vue?vue&type=template&id=64680caf&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/user/UserEditComponent.vue?vue&type=template&id=64680caf& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_template_id_64680caf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditComponent.vue?vue&type=template&id=64680caf& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserEditComponent.vue?vue&type=template&id=64680caf&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_template_id_64680caf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_template_id_64680caf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
