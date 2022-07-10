@@ -13,6 +13,7 @@ import JobEditComponent from "./components/job/JobEditComponent";
 import JobRequestComponent from "./components/job/JobRequestComponent";
 import UserListComponent from "./components/user/UserListComponent";
 import UserShowComponent from "./components/user/UserShowComponent";
+import UserEditComponent from "./components/user/UserEditComponent";
 import UserMessageComponent from "./components/user/UserMessageComponent";
 import MyPageComponent from "./components/MyPageComponent";
 import RegisterComponent from "./components/RegisterComponent";
@@ -98,6 +99,12 @@ const router = new VueRouter({
             path: '/users/:userId',
             name: 'user.show',
             component: UserShowComponent,
+            props: true
+        },
+        {
+            path: '/users/edit',
+            name: 'user.edit',
+            component: UserEditComponent,
             props: true
         },
         {
