@@ -11,9 +11,11 @@
                     <tr v-for="(job, index) in jobs" :key="index">
                         <td>{{ job.title }}</td>
                         <td>{{ job.description }}</td>
-                        <td>{{ job.sei + job.mei }}</td>
                         <td>
-                            <router-link v-bind:to="{name: 'job.show', params: {jobId: job.id }}" class="btn btn-outline-primary btn-sm">詳細</router-link>
+                            <router-link v-bind:to="{name: 'user.show', params: {userId: job.job_requester }}">{{ job.sei + job.mei }}</router-link>
+                        </td>
+                        <td>
+                            <router-link v-bind:to="{name: 'job.show', params: {jobId: job.id }}" class="btn btn-primary btn-sm">詳細</router-link>
                         </td>
                     </tr>
                     </tbody>

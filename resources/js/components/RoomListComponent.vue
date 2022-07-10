@@ -5,11 +5,12 @@
                 <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
                 <table class="table table-hover">
                     <tr v-for="(room, index) in rooms" :key="index">
-                        <td>{{ room.user.sei +  room.user.mei}}</td>
-                        <td>
-                            <router-link v-bind:to="{name: 'user.room', params: {userId: room.user_id }}">
-                                <button class="btn btn-primary">メッセージ</button>
-                            </router-link>
+                        <td class="w-75 px-5">
+                            <router-link v-bind:to="{name: 'user.show', params: {userId: room.user_id }}">{{ room.user.sei +  room.user.mei}}</router-link>
+                        </td>
+
+                        <td class="w-25">
+                            <router-link v-bind:to="{name: 'user.room', params: {userId: room.user_id }}" class="btn btn-primary btn-sm">メッセージ</router-link>
                         </td>
                     </tr>
                 </table>
