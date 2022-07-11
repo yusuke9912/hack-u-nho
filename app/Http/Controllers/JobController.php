@@ -13,7 +13,7 @@ class JobController extends Controller
     {
         Log::Debug("index");
         return \DB::table('jobs')->where('job_receiver',Auth::id() )->join('users','jobs.job_requester','=','users.id')->orderBy('jobs.updated_at', 'asc')
-        ->get(['jobs.id','title','description','users.sei','users.mei']);
+        ->get(['jobs.id','title','description','job_requester','users.sei','users.mei']);
     }
 
     public function show(Job $job)
