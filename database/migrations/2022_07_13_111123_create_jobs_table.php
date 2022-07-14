@@ -19,6 +19,17 @@ class CreateJobsTable extends Migration
             $table->string('description', 255);
             $table->string('location', 30);
             $table->string('reward', 30);
+            // 外部キーを設定するカラム
+            $table->BigInteger('job_requester')->unsigned();
+            // CASCADEの場合
+            $table->foreign('job_requester')->references('id')->on('users');
+        
+            // 外部キーを設定するカラム
+            $table->BigInteger('job_receiver')->unsigned();
+            // CASCADEの場合
+            $table->foreign('job_receiver')->references('id')->on('users');
+        
+            $table->string('date_and_time',255);
             $table->timestamps();
         });
     }

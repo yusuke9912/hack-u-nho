@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoomUserTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,19 @@ class CreateRoomUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('room_user', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            // 外部キーを設定するカラム
+            $table->BigInteger('user_id')->unsigned();
+            // CASCADEの場合
+            $table->foreign('user_id')->references('id')->on('users');
 
             // 外部キーを設定するカラム
-            $table->unsignedBigInteger('user_id');
+            $table->BigInteger('room_id')->unsigned();
             // CASCADEの場合
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('room_id')->references('id')->on('rooms');
 
-            // 外部キーを設定するカラム
-            $table->unsignedBigInteger('room_id');
-            // CASCADEの場合
-            $table->foreign('room_id')->references('id')->on('rooms')->onUpdate('CASCADE')->onDelete('CASCADE');
-            
+            $table->string('body',255);
             $table->timestamps();
         });
     }
@@ -37,6 +37,6 @@ class CreateRoomUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('room_user');
+        Schema::dropIfExists('messages');
     }
 }
