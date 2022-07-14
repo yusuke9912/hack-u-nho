@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
-                <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
+                <button class="btn btn-outline-second-theme mb-5" onclick="history.back(-1)">戻る</button>
                 <form v-on:submit.prevent="submit">
                     <div class="form-group row">
                         <label for="title" class="col-sm-3 col-form-label">タイトル</label>
@@ -10,7 +10,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="description" class="col-sm-3 col-form-label">依頼内容</label>
-                        <input type="text" class="col-sm-9 form-control" id="description" v-model="job.description">
+                        <textarea class="col-sm-9 form-control" id="description" v-model="job.description"></textarea>
                     </div>
                     <div class="form-group row">
                         <label for="date_and_time" class="col-sm-3 col-form-label">勤務日時</label>
@@ -25,7 +25,7 @@
                         <input type="text" class="col-sm-9 form-control" id="reward" v-model="job.reward">
                     </div>
                     <div class="justify-content-center row mt-5">
-                        <button type="submit" class="col-sm-3 btn btn-primary">依頼する</button>
+                        <button type="submit" class="col-sm-3 btn btn-second-theme">依頼する</button>
                     </div>
                 </form>
             </div>

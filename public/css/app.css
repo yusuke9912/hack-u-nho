@@ -10957,3 +10957,94 @@ html {
   overflow-y: scroll;
 }
 
+:root {
+  --theme-color: #C9E265;
+  --second-theme-color: #E37F66;
+  --second-theme-hover: #e25e3c;
+}
+
+.bg-theme {
+  background-color: var(--theme-color) !important;
+}
+
+.bg-second-theme {
+  background-color: var(--second-theme-color) !important;
+}
+
+.btn-second-theme {
+  color: #fff;
+  background-color: var(--second-theme-color);
+  border-color: var(--second-theme-color);
+}
+
+.btn-second-theme:hover {
+  color: #fff;
+  background-color: var(--second-theme-hover);
+  border-color: var(--second-theme-hover);
+}
+
+.btn-second-theme:focus,
+.btn-second-theme.focus {
+  color: #fff;
+  background-color: var(--second-theme-hover);
+  border-color: var(--second-theme-hover);
+  box-shadow: 0 0 0 0.2rem rgba(238, 105, 28, 0.5);
+}
+
+.btn-second-theme.disabled,
+.btn-second-theme:disabled {
+  color: #fff;
+  background-color: var(--second-theme-color);
+  border-color: var(--second-theme-color);
+}
+
+.btn-second-theme:not(:disabled):not(.disabled):active,
+.btn-second-theme:not(:disabled):not(.disabled).active,
+.show > .btn-second-theme.dropdown-toggle {
+  color: #fff;
+  background-color: #E37F66;
+  border-color: #e25e3c;
+}
+
+.btn-second-theme:not(:disabled):not(.disabled):active:focus,
+.btn-second-theme:not(:disabled):not(.disabled).active:focus,
+.show > .btn-second-theme.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(238, 105, 28, 0.5);
+}
+
+.btn-outline-second-theme {
+  color: var(--second-theme-color);
+  border-color: var(--second-theme-color);
+}
+
+.btn-outline-second-theme:hover {
+  color: #fff;
+  background-color: var(--second-theme-color);
+  border-color: var(--second-theme-color);
+}
+
+.btn-outline-second-theme:focus,
+.btn-outline-second-theme.focus {
+  box-shadow: 0 0 0 0.2rem rgba(238, 105, 28, 0.5);
+}
+
+.btn-outline-second-theme.disabled,
+.btn-outline-second-theme:disabled {
+  color: var(--second-theme-color);
+  background-color: transparent;
+}
+
+.btn-outline-second-theme:not(:disabled):not(.disabled):active,
+.btn-outline-second-theme:not(:disabled):not(.disabled).active,
+.show > .btn-outline-second-theme.dropdown-toggle {
+  color: #fff;
+  background-color: var(--second-theme-color);
+  border-color: var(--second-theme-color);
+}
+
+.btn-outline-second-theme:not(:disabled):not(.disabled):active:focus,
+.btn-outline-second-theme:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-second-theme.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(238, 105, 28, 0.5);
+}
+

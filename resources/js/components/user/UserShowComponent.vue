@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
-                <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
+                <button class="btn btn-outline-second-theme mb-5" onclick="history.back(-1)">戻る</button>
                                 <table class="table table-striped">
                     <tr>
                         <th>氏名</th>
@@ -27,10 +27,10 @@
                 </table>
                 <div class="justify-content-center row mt-5">
                     <router-link v-bind:to="{name: 'user.room', params: {userId: user.id }}" class="col-sm-4">
-                        <button class="btn btn-primary col-sm-12">メッセージ</button>
+                        <button class="btn btn-second-theme col-sm-12">メッセージ</button>
                     </router-link>
                     <router-link v-bind:to="{name: 'job.request', params: {userId: user.id }}" class="col-sm-4">
-                        <button class="btn btn-primary col-sm-12">お仕事依頼</button>
+                        <button class="btn btn-second-theme col-sm-12">お仕事依頼</button>
                     </router-link>
                 </div>
             </div>

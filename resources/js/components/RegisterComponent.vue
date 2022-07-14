@@ -278,7 +278,7 @@
                         <input type="text" class="col-sm-9 form-control" id="password" v-model="user.password">
                     </div>
                     <div class="justify-content-center row mt-5">
-                        <button type="submit" class="col-sm-3 btn btn-primary">登録</button>
+                        <button type="submit" class="col-sm-3 btn btn-second-theme">登録</button>
                     </div>
                 </form>
             </div>

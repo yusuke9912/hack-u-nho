@@ -2008,6 +2008,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // isEmpty(obj){
+    //     return !Object.keys(obj).length;
+    // },
     getUser: function getUser() {
       var _this = this;
 
@@ -2815,7 +2818,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3338,6 +3340,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/user").then(function (res) {
         _this4.loginUser = res.data;
+        console.log(res.data.id);
 
         _this4.getRoom();
       });
@@ -46300,7 +46303,7 @@ var render = function () {
       _c(
         "button",
         {
-          staticClass: "btn btn-lg btn-primary btn-block",
+          staticClass: "btn btn-lg btn-second-theme btn-block",
           attrs: { type: "submit" },
         },
         [_vm._v("ログイン")]
@@ -46348,9 +46351,9 @@ var render = function () {
             _vm._v(" "),
             _c("td", [
               _c("ruby", [
-                _vm._v(_vm._s(_vm.user.sei + _vm.user.mei)),
+                _vm._v(_vm._s(_vm.user.sei) + _vm._s(_vm.user.mei)),
                 _c("rt", [
-                  _vm._v(_vm._s(_vm.user.sei_kana + _vm.user.mei_kana)),
+                  _vm._v(_vm._s(_vm.user.sei_kana) + _vm._s(_vm.user.mei_kana)),
                 ]),
               ]),
             ]),
@@ -46361,14 +46364,12 @@ var render = function () {
             _vm._v(" "),
             _c("td", [
               _vm._v(
-                _vm._s(
-                  _vm.user.year +
-                    "年" +
-                    _vm.user.month +
-                    "月" +
-                    _vm.user.day +
-                    "日"
-                )
+                _vm._s(_vm.user.year) +
+                  "年" +
+                  _vm._s(_vm.user.month) +
+                  "月" +
+                  _vm._s(_vm.user.day) +
+                  "日"
               ),
             ]),
           ]),
@@ -47674,7 +47675,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "justify-content-center row mt-5" }, [
       _c(
         "button",
-        { staticClass: "col-sm-3 btn btn-primary", attrs: { type: "submit" } },
+        {
+          staticClass: "col-sm-3 btn btn-second-theme",
+          attrs: { type: "submit" },
+        },
         [_vm._v("登録")]
       ),
     ])
@@ -47734,7 +47738,7 @@ var render = function () {
                           },
                         },
                       },
-                      [_vm._v(_vm._s(room.user.sei + room.user.mei))]
+                      [_vm._v(_vm._s(room.user.sei) + _vm._s(room.user.mei))]
                     ),
                   ],
                   1
@@ -48163,11 +48167,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-sm-8" }, [
+      _c("div", { staticClass: "col-sm-10" }, [
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-primary mb-5",
+            staticClass: "btn btn-outline-second-theme mb-5",
             attrs: { onclick: "history.back(-1)" },
           },
           [_vm._v("戻る")]
@@ -48190,26 +48194,7 @@ var render = function () {
                     _c(
                       "router-link",
                       {
-                        attrs: {
-                          to: {
-                            name: "user.show",
-                            params: { userId: job.job_requester },
-                          },
-                        },
-                      },
-                      [_vm._v(_vm._s(job.sei + job.mei))]
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "td",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "btn btn-primary btn-sm",
+                        staticClass: "btn btn-second-theme btn-sm",
                         attrs: {
                           to: { name: "job.show", params: { jobId: job.id } },
                         },
@@ -48235,10 +48220,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-dark" }, [
       _c("tr", [
-        _c("th", [_vm._v("タイトル")]),
-        _c("th", [_vm._v("説明")]),
-        _c("th", [_vm._v("依頼者")]),
-        _c("th", { attrs: { colspan: "2" } }),
+        _c("th", { staticStyle: { "min-width": "110px" } }, [
+          _vm._v("タイトル"),
+        ]),
+        _c("th", [_vm._v("仕事内容")]),
+        _c("th", { staticStyle: { "min-width": "70px" } }),
       ]),
     ])
   },
@@ -48270,7 +48256,7 @@ var render = function () {
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-primary mb-5",
+            staticClass: "btn btn-outline-second-theme mb-5",
             attrs: { onclick: "history.back(-1)" },
           },
           [_vm._v("戻る")]
@@ -48330,7 +48316,7 @@ var render = function () {
                 [_vm._v("依頼内容")]
               ),
               _vm._v(" "),
-              _c("input", {
+              _c("textarea", {
                 directives: [
                   {
                     name: "model",
@@ -48340,7 +48326,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "description" },
+                attrs: { id: "description" },
                 domProps: { value: _vm.job.description },
                 on: {
                   input: function ($event) {
@@ -48467,7 +48453,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "justify-content-center row mt-5" }, [
       _c(
         "button",
-        { staticClass: "col-sm-3 btn btn-primary", attrs: { type: "submit" } },
+        {
+          staticClass: "col-sm-3 btn btn-second-theme",
+          attrs: { type: "submit" },
+        },
         [_vm._v("依頼する")]
       ),
     ])
@@ -48500,7 +48489,7 @@ var render = function () {
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-primary mb-5",
+            staticClass: "btn btn-outline-second-theme mb-5",
             attrs: { onclick: "history.back(-1)" },
           },
           [_vm._v("戻る")]
@@ -48551,7 +48540,7 @@ var render = function () {
             _c(
               "router-link",
               {
-                staticClass: "col-sm-3 btn btn-primary",
+                staticClass: "col-sm-3 btn btn-second-theme",
                 attrs: {
                   to: {
                     name: "user.room",
@@ -48635,13 +48624,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", [
+  return _c("header", { staticClass: "sticky-top" }, [
     _vm.user
       ? _c(
           "div",
           {
             staticClass:
-              "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm",
+              "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-theme border-bottom shadow-sm",
           },
           [
             _c(
@@ -48654,7 +48643,7 @@ var render = function () {
                     staticClass: "text-dark",
                     attrs: { to: { name: "user.list" } },
                   },
-                  [_vm._v("だれでもJob")]
+                  [_vm._v("だれでもjob")]
                 ),
               ],
               1
@@ -48690,15 +48679,6 @@ var render = function () {
                   },
                   [_vm._v("プロフィール")]
                 ),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "p-2 text-dark",
-                    attrs: { to: { name: "room.list" } },
-                  },
-                  [_vm._v("メッセージ一覧")]
-                ),
               ],
               1
             ),
@@ -48706,7 +48686,7 @@ var render = function () {
             _c(
               "a",
               {
-                staticClass: "btn btn-outline-primary",
+                staticClass: "btn btn-second-theme",
                 on: { click: _vm.logout },
               },
               [_vm._v("ログアウト")]
@@ -48717,7 +48697,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm",
+              "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-theme border-bottom shadow-sm",
           },
           [
             _c(
@@ -48730,7 +48710,7 @@ var render = function () {
                     staticClass: "text-dark",
                     attrs: { to: { name: "user.list" } },
                   },
-                  [_vm._v("だれでもJob")]
+                  [_vm._v("だれでもjob")]
                 ),
               ],
               1
@@ -48739,19 +48719,19 @@ var render = function () {
             _c(
               "router-link",
               {
-                staticClass: "btn btn-outline-primary mr-2",
-                attrs: { to: { name: "signup" } },
+                staticClass: "btn btn-second-theme mr-2",
+                attrs: { to: { name: "login" } },
               },
-              [_vm._v("新規登録")]
+              [_vm._v("ログイン")]
             ),
             _vm._v(" "),
             _c(
               "router-link",
               {
-                staticClass: "btn btn-outline-primary",
-                attrs: { to: { name: "login" } },
+                staticClass: "btn btn-second-theme",
+                attrs: { to: { name: "signup" } },
               },
-              [_vm._v("ログイン")]
+              [_vm._v("新規登録")]
             ),
           ],
           1
@@ -49992,7 +49972,7 @@ var render = function () {
   return _c("main", { attrs: { role: "main" } }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "album py-5 bg-light" }, [
+    _c("div", { staticClass: "album py-5 bg-theme" }, [
       _c("div", { staticClass: "container" }, [
         _c(
           "div",
@@ -50001,8 +49981,8 @@ var render = function () {
             return _c("div", { key: index, staticClass: "col-md-4" }, [
               _c("div", { staticClass: "card mb-4 shadow-sm" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _c("div", { staticStyle: { height: "200px" } }, [
-                    _c("h3", [_vm._v(_vm._s(user.sei + user.mei))]),
+                  _c("div", { staticStyle: { height: "150px" } }, [
+                    _c("h3", [_vm._v(_vm._s(user.sei) + _vm._s(user.mei))]),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-text" }, [
                       _vm._v(_vm._s(user.self_introduction)),
@@ -50023,7 +50003,7 @@ var render = function () {
                           _c(
                             "router-link",
                             {
-                              staticClass: "btn btn-sm btn-outline-secondary",
+                              staticClass: "btn btn-sm btn-second-theme",
                               attrs: {
                                 to: {
                                   name: "user.show",
@@ -50055,17 +50035,30 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "jumbotron text-center" }, [
       _c("div", { staticClass: "container" }, [
-        _c("h1", [_vm._v("だれでもJob")]),
+        _c("h1", [_vm._v("だれでもjob")]),
         _vm._v(" "),
         _c("p", { staticClass: "lead text-muted" }, [
-          _vm._v("定年退職したけどまだ働いていたい..."),
+          _vm._v("\r\n        定年退職したけどまだ働いていたい..."),
           _c("br"),
           _vm._v("そう思ったことはありませんか？"),
           _c("br"),
-          _vm._v("だれでもJobでは「だれでも」仕事(Job)に出会えます。\r\n"),
+          _vm._v(
+            "だれでもJobでは「だれでも」仕事(Job)に出会えます。\r\n      "
+          ),
         ]),
         _vm._v(" "),
-        _c("p"),
+        _c("iframe", {
+          attrs: {
+            width: "560",
+            height: "315",
+            src: "https://www.youtube.com/embed/-BhVvKBdxEM",
+            title: "YouTube video player",
+            frameborder: "0",
+            allow:
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+            allowfullscreen: "",
+          },
+        }),
       ]),
     ])
   },
@@ -50097,13 +50090,13 @@ var render = function () {
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-primary mb-5",
+            staticClass: "btn btn-outline-second-theme mb-5",
             attrs: { onclick: "history.back(-1)" },
           },
           [_vm._v("戻る")]
         ),
         _vm._v(" "),
-        _c("h2", [_vm._v(_vm._s(_vm.user.sei + _vm.user.mei))]),
+        _c("h2", [_vm._v(_vm._s(_vm.user.sei) + _vm._s(_vm.user.mei))]),
         _vm._v(" "),
         _c(
           "div",
@@ -50176,7 +50169,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "col-sm-2 btn btn-primary",
+                  staticClass: "col-sm-2 btn btn-second-theme",
                   attrs: { type: "submit" },
                 },
                 [_vm._v("送信")]
@@ -50216,7 +50209,7 @@ var render = function () {
         _c(
           "button",
           {
-            staticClass: "btn btn-outline-primary mb-5",
+            staticClass: "btn btn-outline-second-theme mb-5",
             attrs: { onclick: "history.back(-1)" },
           },
           [_vm._v("戻る")]
@@ -50228,9 +50221,9 @@ var render = function () {
             _vm._v(" "),
             _c("td", [
               _c("ruby", [
-                _vm._v(_vm._s(_vm.user.sei + _vm.user.mei)),
+                _vm._v(_vm._s(_vm.user.sei) + _vm._s(_vm.user.mei)),
                 _c("rt", [
-                  _vm._v(_vm._s(_vm.user.sei_kana + _vm.user.mei_kana)),
+                  _vm._v(_vm._s(_vm.user.sei_kana) + _vm._s(_vm.user.mei_kana)),
                 ]),
               ]),
             ]),
@@ -50241,14 +50234,12 @@ var render = function () {
             _vm._v(" "),
             _c("td", [
               _vm._v(
-                _vm._s(
-                  _vm.user.year +
-                    "年" +
-                    _vm.user.month +
-                    "月" +
-                    _vm.user.day +
-                    "日"
-                )
+                _vm._s(_vm.user.year) +
+                  "年" +
+                  _vm._s(_vm.user.month) +
+                  "月" +
+                  _vm._s(_vm.user.day) +
+                  "日"
               ),
             ]),
           ]),
@@ -50285,9 +50276,11 @@ var render = function () {
                 },
               },
               [
-                _c("button", { staticClass: "btn btn-primary col-sm-12" }, [
-                  _vm._v("メッセージ"),
-                ]),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-second-theme col-sm-12" },
+                  [_vm._v("メッセージ")]
+                ),
               ]
             ),
             _vm._v(" "),
@@ -50300,9 +50293,11 @@ var render = function () {
                 },
               },
               [
-                _c("button", { staticClass: "btn btn-primary col-sm-12" }, [
-                  _vm._v("お仕事依頼"),
-                ]),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-second-theme col-sm-12" },
+                  [_vm._v("お仕事依頼")]
+                ),
               ]
             ),
           ],

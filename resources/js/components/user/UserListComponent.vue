@@ -2,27 +2,27 @@
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
-      <h1>だれでもJob</h1>
-      <p class="lead text-muted">定年退職したけどまだ働いていたい...<br>そう思ったことはありませんか？<br>だれでもJobでは「だれでも」仕事(Job)に出会えます。
-</p>
-      <p>
+      <h1>だれでもjob</h1>
+      <p class="lead text-muted">
+        定年退職したけどまだ働いていたい...<br>そう思ったことはありませんか？<br>だれでもJobでは「だれでも」仕事(Job)に出会えます。
       </p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/-BhVvKBdxEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
 
-  <div class="album py-5 bg-light">
+  <div class="album py-5 bg-theme">
     <div class="container">
       <div class="row">
         <div class="col-md-4" v-for="(user, index) in resultUsers" :key="index">
           <div class="card mb-4 shadow-sm">
             <div class="card-body">
-				<div style="height:200px">
+				<div style="height:150px">
 					<h3>{{ user.sei}}{{user.mei }}</h3>
 					<p class="card-text">{{ user.self_introduction }}</p>
 				</div>
             	<div class="d-flex justify-content-between align-items-center">
 					<div class="btn-group">
-						<router-link v-bind:to="{name: 'user.show', params: {userId: user.id }}" class="btn btn-sm btn-outline-secondary">プロフィールを見る</router-link>
+						<router-link v-bind:to="{name: 'user.show', params: {userId: user.id }}" class="btn btn-sm btn-second-theme">プロフィールを見る</router-link>
 					</div>
             	</div>
             </div>
