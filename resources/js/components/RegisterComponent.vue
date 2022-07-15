@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
+                <h3 class="h3 mb-3 font-weight-normal pt-3">新規登録</h3>
                 <form v-on:submit.prevent="submit">
                     <div class="form-group row">
                         <div class="col-sm">

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
-                <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
+                <button class="btn btn-outline-second-theme mb-5" onclick="history.back(-1)">戻る</button>
                 <table class="table table-striped">
                     <tr>
                         <th>氏名</th>
@@ -26,7 +26,7 @@
                     </tr>
                 </table>
                 <div class="justify-content-center row mt-5">
-                    <router-link v-bind:to="{name: 'user.edit', params: {userId: user.id }}" class="col-sm-4 btn btn-primary">編集</router-link>
+                    <router-link v-bind:to="{name: 'user.edit', params: {userId: user.id }}" class="col-sm-4 btn btn-second-theme">編集</router-link>
                 </div>
             </div>
         </div>

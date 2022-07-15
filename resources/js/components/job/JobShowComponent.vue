@@ -61,3 +61,9 @@
            this.getJob();
        }    }
 </script>
+
+<style>
+ th{
+    width: 30%;
+ }
+</style>

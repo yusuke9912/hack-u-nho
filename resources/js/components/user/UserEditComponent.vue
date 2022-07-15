@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
-                <button class="btn btn-outline-primary mb-5" onclick="history.back(-1)">戻る</button>
+                <button class="btn btn-outline-second-theme mb-5" onclick="history.back(-1)">戻る</button>
                 <form v-on:submit.prevent="submit">
                     <div class="form-group row">
                         <div class="col-sm">
@@ -271,7 +271,7 @@
                         <textarea class="col-sm-9 form-control" placeholder="自己紹介を入力" id="self_introduction" v-model="user.self_introduction"></textarea>
                     </div>
                     <div class="justify-content-center row mt-5">
-                        <button type="submit" class="col-sm-3 btn btn-primary">保存</button>
+                        <button type="submit" class="col-sm-3 btn btn-second-theme">保存</button>
                     </div>
                 </form>
             </div>

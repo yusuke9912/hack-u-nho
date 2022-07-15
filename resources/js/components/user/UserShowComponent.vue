@@ -26,7 +26,7 @@
                     </tr>
                 </table>
                 <div class="justify-content-center row mt-5">
-                    <router-link v-bind:to="{name: 'user.room', params: {userId: user.id }}" class="col-sm-4">
+                    <router-link v-bind:to="{name: 'user.room', params: {userId: user.id }}" class="col-sm-4 mb-3">
                         <button class="btn btn-second-theme col-sm-12">メッセージ</button>
                     </router-link>
                     <router-link v-bind:to="{name: 'job.request', params: {userId: user.id }}" class="col-sm-4">
