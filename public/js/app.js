@@ -46601,7 +46601,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "sei" },
+                  attrs: { type: "text", id: "sei", required: "" },
                   domProps: { value: _vm.user.sei },
                   on: {
                     input: function ($event) {
@@ -46631,7 +46631,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "mei" },
+                  attrs: { type: "text", id: "mei", required: "" },
                   domProps: { value: _vm.user.mei },
                   on: {
                     input: function ($event) {
@@ -46663,7 +46663,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "sei_kana" },
+                  attrs: { type: "text", id: "sei_kana", required: "" },
                   domProps: { value: _vm.user.sei_kana },
                   on: {
                     input: function ($event) {
@@ -46693,7 +46693,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "mei_kana" },
+                  attrs: { type: "text", id: "mei_kana", required: "" },
                   domProps: { value: _vm.user.mei_kana },
                   on: {
                     input: function ($event) {
@@ -46729,7 +46729,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-2 form-control",
-                  attrs: { id: "gender" },
+                  attrs: { id: "gender", required: "" },
                   on: {
                     change: function ($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -46778,7 +46778,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "form-control",
-                    attrs: { id: "year" },
+                    attrs: { id: "year", required: "" },
                     on: {
                       change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -47302,7 +47302,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "col-sm form-control",
-                    attrs: { id: "month" },
+                    attrs: { id: "month", required: "" },
                     on: {
                       change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -47366,7 +47366,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "col-sm form-control",
-                    attrs: { id: "day" },
+                    attrs: { id: "day", required: "" },
                     on: {
                       change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -47478,7 +47478,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { id: "address" },
+                  attrs: { id: "address", required: "" },
                   on: {
                     change: function ($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -47714,6 +47714,7 @@ var render = function () {
                 attrs: {
                   placeholder: "自己紹介を入力",
                   id: "self_introduction",
+                  required: "",
                 },
                 domProps: { value: _vm.user.self_introduction },
                 on: {
@@ -47747,7 +47748,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "email" },
+                attrs: { type: "text", id: "email", required: "" },
                 domProps: { value: _vm.user.email },
                 on: {
                   input: function ($event) {
@@ -47780,7 +47781,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "password" },
+                attrs: { type: "text", id: "password", required: "" },
                 domProps: { value: _vm.user.password },
                 on: {
                   input: function ($event) {
@@ -49101,7 +49102,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "sei" },
+                  attrs: { type: "text", id: "sei", required: "" },
                   domProps: { value: _vm.user.sei },
                   on: {
                     input: function ($event) {
@@ -49131,7 +49132,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "mei" },
+                  attrs: { type: "text", id: "mei", required: "" },
                   domProps: { value: _vm.user.mei },
                   on: {
                     input: function ($event) {
@@ -49163,7 +49164,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "sei_kana" },
+                  attrs: { type: "text", id: "sei_kana", required: "" },
                   domProps: { value: _vm.user.sei_kana },
                   on: {
                     input: function ($event) {
@@ -49193,7 +49194,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { type: "text", id: "mei_kana" },
+                  attrs: { type: "text", id: "mei_kana", required: "" },
                   domProps: { value: _vm.user.mei_kana },
                   on: {
                     input: function ($event) {
@@ -49229,7 +49230,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-2 form-control",
-                  attrs: { id: "gender" },
+                  attrs: { id: "gender", required: "" },
                   on: {
                     change: function ($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -49278,7 +49279,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "form-control",
-                    attrs: { id: "year" },
+                    attrs: { id: "year", required: "" },
                     on: {
                       change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -49802,7 +49803,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "col-sm form-control",
-                    attrs: { id: "month" },
+                    attrs: { id: "month", required: "" },
                     on: {
                       change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -49866,7 +49867,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "col-sm form-control",
-                    attrs: { id: "day" },
+                    attrs: { id: "day", required: "" },
                     on: {
                       change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -49978,7 +49979,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "col-sm-9 form-control",
-                  attrs: { id: "address" },
+                  attrs: { id: "address", required: "" },
                   on: {
                     change: function ($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -50214,6 +50215,7 @@ var render = function () {
                 attrs: {
                   placeholder: "自己紹介を入力",
                   id: "self_introduction",
+                  required: "",
                 },
                 domProps: { value: _vm.user.self_introduction },
                 on: {

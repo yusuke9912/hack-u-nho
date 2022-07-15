@@ -7,26 +7,26 @@
                     <div class="form-group row">
                         <div class="col-sm">
                             <label for="sei" class="col-form-label">姓</label>
-                            <input type="text" class="col-sm-9 form-control" id="sei" v-model="user.sei">
+                            <input type="text" class="col-sm-9 form-control" id="sei" v-model="user.sei" required>
                         </div>
                         <div class="col-sm">
                             <label for="mei" class="col-form-label">名</label>
-                            <input type="text" class="col-sm-9 form-control" id="mei" v-model="user.mei">
+                            <input type="text" class="col-sm-9 form-control" id="mei" v-model="user.mei" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm">
                             <label for="sei_kana" class="col-form-label">セイ</label>
-                            <input type="text" class="col-sm-9 form-control" id="sei_kana" v-model="user.sei_kana">
+                            <input type="text" class="col-sm-9 form-control" id="sei_kana" v-model="user.sei_kana" required>
                         </div>
                         <div class="col-sm">
                             <label for="mei_kana" class="col-form-label">メイ</label>
-                            <input type="text" class="col-sm-9 form-control" id="mei_kana" v-model="user.mei_kana">
+                            <input type="text" class="col-sm-9 form-control" id="mei_kana" v-model="user.mei_kana" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="gender" class="col-sm-3 col-form-label">性別</label>
-                        <select class="col-sm-2 form-control" id="gender" v-model="user.gender">
+                        <select class="col-sm-2 form-control" id="gender" v-model="user.gender" required>
                             <option value="男性">男性</option>
                             <option value="女性">女性</option>
                             <option value="その他">その他</option>
@@ -35,7 +35,7 @@
                     <div class="form-group row">
                         <p class="col-sm-3">生年月日</p>
                         <div class="col-sm-2">
-                            <select class="form-control" id="year" v-model="user.year">
+                            <select class="form-control" id="year" v-model="user.year" required>
                                 <option value="1900">1900</option>
                                 <option value="1901">1901</option>
                                 <option value="1902">1902</option>
@@ -161,7 +161,7 @@
                         </div>
                         <div class="col-sm-auto">年</div>
                         <div class="col-sm-2">
-                            <select class="col-sm form-control" id="month" v-model="user.month">
+                            <select class="col-sm form-control" id="month" v-model="user.month" required>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -178,7 +178,7 @@
                         </div>
                         <div class="col-sm-auto">月</div>
                         <div class="col-sm-2">
-                            <select class="col-sm form-control" id="day" v-model="user.day">
+                            <select class="col-sm form-control" id="day" v-model="user.day" required>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -216,7 +216,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="address" class="col-sm-3 col-form-label">居住地</label>
-                        <select class="col-sm-9 form-control" id="address" v-model="user.address">
+                        <select class="col-sm-9 form-control" id="address" v-model="user.address" required>
                                 <option value="北海道">北海道</option>
                                 <option value="青森県">青森県</option>
                                 <option value="岩手県">岩手県</option>
@@ -268,15 +268,15 @@
                     </div>
                     <div class="form-group row">
                         <label for="self_introduction" class="col-sm-3 col-form-label">自己紹介</label>
-                        <textarea class="col-sm-9 form-control" placeholder="自己紹介を入力" id="self_introduction" v-model="user.self_introduction"></textarea>
+                        <textarea class="col-sm-9 form-control" placeholder="自己紹介を入力" id="self_introduction" v-model="user.self_introduction" required></textarea>
                     </div>                    
                     <div class="form-group row">
                         <label for="email" class="col-sm-3 col-form-label">メールアドレス</label>
-                        <input type="text" class="col-sm-9 form-control" id="email" v-model="user.email">
+                        <input type="text" class="col-sm-9 form-control" id="email" v-model="user.email" required>
                     </div>
                     <div class="form-group row">
                         <label for="password" class="col-sm-3 col-form-label">パスワード</label>
-                        <input type="text" class="col-sm-9 form-control" id="password" v-model="user.password">
+                        <input type="text" class="col-sm-9 form-control" id="password" v-model="user.password" required>
                     </div>
                     <div class="justify-content-center row mt-5">
                         <button type="submit" class="col-sm-3 btn btn-second-theme">登録</button>
