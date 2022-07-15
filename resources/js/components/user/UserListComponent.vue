@@ -6,11 +6,13 @@
       <p class="lead text-muted">
         定年退職したけどまだ働いていたい...<br>そう思ったことはありませんか？<br>だれでもJobでは「だれでも」仕事(Job)に出会えます。
       </p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/-BhVvKBdxEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-BhVvKBdxEM" allowfullscreen></iframe>
+      </div>
     </div>
   </section>
 
-  <div class="album py-5 bg-theme">
+  <div class="album py-5 bg-theme" v-if="!isEmpty(users)">
     <div class="container">
       <div class="row">
         <div class="col-md-4" v-for="(user, index) in resultUsers" :key="index">
@@ -43,6 +45,9 @@
             }
         },
         methods: {
+            isEmpty(obj){
+                return !Object.keys(obj).length;
+            },
             getUsers() {
                 axios.get('/api/users')
                     .then((res) => {
@@ -94,5 +99,9 @@
 
 .jumbotron .container {
   max-width: 40rem;
+}
+
+.card{
+  border-radius: 0.5rem;
 }
 </style>
