@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
-                <button class="btn btn-outline-second-theme mb-5" onclick="history.back(-1)">戻る</button>
+                <button class="btn btn-outline-second-theme my-3" onclick="history.back(-1)">戻る</button>
                 <form v-on:submit.prevent="submit">
                     <div class="form-group row">
                         <div class="col-sm">

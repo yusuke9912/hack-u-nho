@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
-                <button class="btn btn-outline-second-theme mb-5" onclick="history.back(-1)">戻る</button>
+                <button class="btn btn-outline-second-theme my-3" onclick="history.back(-1)">戻る</button>
                 <h2>{{ user.sei}}{{user.mei}}</h2>
                 <div class="rounded bg-white p-4 border mb-4">
                 <div v-for="(message, index) in messages" :key="index" class="message d-flex align-items-start mb-4" v-bind:class="[message.user_id === loginUser.id ? 'flex-row-reverse' : 'flex-row']">
@@ -11,8 +11,12 @@
                 </div><!-- .chat -->
                 <form v-on:submit.prevent="submit">
                     <div class="form-group row">
-                        <textarea class="col-sm-10 form-control" placeholder="メッセージを入力" v-model="body"></textarea>
-                        <button type="submit" class="col-sm-2 btn btn-second-theme">送信</button>
+                        <div class="col-sm-10">
+                            <textarea class="form-control mb-2" placeholder="メッセージを入力" v-model="body"></textarea>
+                        </div>
+                        <div class="col-sm-2 d-flex align-items-center">
+                            <button type="submit" class="col-sm btn btn-second-theme">送信</button>
+                        </div>
                     </div>
                 </form>
             </div>

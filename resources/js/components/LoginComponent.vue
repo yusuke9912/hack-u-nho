@@ -2,7 +2,7 @@
   	<form class="form-signin"  v-on:submit.prevent="submit">
       <h3 class="h3 mb-3 font-weight-normal">ログイン</h3>
       <label for="email" class="sr-only">メールアドレス</label>
-      <input type="email" id="email" class="form-control" placeholder="メールアドレス" required autofocus v-model="user.email">
+      <input type="text" id="email" class="form-control" placeholder="メールアドレス" required autofocus v-model="user.email">
       <div class="alert alert-danger" v-text="errors.email" v-if="errors.email"></div>
       <label for="password" class="sr-only">パスワード</label>
       <input type="password" id="password" class="form-control" placeholder="パスワード" required v-model="user.password">

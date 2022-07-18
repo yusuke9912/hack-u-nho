@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-8">
-                <button class="btn btn-outline-second-theme mb-5" onclick="history.back(-1)">戻る</button>
-                                <table class="table table-striped">
+                <button class="btn btn-outline-second-theme my-3" onclick="history.back(-1)">戻る</button>
+                <table class="table table-striped">
                     <tr>
                         <th>氏名</th>
                         <td><ruby>{{ user.sei}}{{user.mei}}<rt>{{user.sei_kana}}{{user.mei_kana}}</rt></ruby></td>

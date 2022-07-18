@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-10">
-                <button class="btn btn-outline-second-theme mb-5" onclick="history.back(-1)">戻る</button>
+                <button class="btn btn-outline-second-theme my-3" onclick="history.back(-1)">戻る</button>
                 <table class="table table-striped">
                     <thead class="thead-dark">
                     <tr><th style="min-width:110px">タイトル</th><th>仕事内容</th><th style="min-width:70px"></th></tr>
